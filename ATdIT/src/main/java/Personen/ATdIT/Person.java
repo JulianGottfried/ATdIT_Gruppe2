@@ -1,11 +1,23 @@
 package Personen.ATdIT;
 
 public class Person {
-			
+	
+	String PersonenID;
 	String VorName;
 	String NachName;
 	String GeburtsDatum;
 	String PLZ;
+	String Wohnort;
+	String StraßeUndHausnummer;
+	
+	public String getPersonenID() {
+		return PersonenID;
+	}
+
+	public void setPersonenID(String personenID) {
+		PersonenID = personenID;
+	}
+	
 	public String getVorName() {
 		return VorName;
 	}
@@ -53,11 +65,9 @@ public class Person {
 	public void setStraßeUndHausnummer(String straßeUndHausnummer) {
 		StraßeUndHausnummer = straßeUndHausnummer;
 	}
-
-	String Wohnort;
-	String StraßeUndHausnummer;
 	
-	public Person(String VorName,String NachName, String GeburtsDatum, String PLZ, String Wohnort, String StraßeUndHausnummer) {
+	public Person(String PersonenID, String VorName,String NachName, String GeburtsDatum, String PLZ, String Wohnort, String StraßeUndHausnummer) {
+		this.PersonenID = PersonenID;
 		this.VorName = VorName;
 		this.NachName = NachName;
 		this.GeburtsDatum = GeburtsDatum;
