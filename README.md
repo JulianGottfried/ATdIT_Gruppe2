@@ -56,3 +56,6 @@ Projekt-Meeting - Mi, 14.04.2021
   - Paulina: Prozesse und Frontpage Mockup designen
   - Eda: Daten zusammentragen (auch kategorisieren in z.B. persönlich und unperönlich)
   - Peter/Marvin: erste Klassenstruktur erstellen
+
+- Termin nächstes Meeting: 21.04.2021 / Sub-Meeting (Klassenstruktur): 17.04.2021
+___________________________________________________________________________________________________________________________________________________________________________________
