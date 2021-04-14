@@ -31,3 +31,28 @@ Projekt-Meeting - Di, 13.04.2021
 
 ___________________________________________________________________________________________________________________________________________________________________________________
 
+Projekt-Meeting - Mi, 14.04.2021
+
+- Ideen / Challanges:
+  - Docker Image für DB erstellen um individuelle DB Erstellung zu verhindern
+  - Wie wird sicher gestellt, dass nicht unerlaubte Autenthentifizierung erfolgt (z.B. bei Personalausweis-Verlust)
+    - bei geringeren Sicherheits-Dokumenten: Hochladen Vorder- und Rückseite Personalausweis
+    - bei wichtigeren Dokumenten und Prozessen: selbiges + persönliches Erscheinen
+    - bei erstmaliger Anmeldung: Code auf postialischen Weg zusenden
+  - Wollen wir Benutzerkonten machen, damit teilweise ausgefüllte Dokumente zwischengespeichert werden müssen?
+
+- Entscheidungen:
+  - Zeitplan:
+    - 21.04.2021 - Zusammentragen von Daten, die für das Programm bzw. die Formulare benötigt werden
+    - 25.04.2021 - Fertigstellung Programm-Architektur
+    - 11.05.2021 - Review
+    - 26.05.2021 - Präsentation
+  - erst mal keine Benutzerkonten
+  - Authentifizierung der Abfrage eines Formular-Bearbeitungsprozesses über Tokens lösen
+  - allgemein bei den Aufgaben: jeder hilft jedem, aber die eigene Aufgabe steht im Vordergrund
+
+- Aufgaben:
+  - Julian: nach Docker Image Erstellung schauen
+  - Paulina: Prozesse und Frontpage Mockup designen
+  - Eda: Daten zusammentragen (auch kategorisieren in z.B. persönlich und unperönlich)
+  - Peter/Marvin: erste Klassenstruktur erstellen
