@@ -59,3 +59,22 @@ Projekt-Meeting - Mi, 14.04.2021
 
 - Termin nächstes Meeting: 21.04.2021 / Sub-Meeting (Klassenstruktur): 17.04.2021
 ___________________________________________________________________________________________________________________________________________________________________________________
+
+Projekt-Meeting 21.04.2021
+
+- Ideen/Challanges
+  - Usecase-Ablauf:
+    - Landing Page
+    - *Ummenldung anklicken*
+    - Ummeldungs-Page
+    - Auswahl an Optionen: Antrag ausfüllen, Formulare anzeigen/downloaden, Ansprechpartner, Termin vereinbaren
+  - Bei Terminvereinbarung
+    - Kalendereintrag automatisch per Mail senden (asl Outlook-Datei)
+    - empfohlener Terminzeitpunkt (auf Basis von Bearbeitungsstaus -> Token)
+  - Token-System
+    - bei Abgabe eines Formulares wird ein Token generiert, der per Mail zugesendet wird
+    - mit diesem kann man den Bearbeitungsstatus jederzeit angucken
+    - Automatische Terminerinnerung bei gewissen Bearbeitungsstatus
+
+- Was fertig ist
+  - Docker Image
