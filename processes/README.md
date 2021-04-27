@@ -8,7 +8,7 @@ Dazu folgende Schritte befolgen:
 - beim ersten Besuch auf "decide later" drücken wenn nach dem Speicherort gefragt wird
 - im Funktionsmenü auf "File" gehen
 - im Submenü auf "Open from" drücken
-- hier "GitHub..." wäölen
+- hier "GitHub..." wählen
 
 - hier verbindet ihr dann euren GitHub Account und könnt dann über das Menü die gewünschte Datei auswählen und öfnnen bzw. editieren und speichern
 
