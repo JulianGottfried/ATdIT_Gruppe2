@@ -15,4 +15,4 @@ Dazu folgende Schritte befolgen:
 # WICHTIG
 
 Da gleichzeitig an Projekten gearbeitet werden kann, synchronisiert eure Datei regelmäßig beim Bearbeiten, spätestens bevor ihr speichert!
-Der Shortcut hierfür ist ALT+SHIFT+S oder über das Funktionsmenü "File" auf "Synchronize" klicken.
+Der Shortcut hierfür ist **ALT+SHIFT+S** oder über das Funktionsmenü "File" auf "Synchronize" klicken.
