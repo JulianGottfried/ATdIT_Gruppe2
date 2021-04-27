@@ -1,0 +1,9 @@
+Daten für Ummeldung
+- Daten des Wohnungsgebers (Name, Anschrift)
+- Daten des Eigentümers
+- Box: Eigentümer = Wohnungsgeber
+- Selbsterklärung bei Eigentum 
+- Daten der Wohnung (PLZ, Ort, Straße, Hausnummer mit Zusatz/Stockwerk, Lagebeschreibung!)
+- Einzugsdatum
+- Name der Eingezogenen
+- Box: Einzug oder Auszug
