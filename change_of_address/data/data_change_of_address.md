@@ -9,7 +9,7 @@ Data for Change of Address
   - *alternatively: checkbox (owner = provider)* 
 - self-declaration in case of ownership
 
-- data of home
+- address of apartment
   - postcode
   - city
   - street
