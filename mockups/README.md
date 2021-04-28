@@ -5,5 +5,6 @@ Jede Version soll in dieser README gespeichert werden. Bitte löscht also keine 
 **Landing Page**
 
 **Ummeldung**
+https://x.thunkable.com/copy/f22067647907478e8bfb3c6c8f931747
 
 **Terminvereinbarung**
