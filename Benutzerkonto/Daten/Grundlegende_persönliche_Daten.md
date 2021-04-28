@@ -1,17 +1,15 @@
-Basic Personal Data
+Grundlegende persönliche Daten
 
-- name 
-- birthname
-- surname
-- ID card number
-- date of birth
-- place of birth 
-- gender
-- address
-  - postcode
-  - city
-  - street
-  - street number
-  - additional info (e.g. floor)
-
-
+- Name 
+- Geburtsname
+- Vorname
+- Personalausweisnummer
+- Geburtstag
+- Geburtsort
+- Geschlecht
+- Adresse
+  - Postleitzahl
+  - Stadt
+  - Straße
+  - Hausnummer
+  - 2. Adresszeile (z.B. Stockwerk)
