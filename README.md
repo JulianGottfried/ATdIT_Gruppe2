@@ -78,3 +78,24 @@ Projekt-Meeting 21.04.2021
 
 - Was fertig ist
   - Docker Image
+
+___________________________________________________________________________________________________________________________________________________________________________________
+
+Projekt-Meeting 28.04.2021
+
+- Ideen/Challanges
+  - Klassenstruktur
+    - für die Anzeige der Fragen und das Auslesen der Antworten wird eine Vererbungsstruktur erstellen
+
+- Aufgaben
+  - Marvin
+    - Klassenstruktur
+    - Mockup HTML Page
+  - Peter
+    - Webserver pushen
+  - Julian
+    - HTML Formular für Fragen
+  - Paulina
+    - Prozesskette digitalisieren
+  - Eda
+    - Fragen zum Formular ausfüllen
