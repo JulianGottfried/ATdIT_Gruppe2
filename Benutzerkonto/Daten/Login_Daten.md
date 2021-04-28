@@ -1,7 +1,7 @@
-Login Data
+Login Daten
 
-- user name
-- password
-  - security question
-  - possible questions
-  - answer
+- Benutzername
+- Passwort
+  - Sicherheitsfrage
+    - mögliche Sicherheitsfragen
+  - Antwort
