@@ -1,21 +1,21 @@
-Data for Change of Address
+Benötigte Daten für Ummeldung
 
-- data of housing provider
-  - name
-  - address
-- data of house owner
-  - name
-  - address
-  - *alternatively: checkbox (owner = provider)* 
-- self-declaration in case of ownership
+- Informationen zum Wohnungsgeber
+  - Name
+  - Adresse
+- Informationen zum Eigentümer
+  - Name
+  - Adresse
+  - *ODER: Checkbox (Besitzer = Wohnungsgeber)*
+- Wohnungsgeberbestätigung für Eigentümer *wenn selbst Eigentum*
 
-- address of apartment
-  - postcode
-  - city
-  - street
-  - street number
-  - additional info (e.g. floor)
-  - description of location
-- date of moving in
-- name of resident
-- *box:* moving in / moving out
+- Anschrift der Wohnung / des Haueses
+  - Postleitzahl
+  - Stadt
+  - Straße
+  - Hausnummer
+  - 2. Adresszeile (z.B. Stock)
+  - Lagebeschreibung
+- Einzugsdatum
+- Name des Ummeldenden
+- *Box:* Einzug / Auszug
