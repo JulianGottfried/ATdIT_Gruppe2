@@ -99,3 +99,25 @@ Projekt-Meeting 28.04.2021
     - Prozesskette digitalisieren
   - Eda
     - Fragen zum Formular ausfüllen
+
+___________________________________________________________________________________________________________________________________________________________________________________
+
+Projekt-Meeting 05.05.2021
+
+- Ideen/Challanges
+  - GUI
+  - Rückbau Webserver (weiterer Aufwand zu groß)
+
+- Aufgaben
+  - Marvin
+    - GUI
+  - Peter
+    - delete Webserver
+    - Doku, Tests
+  - Julian
+    - Logik, Datenbank
+  - Paulina
+    - Inhalte anfertigen, Übersetzen
+  - Eda
+    - Inhalte anfertigen, Übersetzen
+
