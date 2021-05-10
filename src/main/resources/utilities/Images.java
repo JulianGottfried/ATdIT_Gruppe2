@@ -16,7 +16,7 @@ public class Images {
     }
 
     private static Image getImage(String name) {
-        ImageIcon icon = new ImageIcon(link2Images + name);
+        ImageIcon icon = new ImageIcon(link2Images +  name);
         return icon.getImage();
     }
 
