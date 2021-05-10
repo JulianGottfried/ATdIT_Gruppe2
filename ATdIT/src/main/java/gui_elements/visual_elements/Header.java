@@ -4,7 +4,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.util.Locale;
-import java.util.ResourceBundle;
 import java.awt.event.MouseAdapter;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -17,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.plaf.InsetsUIResource;
 
 import main.java.ScreenHandler;
+import main.java.exceptions.InterruptDrawException;
 import main.java.gui_elements.functional_elements.ViewSwitcher;
 import main.java.screen.views.AddressView;
 import main.java.screen.views.ContactView;
@@ -25,18 +25,21 @@ import main.java.screen.views.HomeScreenView;
 import main.java.screen.views.TokenInspectorView;
 import main.resources.utilities.Colors;
 import main.resources.utilities.Fonts;
+import main.resources.utilities.I18nHandler;
 import main.resources.utilities.Images;
 
 public class Header extends JPanel {
     GridBagConstraints gbc;
-    ScreenHandler handler;
+    ScreenHandler screenHandler;
     Locale language;
-    ResourceBundle i18n;
+    String bundleName;
+    I18nHandler i18n;
 
-    public Header(ScreenHandler handler, Locale language) {
-        this.handler = handler;
+    public Header(ScreenHandler screenHandler, Locale language) {
+        this.screenHandler = screenHandler;
         this.language = language;
-        this.i18n = ResourceBundle.getBundle("main/resources/i18n/Header/Header", language);
+        this.bundleName = this.getClass().getSimpleName();
+        this.setI18n();
         this.setLayout(new GridBagLayout());
         this.setBackground(Colors.getBackground());
 
@@ -68,8 +71,19 @@ public class Header extends JPanel {
     public class Return2Home extends MouseAdapter {
         @Override
         public void mouseClicked(MouseEvent e) {
-            handler.changeView(new HomeScreenView(handler, language));
+            screenHandler.changeView(new HomeScreenView(screenHandler, language));
         }
+    }
+
+    public void setI18n() {
+        try {
+            this.i18n = new I18nHandler(this.bundleName, this.language, this.screenHandler);
+        } catch (InterruptDrawException e) {
+            new ErrorPopUp(screenHandler.getCurrentView(), i18n.getString("errorMessage"), i18n.getString("errorTitle"));
+            screenHandler.changeView(screenHandler.getPreviousView());
+
+        }
+        
     }
 
     class MenuBar extends JPanel {
@@ -81,28 +95,28 @@ public class Header extends JPanel {
             // TODO Class with image exception handler for image loads
             JButton latestButton = new JButton();
             latestButton.setText(i18n.getString("latest"));
-            latestButton.addActionListener(new ViewSwitcher(handler, new CurrentView(handler, language)));
+            latestButton.addActionListener(new ViewSwitcher(screenHandler, new CurrentView(screenHandler, language)));
             latestButton.setBackground(Colors.getMenuButton1());
             latestButton.setFont(Fonts.getButton());
             latestButton.setForeground(Colors.getMenuButtonText());
 
             JButton addressButton = new JButton();
             addressButton.setText(i18n.getString("changeAddress"));
-            addressButton.addActionListener(new ViewSwitcher(handler, new AddressView(handler, language)));
+            addressButton.addActionListener(new ViewSwitcher(screenHandler, new AddressView(screenHandler, language)));
             addressButton.setBackground(Colors.getMenuButton2());
             addressButton.setFont(Fonts.getButton());
             addressButton.setForeground(Colors.getMenuButtonText());
 
             JButton contactButton = new JButton();
             contactButton.setText(i18n.getString("contact"));
-            contactButton.addActionListener(new ViewSwitcher(handler, new ContactView(handler, language)));
+            contactButton.addActionListener(new ViewSwitcher(screenHandler, new ContactView(screenHandler, language)));
             contactButton.setBackground(Colors.getMenuButton3());
             contactButton.setFont(Fonts.getButton());
             contactButton.setForeground(Colors.getMenuButtonText());
 
             JButton processButton = new JButton();
             processButton.setText(i18n.getString("processesing"));
-            processButton.addActionListener(new ViewSwitcher(handler, new TokenInspectorView(handler, language)));
+            processButton.addActionListener(new ViewSwitcher(screenHandler, new TokenInspectorView(screenHandler, language)));
             processButton.setBackground(Colors.getMenuButton4());
             processButton.setFont(Fonts.getButton());
             processButton.setForeground(Colors.getMenuButtonText());
@@ -176,7 +190,7 @@ public class Header extends JPanel {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            handler.changeCurrentViewLanguage(language);
+            screenHandler.changeCurrentViewLanguage(language);
         }
     }
 }
