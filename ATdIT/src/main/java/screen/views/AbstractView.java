@@ -12,7 +12,7 @@ import main.java.exceptions.InterruptDrawException;
 import main.resources.utilities.Colors;
 import main.resources.utilities.I18nHandler;
 
-public abstract class AbstractView extends JPanel implements ViewInterface {
+public abstract class AbstractView extends JPanel {
     protected Locale language;
     protected String bundleName;
     protected I18nHandler i18n;
