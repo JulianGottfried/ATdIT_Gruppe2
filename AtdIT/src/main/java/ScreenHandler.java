@@ -20,6 +20,7 @@ public class ScreenHandler {
     public ScreenHandler() {
         this.currentView = new HomeScreenView(this, this.language);
         this.previousView = new BlankView(this, this.language);
+        System.out.println("Test");
         this.changeView(this.currentView);
     }
 
