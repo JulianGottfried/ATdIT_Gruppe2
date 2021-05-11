@@ -9,21 +9,24 @@ import java.awt.GridBagLayout;
 
 import main.java.ScreenHandler;
 import main.java.exceptions.InterruptDrawException;
-import main.resources.utilities.Colors;
-import main.resources.utilities.I18nHandler;
+import main.java.handler.ColorHandler;
+import main.java.handler.I18nHandler;
 
 public abstract class AbstractView extends JPanel {
     protected Locale language;
     protected String bundleName;
     protected I18nHandler i18n;
+    protected String colorTemplate;
+    protected ColorHandler colorHandler;
     protected ScreenHandler screenHandler;
     protected GridBagConstraints gbc;
 
-    protected AbstractView(ScreenHandler screenHandler, Locale language) {
+    protected AbstractView(ScreenHandler screenHandler, Locale language, String colorTemplate) {
         this.screenHandler = screenHandler;
         this.bundleName = this.getClass().getSimpleName();
         this.language = language;
-        this.setBackground(Colors.getBackground());
+        this.colorTemplate = colorTemplate;
+        this.setBackground(new ColorHandler(this.colorTemplate).getColor("background"));
         this.setLayout(new GridBagLayout());
     }
 
@@ -34,6 +37,7 @@ public abstract class AbstractView extends JPanel {
             screenHandler.changeView(screenHandler.getPreviousView());
             throw new InterruptDrawException(e.getMessage());
         }
+        this.colorHandler = new ColorHandler(this.colorTemplate);
         this.drawItems();
     }
 

@@ -6,8 +6,8 @@ import main.java.ScreenHandler;
 
 public class CurrentEventsView extends AbstractView {
 
-    public CurrentEventsView(ScreenHandler screenHandler, Locale language) {
-        super(screenHandler, language);
+    public CurrentEventsView(ScreenHandler screenHandler, Locale language, String colorTemplate) {
+        super(screenHandler, language, colorTemplate);
     }
 
     @Override

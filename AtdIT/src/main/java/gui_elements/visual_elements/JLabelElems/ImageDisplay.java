@@ -1,13 +1,12 @@
-package main.java.gui_elements.visual_elements;
+package main.java.gui_elements.visual_elements.JLabelElems;
 
 import javax.swing.ImageIcon;
 
 import java.awt.event.MouseListener;
 import java.awt.Image;
 
-import javax.swing.JLabel;
 
-public class ImageDisplay extends JLabel {
+public class ImageDisplay extends AbstractJLabel {
 
     public ImageDisplay(Image image) {
         ImageIcon icon = new ImageIcon(image);

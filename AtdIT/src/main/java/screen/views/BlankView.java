@@ -6,8 +6,8 @@ import main.java.ScreenHandler;
 
 public class BlankView extends AbstractView {
 
-    public BlankView(ScreenHandler screenHandler, Locale language) {
-        super(screenHandler, language);
+    public BlankView(ScreenHandler screenHandler, Locale language, String colorTemplate) {
+        super(screenHandler, language, colorTemplate);
     }
 
     @Override

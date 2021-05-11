@@ -14,12 +14,13 @@ public class ScreenHandler {
     private AbstractView currentView;
     private AbstractView previousView;
     Locale language = Locale.getDefault();
+    String colorTemplate = "normalColors.properties";
 
     private Start mainScreen = new Start();
 
     public ScreenHandler() {
-        this.currentView = new HomeScreenView(this, this.language);
-        this.previousView = new BlankView(this, this.language);
+        this.currentView = new HomeScreenView(this, this.language, this.colorTemplate);
+        this.previousView = new BlankView(this, this.language, this.colorTemplate);
         System.out.println("Test");
         this.changeView(this.currentView);
     }

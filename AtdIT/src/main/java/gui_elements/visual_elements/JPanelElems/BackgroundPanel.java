@@ -1,6 +1,4 @@
-package main.java.gui_elements.visual_elements;
-
-import javax.swing.JPanel;
+package main.java.gui_elements.visual_elements.JPanelElems;
 
 import main.resources.utilities.Images;
 
@@ -9,7 +7,7 @@ import java.awt.GridBagLayout;
 import java.awt.Graphics;
 import java.awt.Image;
 
-public class BackgroundPanel extends JPanel {
+public class BackgroundPanel extends AbstractJPanel {
     Image bg;
 
     public BackgroundPanel(Image image) {

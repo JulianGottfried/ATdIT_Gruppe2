@@ -1,4 +1,4 @@
-package main.resources.utilities;
+package main.java.handler;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -6,14 +6,14 @@ import java.util.MissingResourceException;
 
 import main.java.ScreenHandler;
 import main.java.exceptions.InterruptDrawException;
-import main.java.gui_elements.visual_elements.ErrorPopUp;
+import main.java.gui_elements.visual_elements.JOptionPaneElems.ErrorPopUp;
 
 public class I18nHandler {
     private ResourceBundle bundle;
     private Locale language;
     private ScreenHandler screenHandler;
     private ResourceBundle i18n;
-    static String link2bundles = InternalLinks.getLink2bundles();
+    private static final String LINK2BUNDLES = new InternalPathsHandler().getProperty("i18n");
 
     public I18nHandler(String bundleName, Locale language, ScreenHandler screenHandler) throws InterruptDrawException {
         this.language = language;
@@ -34,7 +34,7 @@ public class I18nHandler {
     }
 
     public static String constructBundleLink(String bundleName) {
-        return link2bundles + bundleName + "/" + bundleName;
+        return LINK2BUNDLES + bundleName + "/" + bundleName;
     }
 
     public ResourceBundle setOwnI18n() {

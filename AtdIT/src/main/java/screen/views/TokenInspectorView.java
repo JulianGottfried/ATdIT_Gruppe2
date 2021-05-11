@@ -8,17 +8,17 @@ import javax.swing.plaf.InsetsUIResource;
 import java.awt.GridBagConstraints;
 
 import main.java.ScreenHandler;
-import main.java.gui_elements.visual_elements.BackgroundPanel;
-import main.java.gui_elements.visual_elements.Header;
+import main.java.gui_elements.visual_elements.JPanelElems.BackgroundPanel;
+import main.java.gui_elements.visual_elements.JPanelElems.Header;
 
 public class TokenInspectorView extends AbstractView {
 
-    public TokenInspectorView(ScreenHandler screenHandler, Locale language) {
-        super(screenHandler, language);
+    public TokenInspectorView(ScreenHandler screenHandler, Locale language, String colorTemplate) {
+        super(screenHandler, language, colorTemplate);
     }
 
     public void drawItems() {
-        Header header = new Header(this.screenHandler, this.language);
+        Header header = new Header(this.screenHandler, this.language, this.colorTemplate);
         gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.insets = new InsetsUIResource(20, 0, 20, 0);

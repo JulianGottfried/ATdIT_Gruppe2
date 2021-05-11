@@ -6,8 +6,8 @@ import java.util.Locale;
 
 public class ContactView extends AbstractView {
 
-    public ContactView(ScreenHandler screenHandler, Locale language) {
-        super(screenHandler, language);
+    public ContactView(ScreenHandler screenHandler, Locale language, String colorTemplate) {
+        super(screenHandler, language, colorTemplate);
     }
 
     @Override
