@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-  <classpathentry kind="src" path="ATdIT_Gruppe2/ATdIT/src/main/java" output="target/classes" including="**/*.java"/>
-  <classpathentry kind="src" path="ATdIT_Gruppe2/ATdIT/src/main/resources" output="target/classes" including="**/*.java"/>
+  <classpathentry kind="src" path="src" output="target/classes" including="**/*.java"/>
+  <classpathentry kind="src" path="src/main/resources" output="target/classes" including="**/*.java"/>
 </classpath>
