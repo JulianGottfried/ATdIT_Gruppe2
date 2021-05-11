@@ -20,7 +20,7 @@ import main.java.exceptions.InterruptDrawException;
 import main.java.gui_elements.functional_elements.ViewSwitcher;
 import main.java.screen.views.AddressView;
 import main.java.screen.views.ContactView;
-import main.java.screen.views.CurrentView;
+import main.java.screen.views.CurrentEventsView;
 import main.java.screen.views.HomeScreenView;
 import main.java.screen.views.TokenInspectorView;
 import main.resources.utilities.Colors;
@@ -95,7 +95,7 @@ public class Header extends JPanel {
             // TODO Class with image exception handler for image loads
             JButton latestButton = new JButton();
             latestButton.setText(i18n.getString("latest"));
-            latestButton.addActionListener(new ViewSwitcher(screenHandler, new CurrentView(screenHandler, language)));
+            latestButton.addActionListener(new ViewSwitcher(screenHandler, new CurrentEventsView(screenHandler, language)));
             latestButton.setBackground(Colors.getMenuButton1());
             latestButton.setFont(Fonts.getButton());
             latestButton.setForeground(Colors.getMenuButtonText());
