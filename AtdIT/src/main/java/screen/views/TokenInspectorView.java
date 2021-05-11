@@ -17,7 +17,6 @@ public class TokenInspectorView extends AbstractView {
         super(screenHandler, language);
     }
 
-    @Override
     public void drawItems() {
         Header header = new Header(this.screenHandler, this.language);
         gbc = new GridBagConstraints();
@@ -40,7 +39,7 @@ public class TokenInspectorView extends AbstractView {
 
     class Body extends BackgroundPanel {
         public Body() {
-            JLabel label = new JLabel(i18n.getString("test"));
+            JLabel label = new JLabel(i18n.getString("message"));
 
             gbc = new GridBagConstraints();
             gbc.gridx = 0;
