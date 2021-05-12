@@ -2,9 +2,9 @@ package main.java.gui_elements.JTextAreaElems;
 
 import javax.swing.JTextArea;
 
-import main.java.ScreenHandler;
 import main.java.handler.ColorHandler;
 import main.java.handler.FontHandler;
+import main.java.handler.ScreenHandler;
 
 public abstract class AbstractJTextArea extends JTextArea {
 	ColorHandler colorHandler;

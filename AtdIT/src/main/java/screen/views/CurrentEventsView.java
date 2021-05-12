@@ -2,7 +2,7 @@ package main.java.screen.views;
 
 import java.util.Locale;
 
-import main.java.ScreenHandler;
+import main.java.handler.ScreenHandler;
 
 public class CurrentEventsView extends AbstractView {
 

@@ -11,11 +11,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.plaf.InsetsUIResource;
 
-import main.java.ScreenHandler;
 import main.java.exceptions.InterruptDrawException;
 import main.java.gui_elements.JLabelElems.ImageDisplay;
 import main.java.gui_elements.JOptionPaneElems.ErrorPopUp;
 import main.java.handler.I18nHandler;
+import main.java.handler.ScreenHandler;
 import main.java.listener.ChangeLanguage;
 import main.java.listener.ViewSwitcher;
 import main.java.screen.views.AddressView;

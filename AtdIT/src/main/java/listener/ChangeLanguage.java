@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Locale;
 
-import main.java.ScreenHandler;
+import main.java.handler.ScreenHandler;
 
 public class ChangeLanguage implements ActionListener {
     Locale language;

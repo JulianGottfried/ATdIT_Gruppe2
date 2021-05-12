@@ -4,7 +4,6 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.MissingResourceException;
 
-import main.java.ScreenHandler;
 import main.java.exceptions.InterruptDrawException;
 import main.java.gui_elements.JOptionPaneElems.ErrorPopUp;
 

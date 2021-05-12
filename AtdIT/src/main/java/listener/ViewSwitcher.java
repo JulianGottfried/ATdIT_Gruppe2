@@ -3,7 +3,7 @@ package main.java.listener;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-import main.java.ScreenHandler;
+import main.java.handler.ScreenHandler;
 import main.java.screen.views.AbstractView;
 
 public class ViewSwitcher implements ActionListener {

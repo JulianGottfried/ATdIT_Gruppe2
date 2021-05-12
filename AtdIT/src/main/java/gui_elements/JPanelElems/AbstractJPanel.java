@@ -2,10 +2,10 @@ package main.java.gui_elements.JPanelElems;
 
 import javax.swing.JPanel;
 
-import main.java.ScreenHandler;
 import main.java.handler.ColorHandler;
 import main.java.handler.FontHandler;
 import main.java.handler.ImageHandler;
+import main.java.handler.ScreenHandler;
 
 public abstract class AbstractJPanel extends JPanel {
 	ColorHandler colorHandler;

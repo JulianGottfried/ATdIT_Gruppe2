@@ -1,8 +1,8 @@
 package main.java.screen.views;
 
-import main.java.ScreenHandler;
-
 import java.util.Locale;
+
+import main.java.handler.ScreenHandler;
 
 public class ContactView extends AbstractView {
 

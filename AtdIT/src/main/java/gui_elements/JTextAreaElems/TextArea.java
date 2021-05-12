@@ -1,9 +1,9 @@
 package main.java.gui_elements.JTextAreaElems;
 
-import main.java.ScreenHandler;
-
 import java.awt.Color;
 import java.awt.Font;
+
+import main.java.handler.ScreenHandler;
 
 public class TextArea extends AbstractJTextArea {
     int areaHeight;

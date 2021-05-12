@@ -1,16 +1,13 @@
-package main.java;
+package main.java.handler;
 
 import java.util.Locale;
 
 import java.awt.Container;
 
 import main.java.exceptions.InterruptDrawException;
-import main.java.handler.ColorHandler;
-import main.java.handler.FontHandler;
-import main.java.handler.ImageHandler;
-import main.java.screen.WindowFrame;
 import main.java.screen.views.HomeScreenView;
 import main.java.screen.views.BlankView;
+import main.java.screen.WindowFrame;
 import main.java.screen.views.AbstractView;
 
 public class ScreenHandler {
@@ -37,10 +34,6 @@ public class ScreenHandler {
         this.currentView = new HomeScreenView(this);
         this.previousView = new BlankView(this);
         this.changeView(this.currentView);
-    }
-
-    public static void main(String[] args) {
-        new ScreenHandler();
     }
 
     public void changeView(AbstractView view) {

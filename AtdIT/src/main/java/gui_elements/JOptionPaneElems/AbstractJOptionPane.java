@@ -2,8 +2,8 @@ package main.java.gui_elements.JOptionPaneElems;
 
 import javax.swing.JOptionPane;
 
-import main.java.ScreenHandler;
 import main.java.handler.ColorHandler;
+import main.java.handler.ScreenHandler;
 
 public abstract class AbstractJOptionPane extends JOptionPane {
 	ColorHandler colorHandler;

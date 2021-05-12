@@ -7,11 +7,11 @@ import javax.swing.JPanel;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
-import main.java.ScreenHandler;
 import main.java.exceptions.InterruptDrawException;
 import main.java.handler.ColorHandler;
 import main.java.handler.FontHandler;
 import main.java.handler.I18nHandler;
+import main.java.handler.ScreenHandler;
 
 public abstract class AbstractView extends JPanel implements ViewInterface {
     String bundleName;
