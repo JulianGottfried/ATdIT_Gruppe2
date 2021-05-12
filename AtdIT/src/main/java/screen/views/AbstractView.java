@@ -10,49 +10,43 @@ import java.awt.GridBagLayout;
 import main.java.ScreenHandler;
 import main.java.exceptions.InterruptDrawException;
 import main.java.handler.ColorHandler;
+import main.java.handler.FontHandler;
 import main.java.handler.I18nHandler;
 
-public abstract class AbstractView extends JPanel {
-    protected Locale language;
-    protected String bundleName;
-    protected I18nHandler i18n;
-    protected String colorTemplate;
-    protected ColorHandler colorHandler;
-    protected ScreenHandler screenHandler;
-    protected GridBagConstraints gbc;
+public abstract class AbstractView extends JPanel implements ViewInterface {
+    String bundleName;
+    ScreenHandler screenHandler;
+    Locale language;
+    ColorHandler colorHandler;
+    FontHandler fontHandler;
+    I18nHandler i18n;
+    GridBagConstraints gbc;
 
-    protected AbstractView(ScreenHandler screenHandler, Locale language, String colorTemplate) {
+    protected AbstractView(ScreenHandler screenHandler) {
         this.screenHandler = screenHandler;
         this.bundleName = this.getClass().getSimpleName();
-        this.language = language;
-        this.colorTemplate = colorTemplate;
-        this.setBackground(new ColorHandler(this.colorTemplate).getColor("background"));
         this.setLayout(new GridBagLayout());
     }
 
     public void loadSelf() throws InterruptDrawException {
+    	this.removeAll();
+    	this.revalidate();
+    	this.repaint();
         try {
-            this.i18n = new I18nHandler(this.bundleName, this.language, this.screenHandler);
+            this.i18n = new I18nHandler(bundleName, screenHandler.getLanguage(), this.screenHandler);
         } catch (InterruptDrawException e) {
             screenHandler.changeView(screenHandler.getPreviousView());
             throw new InterruptDrawException(e.getMessage());
         }
-        this.colorHandler = new ColorHandler(this.colorTemplate);
+        this.colorHandler = screenHandler.getColorHandler();
+        this.fontHandler = screenHandler.getFontHandler();
+        this.setBackground(colorHandler.getColor("background"));
         this.drawItems();
     }
 
     public abstract void drawItems();
 
-    public Locale getLanguage() {
-        return this.language;
-    }
-
-    public void setLanguage(Locale language) {
-        this.language = language;
-        this.refresh();
-    }
-
-    private void refresh() {
+    public void refresh() {
         this.removeAll();
         this.revalidate();
         try {

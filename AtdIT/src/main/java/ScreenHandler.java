@@ -5,23 +5,37 @@ import java.util.Locale;
 import java.awt.Container;
 
 import main.java.exceptions.InterruptDrawException;
-import main.java.screen.Start;
+import main.java.handler.ColorHandler;
+import main.java.handler.FontHandler;
+import main.java.handler.ImageHandler;
+import main.java.screen.WindowFrame;
 import main.java.screen.views.HomeScreenView;
 import main.java.screen.views.BlankView;
 import main.java.screen.views.AbstractView;
 
 public class ScreenHandler {
+    private Locale language;
+    private String colorTemplate;
+    private String fontTemplate;
+    private String imageTemplate;
+    private ColorHandler colorHandler;
+    private FontHandler fontHandler;
+    private ImageHandler imageHandler;
     private AbstractView currentView;
     private AbstractView previousView;
-    Locale language = Locale.getDefault();
-    String colorTemplate = "normalColors.properties";
-
-    private Start mainScreen = new Start();
+    private WindowFrame mainScreen;
 
     public ScreenHandler() {
-        this.currentView = new HomeScreenView(this, this.language, this.colorTemplate);
-        this.previousView = new BlankView(this, this.language, this.colorTemplate);
-        System.out.println("Test");
+    	this.language = Locale.getDefault();
+    	this.colorTemplate = "colors/normalColors.properties";
+    	this.fontTemplate = "fonts/normalFonts.properties";
+    	this.imageTemplate = "images/normalImages.properties";
+    	this.colorHandler = new ColorHandler(colorTemplate);
+    	this.fontHandler = new FontHandler(fontTemplate);
+    	this.imageHandler = new ImageHandler(imageTemplate);
+        this.mainScreen = new WindowFrame();
+        this.currentView = new HomeScreenView(this);
+        this.previousView = new BlankView(this);
         this.changeView(this.currentView);
     }
 
@@ -65,7 +79,7 @@ public class ScreenHandler {
     }
 
     public void changeCurrentViewLanguage(Locale language) {
-        this.currentView.setLanguage(language);
+    	this.setLanguage(language);
         this.resetContainer(this.mainScreen);
         try {
             this.currentView.loadSelf();
@@ -91,4 +105,52 @@ public class ScreenHandler {
     public void setCurrentView(AbstractView newView) {
         this.currentView = newView;
     }
+
+	public Locale getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(Locale language) {
+		this.language = language;
+	}
+
+	public String getColorTemplate() {
+		return colorTemplate;
+	}
+
+	public void setColorTemplate(String colorTemplate) {
+		this.colorTemplate = colorTemplate;
+	}
+
+	public String getFontTemplate() {
+		return fontTemplate;
+	}
+
+	public void setFontTemplate(String fontTemplate) {
+		this.fontTemplate = fontTemplate;
+	}
+
+	public ColorHandler getColorHandler() {
+		return colorHandler;
+	}
+
+	public void setColorHandler(ColorHandler colorHandler) {
+		this.colorHandler = colorHandler;
+	}
+
+	public FontHandler getFontHandler() {
+		return fontHandler;
+	}
+
+	public void setFontHandler(FontHandler fontHandler) {
+		this.fontHandler = fontHandler;
+	}
+
+	public ImageHandler getImageHandler() {
+		return imageHandler;
+	}
+
+	public void setImageHandler(ImageHandler imageHandler) {
+		this.imageHandler = imageHandler;
+	}
 }

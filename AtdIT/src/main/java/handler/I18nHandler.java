@@ -6,7 +6,7 @@ import java.util.MissingResourceException;
 
 import main.java.ScreenHandler;
 import main.java.exceptions.InterruptDrawException;
-import main.java.gui_elements.visual_elements.JOptionPaneElems.ErrorPopUp;
+import main.java.gui_elements.JOptionPaneElems.ErrorPopUp;
 
 public class I18nHandler {
     private ResourceBundle bundle;

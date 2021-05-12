@@ -12,5 +12,5 @@ public interface HandlerInterface {
 	
 	public Properties getProp();
 	
-	String getProperty(String key);
+	public String getProperty(String key);
 }

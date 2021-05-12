@@ -7,7 +7,7 @@ import java.util.Arrays;
 public class ColorHandler extends PropertiesHandler {
 
 	public ColorHandler(String colorTemplate) {
-		super("colors/" + colorTemplate);
+		super(colorTemplate);
 	}
 	
 	public Color getColor(String colorKey) {

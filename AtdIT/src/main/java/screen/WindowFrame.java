@@ -2,8 +2,8 @@ package main.java.screen;
 
 import javax.swing.JFrame;
 
-public class Start extends JFrame {
-    public Start() {
+public class WindowFrame extends JFrame {
+    public WindowFrame() {
         this.setTitle("Rathaus 2077");
         this.setSize(600, 400);
         this.setExtendedState(MAXIMIZED_BOTH);

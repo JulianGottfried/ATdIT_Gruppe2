@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
-public class PropertiesHandler implements HandlerInterface {
+public abstract class PropertiesHandler implements HandlerInterface {
 	private Properties prop;
 
 	public PropertiesHandler(String propName) {
@@ -47,10 +47,9 @@ public class PropertiesHandler implements HandlerInterface {
 	public Properties getProp() {
 		return this.prop;
 	}
-
+	
 	@Override
 	public String getProperty(String key) {
 		return prop.getProperty(key);
 	}
-
 }

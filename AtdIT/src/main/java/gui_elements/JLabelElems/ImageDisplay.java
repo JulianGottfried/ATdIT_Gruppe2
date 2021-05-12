@@ -1,4 +1,4 @@
-package main.java.gui_elements.visual_elements.JLabelElems;
+package main.java.gui_elements.JLabelElems;
 
 import javax.swing.ImageIcon;
 

@@ -1,6 +1,6 @@
-package main.java.gui_elements.visual_elements.JTextAreaElems;
+package main.java.gui_elements.JTextAreaElems;
 
-import main.resources.utilities.Fonts;
+import main.java.ScreenHandler;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -13,18 +13,18 @@ public class TextArea extends AbstractJTextArea {
     Color fgColor;
     Font textFont;
 
-    public TextArea(int width, int height, Color fgColor, Color bgColor, String colorTemplate) {
-    	super(colorTemplate);
+    public TextArea(ScreenHandler screenHandler, int width, int height, Color fgColor, Color bgColor) {
+    	super(screenHandler);
         this.areWidth = width;
         this.areaHeight = height;
         this.fgColor = fgColor;
         this.bgColor = bgColor;
-        this.textFont = Fonts.getTextArea();
+        this.textFont = fontHandler.getFont("textArea");
         setAttributes();
     }
 
-    public TextArea(int width, int height, Color fgColor, Color bgColor, Font textFont, String colorTemplate) {
-    	super(colorTemplate);
+    public TextArea(ScreenHandler screenHandler, int width, int height, Color fgColor, Color bgColor, Font textFont) {
+    	super(screenHandler);
         this.areWidth = width;
         this.areaHeight = height;
         this.fgColor = fgColor;
@@ -33,23 +33,23 @@ public class TextArea extends AbstractJTextArea {
         setAttributes();
     }
 
-    public TextArea(int width, int height, String colorTemplate) {
-    	super(colorTemplate);
+    public TextArea(ScreenHandler screenHandler, int width, int height) {
+    	super(screenHandler);
         this.areWidth = width;
         this.areaHeight = height;
         this.fgColor = colorHandler.getColor("textForeground");
         this.bgColor = colorHandler.getColor("textBackground");
-        this.textFont = Fonts.getTextArea();
+        this.textFont = fontHandler.getFont("textArea");
         setAttributes();
     }
 
-    public TextArea(int width, int height, Font textFont, String colorTemplate) {
-    	super(colorTemplate);
+    public TextArea(ScreenHandler screenHandler, int width, int height, Font textFont) {
+    	super(screenHandler);
         this.areWidth = width;
         this.areaHeight = height;
         this.fgColor = colorHandler.getColor("textForeground");
         this.bgColor = colorHandler.getColor("textBackground");
-        this.textFont = textFont;
+        this.textFont = fontHandler.getFont("textArea");
         setAttributes();
     }
 

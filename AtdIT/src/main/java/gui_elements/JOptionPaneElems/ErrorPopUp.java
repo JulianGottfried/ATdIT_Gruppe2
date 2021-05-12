@@ -1,4 +1,4 @@
-package main.java.gui_elements.visual_elements.JOptionPaneElems;
+package main.java.gui_elements.JOptionPaneElems;
 
 import javax.swing.JOptionPane;
 

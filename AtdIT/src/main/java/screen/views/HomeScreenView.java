@@ -5,22 +5,19 @@ import java.awt.GridBagConstraints;
 import javax.swing.plaf.InsetsUIResource;
 
 import main.java.ScreenHandler;
-import main.java.gui_elements.visual_elements.JPanelElems.BackgroundPanel;
-import main.java.gui_elements.visual_elements.JPanelElems.Header;
-import main.java.gui_elements.visual_elements.JTextAreaElems.TextArea;
-import main.resources.utilities.Fonts;
-
-import java.util.Locale;
+import main.java.gui_elements.JPanelElems.BackgroundPanel;
+import main.java.gui_elements.JPanelElems.Header;
+import main.java.gui_elements.JTextAreaElems.TextArea;
 
 public class HomeScreenView extends AbstractView {
 
-    public HomeScreenView(ScreenHandler screenHandler, Locale language, String colorTemplate) {
-        super(screenHandler, language, colorTemplate);
+    public HomeScreenView(ScreenHandler screenHandler) {
+        super(screenHandler);
     }
 
     @Override
     public void drawItems() {
-        Header header = new Header(this.screenHandler, this.language, this.colorTemplate);
+        Header header = new Header(this.screenHandler);
         gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.BOTH;
         gbc.insets = new InsetsUIResource(20, 0, 20, 0);
@@ -29,7 +26,7 @@ public class HomeScreenView extends AbstractView {
         gbc.gridy = 0;
         this.add(header, gbc);
 
-        Body body = new Body();
+        Body body = new Body(screenHandler);
         gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.BOTH;
         gbc.weighty = 1.0;
@@ -40,14 +37,14 @@ public class HomeScreenView extends AbstractView {
     }
 
     class Body extends BackgroundPanel {
-
-        public Body() {
+        public Body(ScreenHandler screenHandler) {
+        	super(screenHandler);
             gbc = new GridBagConstraints();
 
-            TextArea title = new TextArea(0, 0, Fonts.getH1(), colorTemplate);
+            TextArea title = new TextArea(screenHandler, 0, 0, fontHandler.getFont("h1"));
             title.setText(i18n.getString("title").toUpperCase());
 
-            TextArea text = new TextArea(600, 600, colorTemplate);
+            TextArea text = new TextArea(screenHandler, 600, 600);
             text.setText(i18n.getString("welcome"));
 
             gbc.fill = GridBagConstraints.BOTH;

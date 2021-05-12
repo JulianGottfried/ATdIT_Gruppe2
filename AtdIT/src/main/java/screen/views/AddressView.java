@@ -6,8 +6,8 @@ import java.util.Locale;
 
 public class AddressView extends AbstractView {
 
-    public AddressView(ScreenHandler screenHandler, Locale language, String colorTemplate) {
-        super(screenHandler, language, colorTemplate);
+    public AddressView(ScreenHandler screenHandler) {
+        super(screenHandler);
     }
 
     @Override

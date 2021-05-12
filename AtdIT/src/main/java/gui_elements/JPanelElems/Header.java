@@ -1,11 +1,8 @@
-package main.java.gui_elements.visual_elements.JPanelElems;
+package main.java.gui_elements.JPanelElems;
 
 import java.awt.event.MouseEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import java.util.Locale;
 import java.awt.event.MouseAdapter;
-import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
@@ -16,43 +13,39 @@ import javax.swing.plaf.InsetsUIResource;
 
 import main.java.ScreenHandler;
 import main.java.exceptions.InterruptDrawException;
-import main.java.gui_elements.functional_elements.ViewSwitcher;
-import main.java.gui_elements.visual_elements.JLabelElems.ImageDisplay;
-import main.java.gui_elements.visual_elements.JOptionPaneElems.ErrorPopUp;
-import main.java.handler.ColorHandler;
+import main.java.gui_elements.JLabelElems.ImageDisplay;
+import main.java.gui_elements.JOptionPaneElems.ErrorPopUp;
 import main.java.handler.I18nHandler;
+import main.java.listener.ChangeLanguage;
+import main.java.listener.ViewSwitcher;
 import main.java.screen.views.AddressView;
 import main.java.screen.views.ContactView;
 import main.java.screen.views.CurrentEventsView;
 import main.java.screen.views.HomeScreenView;
 import main.java.screen.views.TokenInspectorView;
-import main.resources.utilities.Fonts;
-import main.resources.utilities.Images;
 
 public class Header extends AbstractJPanel{
     GridBagConstraints gbc;
     ScreenHandler screenHandler;
-    String colorTemplate;
-    Locale language;
+    private Locale language;
     String bundleName;
     I18nHandler i18n;
 
-    public Header(ScreenHandler screenHandler, Locale language, String colorTemplate) {
-    	super(colorTemplate);
-    	this.colorTemplate = colorTemplate;
+    public Header(ScreenHandler screenHandler) {
+    	super(screenHandler);
         this.screenHandler = screenHandler;
-        this.language = language;
+        this.language = screenHandler.getLanguage();
         this.bundleName = this.getClass().getSimpleName();
         this.setI18n();
         this.setLayout(new GridBagLayout());
 
-        ImageDisplay logo = new ImageDisplay(Images.getLogo(), -1, 100, new Return2Home());
+        ImageDisplay logo = new ImageDisplay(imageHandler.getImage("logo"), -1, 100, new Return2Home());
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 0;
         this.add(logo, gbc);
 
-        MenuBar header = new MenuBar(this.colorTemplate);
+        MenuBar header = new MenuBar(screenHandler);
         gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.BOTH;
         gbc.anchor = GridBagConstraints.EAST;
@@ -62,7 +55,7 @@ public class Header extends AbstractJPanel{
         gbc.gridy = 0;
         this.add(header, gbc);
 
-        LangButtons langButtons = new LangButtons(this.colorTemplate);
+        LangButtons langButtons = new LangButtons(screenHandler);
         gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.BOTH;
         gbc.weightx = 0.1;
@@ -74,7 +67,7 @@ public class Header extends AbstractJPanel{
     public class Return2Home extends MouseAdapter {
         @Override
         public void mouseClicked(MouseEvent e) {
-            screenHandler.changeView(new HomeScreenView(screenHandler, language, colorTemplate));
+            screenHandler.changeView(new HomeScreenView(screenHandler));
         }
     }
 
@@ -88,38 +81,38 @@ public class Header extends AbstractJPanel{
     }
 
     class MenuBar extends AbstractJPanel {
-        public MenuBar(String colorTemplate) {
-        	super(colorTemplate);
+        public MenuBar(ScreenHandler screenHandler) {
+        	super(screenHandler);
             this.setLayout(new GridBagLayout());
 
             // TODO Class with key exception handler for i18n
             // TODO Class with image exception handler for image loads
             JButton latestButton = new JButton();
             latestButton.setText(i18n.getString("latest"));
-            latestButton.addActionListener(new ViewSwitcher(screenHandler, new CurrentEventsView(screenHandler, language, colorTemplate)));
+            latestButton.addActionListener(new ViewSwitcher(screenHandler, new CurrentEventsView(screenHandler)));
             latestButton.setBackground(colorHandler.getColor("menuButton1"));
-            latestButton.setFont(Fonts.getButton());
+            latestButton.setFont(fontHandler.getFont("menuButton"));
             latestButton.setForeground(colorHandler.getColor("menuButtonText"));
 
             JButton addressButton = new JButton();
             addressButton.setText(i18n.getString("changeAddress"));
-            addressButton.addActionListener(new ViewSwitcher(screenHandler, new AddressView(screenHandler, language, colorTemplate)));
+            addressButton.addActionListener(new ViewSwitcher(screenHandler, new AddressView(screenHandler)));
             addressButton.setBackground(colorHandler.getColor("menuButton2"));
-            addressButton.setFont(Fonts.getButton());
+            addressButton.setFont(fontHandler.getFont("menuButton"));
             addressButton.setForeground(colorHandler.getColor("menuButtonText"));
 
             JButton contactButton = new JButton();
             contactButton.setText(i18n.getString("contact"));
-            contactButton.addActionListener(new ViewSwitcher(screenHandler, new ContactView(screenHandler, language, colorTemplate)));
+            contactButton.addActionListener(new ViewSwitcher(screenHandler, new ContactView(screenHandler)));
             contactButton.setBackground(colorHandler.getColor("menuButton3"));
-            contactButton.setFont(Fonts.getButton());
+            contactButton.setFont(fontHandler.getFont("menuButton"));
             contactButton.setForeground(colorHandler.getColor("menuButtonText"));
 
             JButton processButton = new JButton();
             processButton.setText(i18n.getString("processesing"));
-            processButton.addActionListener(new ViewSwitcher(screenHandler, new TokenInspectorView(screenHandler, language, colorTemplate)));
+            processButton.addActionListener(new ViewSwitcher(screenHandler, new TokenInspectorView(screenHandler)));
             processButton.setBackground(colorHandler.getColor("menuButton4"));
-            processButton.setFont(Fonts.getButton());
+            processButton.setFont(fontHandler.getFont("menuButton"));
             processButton.setForeground(colorHandler.getColor("menuButtonText"));
 
             gbc = new GridBagConstraints();
@@ -143,23 +136,23 @@ public class Header extends AbstractJPanel{
 
     class LangButtons extends AbstractJPanel {
 
-        public LangButtons(String colorTemplate) {
-        	super(colorTemplate);
+        public LangButtons(ScreenHandler screenHandler) {
+        	super(screenHandler);
             JButton german = new JButton();
             JButton english = new JButton();
 
             german.setContentAreaFilled(false);
             english.setContentAreaFilled(false);
 
-            german.addActionListener(new ChangeLanguage(new Locale("de", "DE")));
-            english.addActionListener(new ChangeLanguage(new Locale("en", "US")));
+            german.addActionListener(new ChangeLanguage(screenHandler, new Locale("de", "DE")));
+            english.addActionListener(new ChangeLanguage(screenHandler, new Locale("en", "US")));
 
-            Image germanImage = Images.getGerman();
+            Image germanImage = imageHandler.getImage("german");
             Image scaledGermanImage = germanImage.getScaledInstance(50, -1, Image.SCALE_SMOOTH);
             ImageIcon germanIcon = new ImageIcon(scaledGermanImage);
             german.setIcon(germanIcon);
 
-            Image englishImage = Images.getEnglish();
+            Image englishImage = imageHandler.getImage("english");
             Image newEnglishImage = englishImage.getScaledInstance(50, -1, Image.SCALE_SMOOTH);
             ImageIcon englishIcon = new ImageIcon(newEnglishImage);
             english.setIcon(englishIcon);
@@ -180,19 +173,6 @@ public class Header extends AbstractJPanel{
             gbc.anchor = GridBagConstraints.EAST;
             gbc.insets = new InsetsUIResource(5, 0, 0, 0);
             this.add(english, gbc);
-        }
-    }
-
-    class ChangeLanguage implements ActionListener {
-        Locale language;
-
-        public ChangeLanguage(Locale language) {
-            this.language = language;
-        }
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            screenHandler.changeCurrentViewLanguage(language);
         }
     }
 }
