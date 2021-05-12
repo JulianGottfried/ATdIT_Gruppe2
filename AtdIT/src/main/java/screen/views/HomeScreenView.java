@@ -4,9 +4,9 @@ import java.awt.GridBagConstraints;
 
 import javax.swing.plaf.InsetsUIResource;
 
-import main.java.gui_elements.JPanelElems.BackgroundPanel;
-import main.java.gui_elements.JPanelElems.Header;
-import main.java.gui_elements.JTextAreaElems.TextArea;
+import main.java.guiElements.JPanelElems.BackgroundPanel;
+import main.java.guiElements.JPanelElems.Header;
+import main.java.guiElements.JTextAreaElems.TextArea;
 import main.java.handler.ScreenHandler;
 
 public class HomeScreenView extends AbstractView {

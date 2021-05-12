@@ -1,4 +1,4 @@
-package main.java.gui_elements.JPanelElems;
+package main.java.guiElements.JPanelElems;
 
 import javax.swing.JPanel;
 

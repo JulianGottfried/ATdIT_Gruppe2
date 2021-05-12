@@ -1,8 +1,6 @@
-package main.java.gui_elements.JPanelElems;
+package main.java.guiElements.JPanelElems;
 
-import java.awt.event.MouseEvent;
 import java.util.Locale;
-import java.awt.event.MouseAdapter;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
@@ -12,16 +10,16 @@ import javax.swing.JButton;
 import javax.swing.plaf.InsetsUIResource;
 
 import main.java.exceptions.InterruptDrawException;
-import main.java.gui_elements.JLabelElems.ImageDisplay;
-import main.java.gui_elements.JOptionPaneElems.ErrorPopUp;
+import main.java.guiElements.JLabelElems.ImageDisplay;
+import main.java.guiElements.JOptionPaneElems.ErrorPopUp;
 import main.java.handler.I18nHandler;
 import main.java.handler.ScreenHandler;
-import main.java.listener.ChangeLanguage;
-import main.java.listener.ViewSwitcher;
+import main.java.listener.ActionListener.ChangeLanguage;
+import main.java.listener.ActionListener.ViewSwitcher;
+import main.java.listener.mouseAdapter.Return2Home;
 import main.java.screen.views.AddressView;
 import main.java.screen.views.ContactView;
 import main.java.screen.views.CurrentEventsView;
-import main.java.screen.views.HomeScreenView;
 import main.java.screen.views.TokenInspectorView;
 
 public class Header extends AbstractJPanel{
@@ -39,13 +37,13 @@ public class Header extends AbstractJPanel{
         this.setI18n();
         this.setLayout(new GridBagLayout());
 
-        ImageDisplay logo = new ImageDisplay(imageHandler.getImage("logo"), -1, 100, new Return2Home());
+        ImageDisplay logo = new ImageDisplay(imageHandler.getImage("logo"), -1, 100, new Return2Home(screenHandler));
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 0;
         this.add(logo, gbc);
 
-        MenuBar header = new MenuBar(screenHandler);
+        ButtonBar buttonBar = new ButtonBar(screenHandler);
         gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.BOTH;
         gbc.anchor = GridBagConstraints.EAST;
@@ -53,7 +51,7 @@ public class Header extends AbstractJPanel{
         gbc.weightx = 0.7;
         gbc.gridx = 1;
         gbc.gridy = 0;
-        this.add(header, gbc);
+        this.add(buttonBar, gbc);
 
         LangButtons langButtons = new LangButtons(screenHandler);
         gbc = new GridBagConstraints();
@@ -64,13 +62,6 @@ public class Header extends AbstractJPanel{
         this.add(langButtons, gbc);
     }
 
-    public class Return2Home extends MouseAdapter {
-        @Override
-        public void mouseClicked(MouseEvent e) {
-            screenHandler.changeView(new HomeScreenView(screenHandler));
-        }
-    }
-
     public void setI18n() {
         try {
             this.i18n = new I18nHandler(this.bundleName, this.language, this.screenHandler);
@@ -79,9 +70,11 @@ public class Header extends AbstractJPanel{
             screenHandler.changeView(screenHandler.getPreviousView());
         }
     }
-
-    class MenuBar extends AbstractJPanel {
-        public MenuBar(ScreenHandler screenHandler) {
+    
+    //TODO: ask if text should be fully outsourced or not 
+    class ButtonBar extends AbstractJPanel {
+    	
+        public ButtonBar(ScreenHandler screenHandler) {
         	super(screenHandler);
             this.setLayout(new GridBagLayout());
 
@@ -173,6 +166,6 @@ public class Header extends AbstractJPanel{
             gbc.anchor = GridBagConstraints.EAST;
             gbc.insets = new InsetsUIResource(5, 0, 0, 0);
             this.add(english, gbc);
-        }
-    }
+		}
+	}
 }

@@ -5,8 +5,8 @@ import javax.swing.plaf.InsetsUIResource;
 
 import java.awt.GridBagConstraints;
 
-import main.java.gui_elements.JPanelElems.BackgroundPanel;
-import main.java.gui_elements.JPanelElems.Header;
+import main.java.guiElements.JPanelElems.BackgroundPanel;
+import main.java.guiElements.JPanelElems.Header;
 import main.java.handler.ScreenHandler;
 
 public class TokenInspectorView extends AbstractView {

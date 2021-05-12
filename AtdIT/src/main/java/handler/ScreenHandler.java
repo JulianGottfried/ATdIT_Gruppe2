@@ -26,7 +26,7 @@ public class ScreenHandler {
     	this.language = Locale.getDefault();
     	this.colorTemplate = "colors/normalColors.properties";
     	this.fontTemplate = "fonts/normalFonts.properties";
-    	this.imageTemplate = "images/normalImages.properties";
+    	this.imageTemplate = "images.properties";
     	this.colorHandler = new ColorHandler(colorTemplate);
     	this.fontHandler = new FontHandler(fontTemplate);
     	this.imageHandler = new ImageHandler(imageTemplate);
@@ -72,7 +72,7 @@ public class ScreenHandler {
     }
 
     public void changeCurrentViewLanguage(Locale language) {
-    	this.setLanguage(language);
+    	this.language = language;
         this.resetContainer(this.mainScreen);
         try {
             this.currentView.loadSelf();

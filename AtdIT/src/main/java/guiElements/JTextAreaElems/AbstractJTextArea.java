@@ -1,4 +1,4 @@
-package main.java.gui_elements.JTextAreaElems;
+package main.java.guiElements.JTextAreaElems;
 
 import javax.swing.JTextArea;
 

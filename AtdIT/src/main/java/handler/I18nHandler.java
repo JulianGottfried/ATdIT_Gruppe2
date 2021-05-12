@@ -5,7 +5,7 @@ import java.util.ResourceBundle;
 import java.util.MissingResourceException;
 
 import main.java.exceptions.InterruptDrawException;
-import main.java.gui_elements.JOptionPaneElems.ErrorPopUp;
+import main.java.guiElements.JOptionPaneElems.ErrorPopUp;
 
 public class I18nHandler {
     private ResourceBundle bundle;
@@ -23,8 +23,7 @@ public class I18nHandler {
 
     public void constructBundle(String bundleName) throws InterruptDrawException {
         try {
-            bundle = ResourceBundle.getBundle(constructBundleLink(bundleName), language);
-            this.setBundle(bundle);
+            this.bundle = ResourceBundle.getBundle(constructBundleLink(bundleName), language);
         } catch (MissingResourceException e) {
             new ErrorPopUp(screenHandler.getCurrentView(), i18n.getString("errorMessage"),
                     i18n.getString("errorTitle"));

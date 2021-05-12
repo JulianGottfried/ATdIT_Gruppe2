@@ -1,4 +1,4 @@
-package main.java.gui_elements.JLabelElems;
+package main.java.guiElements.JLabelElems;
 
 import javax.swing.JLabel;
 
