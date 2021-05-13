@@ -15,6 +15,6 @@ public class Return2Home extends MouseAdapter {
 	
     @Override
     public void mouseClicked(MouseEvent e) {
-        screenHandler.changeView(new HomeScreenView(screenHandler));
+        screenHandler.changeCurrentView(new HomeScreenView(screenHandler));
     }
 }

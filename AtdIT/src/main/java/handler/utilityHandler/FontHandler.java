@@ -1,4 +1,4 @@
-package main.java.handler;
+package main.java.handler.utilityHandler;
 
 import java.awt.Font;
 import java.awt.font.TextAttribute;
@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public class FontHandler extends PropertiesHandler {
+public class FontHandler extends AbstractUtilityHandler {
 
 	public FontHandler(String fontTemplate) {
 		super(fontTemplate);

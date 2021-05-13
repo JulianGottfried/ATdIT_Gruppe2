@@ -5,6 +5,9 @@ import java.util.Locale;
 import java.awt.Container;
 
 import main.java.exceptions.InterruptDrawException;
+import main.java.handler.utilityHandler.ColorHandler;
+import main.java.handler.utilityHandler.FontHandler;
+import main.java.handler.utilityHandler.ImageHandler;
 import main.java.screen.views.HomeScreenView;
 import main.java.screen.views.BlankView;
 import main.java.screen.WindowFrame;
@@ -33,10 +36,10 @@ public class ScreenHandler {
         this.mainScreen = new WindowFrame();
         this.currentView = new HomeScreenView(this);
         this.previousView = new BlankView(this);
-        this.changeView(this.currentView);
+        this.changeCurrentView(this.currentView);
     }
 
-    public void changeView(AbstractView view) {
+    public void changeCurrentView(AbstractView view) {
         this.resetContainer(this.mainScreen);
         this.loadView(view);
     }

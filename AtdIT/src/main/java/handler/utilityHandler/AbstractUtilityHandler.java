@@ -1,14 +1,14 @@
-package main.java.handler;
+package main.java.handler.utilityHandler;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
-public abstract class PropertiesHandler implements HandlerInterface {
+public abstract class AbstractUtilityHandler implements UtilityHandlerInterface {
 	private Properties prop;
 
-	public PropertiesHandler(String propName) {
+	public AbstractUtilityHandler(String propName) {
 		try {
 			setProp(retrieveProperties(propName));
 		} catch (IOException ioe) {

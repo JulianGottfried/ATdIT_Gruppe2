@@ -1,10 +1,10 @@
-package main.java.handler;
+package main.java.handler.utilityHandler;
 
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
 
-public class ImageHandler extends PropertiesHandler {
+public class ImageHandler extends AbstractUtilityHandler {
 	private static final String LINK2IMAGES = new InternalPathsHandler().getProperty("images");
 
 	public ImageHandler(String propName) {

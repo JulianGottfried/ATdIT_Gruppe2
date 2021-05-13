@@ -1,9 +1,9 @@
-package main.java.handler;
+package main.java.handler.utilityHandler;
 
 import java.io.IOException;
 import java.util.Properties;
 
-public interface HandlerInterface {
+public interface UtilityHandlerInterface {
 	String propsPath = "AtdIT/src/main/resources/utilities/";
 	
 	public Properties retrieveProperties(String propName) throws IOException;

@@ -12,8 +12,8 @@ import javax.swing.plaf.InsetsUIResource;
 import main.java.exceptions.InterruptDrawException;
 import main.java.guiElements.JLabelElems.ImageDisplay;
 import main.java.guiElements.JOptionPaneElems.ErrorPopUp;
-import main.java.handler.I18nHandler;
 import main.java.handler.ScreenHandler;
+import main.java.handler.languageHandler.I18nHandler;
 import main.java.listener.ActionListener.ChangeLanguage;
 import main.java.listener.ActionListener.ViewSwitcher;
 import main.java.listener.mouseAdapter.Return2Home;
@@ -67,7 +67,7 @@ public class Header extends AbstractJPanel{
             this.i18n = new I18nHandler(this.bundleName, this.language, this.screenHandler);
         } catch (InterruptDrawException e) {
             new ErrorPopUp(screenHandler.getCurrentView(), i18n.getString("errorMessage"), i18n.getString("errorTitle"));
-            screenHandler.changeView(screenHandler.getPreviousView());
+            screenHandler.changeCurrentView(screenHandler.getPreviousView());
         }
     }
     

@@ -8,10 +8,10 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
 import main.java.exceptions.InterruptDrawException;
-import main.java.handler.ColorHandler;
-import main.java.handler.FontHandler;
-import main.java.handler.I18nHandler;
 import main.java.handler.ScreenHandler;
+import main.java.handler.languageHandler.I18nHandler;
+import main.java.handler.utilityHandler.ColorHandler;
+import main.java.handler.utilityHandler.FontHandler;
 
 public abstract class AbstractView extends JPanel implements ViewInterface {
     String bundleName;
@@ -35,7 +35,7 @@ public abstract class AbstractView extends JPanel implements ViewInterface {
         try {
             this.i18n = new I18nHandler(bundleName, screenHandler.getLanguage(), this.screenHandler);
         } catch (InterruptDrawException e) {
-            screenHandler.changeView(screenHandler.getPreviousView());
+            screenHandler.changeCurrentView(screenHandler.getPreviousView());
             throw new InterruptDrawException(e.getMessage());
         }
         this.colorHandler = screenHandler.getColorHandler();

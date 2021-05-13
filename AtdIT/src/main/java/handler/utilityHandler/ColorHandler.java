@@ -1,10 +1,10 @@
-package main.java.handler;
+package main.java.handler.utilityHandler;
 
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class ColorHandler extends PropertiesHandler {
+public class ColorHandler extends AbstractUtilityHandler {
 
 	public ColorHandler(String colorTemplate) {
 		super(colorTemplate);

@@ -2,8 +2,8 @@ package main.java.guiElements.JLabelElems;
 
 import javax.swing.JLabel;
 
-import main.java.handler.ColorHandler;
 import main.java.handler.ScreenHandler;
+import main.java.handler.utilityHandler.ColorHandler;
 
 public abstract class AbstractJLabel extends JLabel {
 	ColorHandler colorHandler;

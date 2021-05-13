@@ -1,4 +1,4 @@
-package main.java.handler;
+package main.java.handler.languageHandler;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -6,6 +6,8 @@ import java.util.MissingResourceException;
 
 import main.java.exceptions.InterruptDrawException;
 import main.java.guiElements.JOptionPaneElems.ErrorPopUp;
+import main.java.handler.ScreenHandler;
+import main.java.handler.utilityHandler.InternalPathsHandler;
 
 public class I18nHandler {
     private ResourceBundle bundle;
