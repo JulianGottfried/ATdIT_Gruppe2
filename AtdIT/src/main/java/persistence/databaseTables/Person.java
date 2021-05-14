@@ -81,20 +81,4 @@ public class Person extends AbstractEntry {
 	public void setWohnort(String wohnort) {
 		Wohnort = wohnort;
 	}
-
-
-	public Person(String VorName,String NachName, String GeburtsDatum, String PLZ, String Wohnort, String Strasse , String HausNr, String PersonenID) {
-		this.VorName = VorName;
-		this.NachName = NachName;
-		this.GeburtsDatum = GeburtsDatum;
-		this.PLZ = PLZ;
-		this.Wohnort = Wohnort;
-		this.Strasse = Strasse;
-		this.HausNr = HausNr;
-		this.PersonenID = PersonenID;
-	}
-	
-	public Person() {
-		
-	}
 }
