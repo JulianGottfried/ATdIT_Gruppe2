@@ -10,11 +10,11 @@ import javax.persistence.Table;
 @Table(name = "Persons")
 public class Persons extends AbstractEntry {
 	@Id
-	int PersonID;
+	private int 	PersonID;
 	private String	Name;
 	private String	Surname;
 	private String	Gender;
-	private String	Address;
+	private int		AddressID;
 	private Date	DateOfBirth;
 	private String	PlaceOfBirth;
 	private String	MaritalStatus;
@@ -26,14 +26,14 @@ public class Persons extends AbstractEntry {
 	public Persons() {
 	}
 	
-	public Persons(int personID, String name, String surname, String gender, String address, Date dateOfBirth,
+	public Persons(int personID, String name, String surname, String gender, int address, Date dateOfBirth,
 			String placeOfBirth, String maritalStatus, Date dateOfMarriage, String placOfMarriage, String citizenship,
 			String iDNumber) {
 		PersonID = personID;
 		Name = name;
 		Surname = surname;
 		Gender = gender;
-		Address = address;
+		AddressID = address;
 		DateOfBirth = dateOfBirth;
 		PlaceOfBirth = placeOfBirth;
 		MaritalStatus = maritalStatus;
@@ -75,12 +75,12 @@ public class Persons extends AbstractEntry {
 		Gender = gender;
 	}
 	
-	public String getAddress() {
-		return Address;
+	public int getAddressID() {
+		return AddressID;
 	}
 	
-	public void setAddress(String address) {
-		Address = address;
+	public void setAddressID(int addressID) {
+		AddressID = addressID;
 	}
 	
 	public Date getDateOfBirth() {
