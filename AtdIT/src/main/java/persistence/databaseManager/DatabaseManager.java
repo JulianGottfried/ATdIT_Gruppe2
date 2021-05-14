@@ -13,15 +13,6 @@ public class DatabaseManager implements DatabaseManagerInterface{
 	EntityManager entityManager;
 	EntityManagerFactory emFactory;
 	
-	public static void main(String[] args) {
-		Person person = new Person();
-		person.setPersonenID("123");
-		person.setNachName("weitz");
-		new DatabaseManager().updateDatabase(person);
-		Person outPerson = new DatabaseManager().getDatabaseEntry(Person.class, "123");
-		System.out.println(outPerson.getNachName());
-	}
-	
 	public void writeToDatabase(AbstractEntry entry) {
 		createManager();
 		this.entityManager.persist(entry);
