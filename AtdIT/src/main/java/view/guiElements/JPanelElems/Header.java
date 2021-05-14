@@ -7,14 +7,14 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.plaf.InsetsUIResource;
 
-import main.java.view.exceptions.InterruptDrawException;
+import main.java.controller.exceptions.InterruptDrawException;
 import main.java.view.guiElements.JLabelElems.ImageDisplay;
 import main.java.view.guiElements.JOptionPaneElems.ErrorPopUp;
-import main.java.view.handler.ScreenHandler;
-import main.java.view.handler.languageHandler.I18nHandler;
-import main.java.view.listener.ActionListener.ChangeLanguage;
-import main.java.view.listener.ActionListener.ViewSwitcher;
-import main.java.view.listener.mouseAdapter.Return2Home;
+import main.java.controller.handler.ScreenHandler;
+import main.java.controller.handler.languageHandler.I18nHandler;
+import main.java.controller.listener.ActionListener.ChangeLanguage;
+import main.java.controller.listener.ActionListener.ViewSwitcher;
+import main.java.controller.listener.mouseAdapter.Return2Home;
 import main.java.view.screen.views.*;
 
 public class Header extends AbstractJPanel{

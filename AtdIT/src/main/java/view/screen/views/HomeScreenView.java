@@ -7,7 +7,7 @@ import javax.swing.plaf.InsetsUIResource;
 import main.java.view.guiElements.JPanelElems.BackgroundPanel;
 import main.java.view.guiElements.JPanelElems.Header;
 import main.java.view.guiElements.JTextAreaElems.TextArea;
-import main.java.view.handler.ScreenHandler;
+import main.java.controller.handler.ScreenHandler;
 
 public class HomeScreenView extends AbstractView {
 

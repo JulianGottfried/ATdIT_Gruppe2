@@ -23,6 +23,26 @@ public class Persons extends AbstractEntry {
 	private String	Citizenship;
 	private String	IDNumber;
 	
+	public Persons() {
+	}
+	
+	public Persons(int personID, String name, String surname, String gender, String address, Date dateOfBirth,
+			String placeOfBirth, String maritalStatus, Date dateOfMarriage, String placOfMarriage, String citizenship,
+			String iDNumber) {
+		PersonID = personID;
+		Name = name;
+		Surname = surname;
+		Gender = gender;
+		Address = address;
+		DateOfBirth = dateOfBirth;
+		PlaceOfBirth = placeOfBirth;
+		MaritalStatus = maritalStatus;
+		DateOfMarriage = dateOfMarriage;
+		PlacOfMarriage = placOfMarriage;
+		Citizenship = citizenship;
+		IDNumber = iDNumber;
+	}
+	
 	public int getPersonID() {
 		return PersonID;
 	}

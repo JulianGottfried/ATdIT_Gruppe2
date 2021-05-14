@@ -4,10 +4,10 @@ import java.util.Locale;
 
 import javax.swing.JPanel;
 
-import main.java.view.exceptions.InterruptDrawException;
-import main.java.view.handler.ScreenHandler;
-import main.java.view.handler.languageHandler.I18nHandler;
-import main.java.view.handler.utilityHandler.*;
+import main.java.controller.exceptions.InterruptDrawException;
+import main.java.controller.handler.ScreenHandler;
+import main.java.controller.handler.languageHandler.I18nHandler;
+import main.java.controller.handler.utilityHandler.*;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;

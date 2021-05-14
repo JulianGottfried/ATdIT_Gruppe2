@@ -3,7 +3,7 @@ package main.java.view.guiElements.JTextAreaElems;
 import java.awt.Color;
 import java.awt.Font;
 
-import main.java.view.handler.ScreenHandler;
+import main.java.controller.handler.ScreenHandler;
 
 public class TextArea extends AbstractJTextArea {
     int areaHeight;

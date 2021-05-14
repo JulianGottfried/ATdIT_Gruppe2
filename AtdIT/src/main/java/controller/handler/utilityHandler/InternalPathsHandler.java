@@ -1,4 +1,4 @@
-package main.java.view.handler.utilityHandler;
+package main.java.controller.handler.utilityHandler;
 
 public class InternalPathsHandler extends AbstractUtilityHandler {
 

@@ -1,9 +1,9 @@
-package main.java.view.handler;
+package main.java.controller.handler;
 
 import java.util.Locale;
 
-import main.java.view.exceptions.InterruptDrawException;
-import main.java.view.handler.utilityHandler.*;
+import main.java.controller.exceptions.InterruptDrawException;
+import main.java.controller.handler.utilityHandler.*;
 import main.java.view.screen.WindowFrame;
 import main.java.view.screen.views.AbstractView;
 import main.java.view.screen.views.BlankView;

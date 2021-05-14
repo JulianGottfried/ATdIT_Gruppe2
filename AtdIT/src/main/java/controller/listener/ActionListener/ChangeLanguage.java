@@ -1,10 +1,10 @@
-package main.java.view.listener.ActionListener;
+package main.java.controller.listener.ActionListener;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Locale;
 
-import main.java.view.handler.ScreenHandler;
+import main.java.controller.handler.ScreenHandler;
 
 public class ChangeLanguage implements ActionListener {
     Locale language;

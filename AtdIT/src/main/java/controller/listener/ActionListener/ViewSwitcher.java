@@ -1,8 +1,8 @@
-package main.java.view.listener.ActionListener;
+package main.java.controller.listener.ActionListener;
 
 import java.awt.event.ActionListener;
 
-import main.java.view.handler.ScreenHandler;
+import main.java.controller.handler.ScreenHandler;
 import main.java.view.screen.views.AbstractView;
 
 import java.awt.event.ActionEvent;

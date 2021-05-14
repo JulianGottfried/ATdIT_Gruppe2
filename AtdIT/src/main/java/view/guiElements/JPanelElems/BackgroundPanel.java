@@ -7,7 +7,7 @@ import java.awt.Image;
 
 import javax.swing.JPanel;
 
-import main.java.view.handler.ScreenHandler;
+import main.java.controller.handler.ScreenHandler;
 
 public class BackgroundPanel extends AbstractJPanel {
     Image bg;
