@@ -9,11 +9,17 @@ import org.json.simple.JSONObject;
 import main.java.persistence.databaseTables.AbstractEntry;
 import main.java.persistence.databaseTables.Person;
 
-public class DatabaseManager implements DatabaseManagerInterface {
+public class DatabaseManager implements DatabaseManagerInterface{
 	EntityManager entityManager;
 	EntityManagerFactory emFactory;
 	
 	public static void main(String[] args) {
+		Person person = new Person();
+		person.setPersonenID("123");
+		person.setNachName("weitz");
+		new DatabaseManager().updateDatabase(person);
+		Person outPerson = new DatabaseManager().getDatabaseEntry(Person.class, "123");
+		System.out.println(outPerson.getNachName());
 	}
 	
 	public void writeToDatabase(AbstractEntry entry) {
@@ -28,9 +34,9 @@ public class DatabaseManager implements DatabaseManagerInterface {
 		closeManager();
 	}
 	
-	public AbstractEntry getDatabaseEntry(Class<AbstractEntry> entityClass, String key) {
+	public <T extends AbstractEntry> T getDatabaseEntry(Class<T> entityClass, String key) {
 		createManager();
-		AbstractEntry retrievedEntry = this.entityManager.find(entityClass, key);
+		T retrievedEntry = this.entityManager.find(entityClass, key);
 		closeManager();
 		return retrievedEntry;
 	}
