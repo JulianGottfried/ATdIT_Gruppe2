@@ -7,7 +7,7 @@ import javax.persistence.Persistence;
 import org.json.simple.JSONObject;
 
 import main.java.persistence.databaseTables.AbstractEntry;
-import main.java.persistence.databaseTables.Person;
+import main.java.persistence.databaseTables.Persons;
 
 public class DatabaseManager implements DatabaseManagerInterface{
 	EntityManager entityManager;
@@ -25,7 +25,7 @@ public class DatabaseManager implements DatabaseManagerInterface{
 		closeManager();
 	}
 	
-	public <T extends AbstractEntry> T getDatabaseEntry(Class<T> entityClass, String key) {
+	public <T extends AbstractEntry> T getDatabaseEntry(Class<T> entityClass, int key) {
 		createManager();
 		T retrievedEntry = this.entityManager.find(entityClass, key);
 		closeManager();
