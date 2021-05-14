@@ -1,6 +1,6 @@
 package main.java;
 
-import main.java.handler.ScreenHandler;
+import main.java.display.handler.ScreenHandler;
 
 public class StartProgram {
 
