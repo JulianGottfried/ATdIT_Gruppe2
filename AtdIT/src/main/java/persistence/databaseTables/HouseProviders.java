@@ -16,4 +16,47 @@ public class HouseProviders extends AbstractEntry {
 	private String Surname;
 	@ManyToOne
 	private Addresses Address;
+	
+	public HouseProviders() {
+		super();
+	}
+	
+	public HouseProviders(String name, String surname, Addresses address) {
+		super();
+		Name = name;
+		Surname = surname;
+		Address = address;
+	}
+
+	public int getProviderID() {
+		return ProviderID;
+	}
+
+	public void setProviderID(int providerID) {
+		ProviderID = providerID;
+	}
+
+	public String getName() {
+		return Name;
+	}
+
+	public void setName(String name) {
+		Name = name;
+	}
+
+	public String getSurname() {
+		return Surname;
+	}
+
+	public void setSurname(String surname) {
+		Surname = surname;
+	}
+
+	public Addresses getAddress() {
+		return Address;
+	}
+
+	public void setAddress(Addresses address) {
+		Address = address;
+	}
 }
