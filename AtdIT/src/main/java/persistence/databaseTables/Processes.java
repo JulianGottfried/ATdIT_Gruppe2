@@ -1,7 +1,6 @@
 package main.java.persistence.databaseTables;
 
-import java.io.Serializable;
-
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,24 +12,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Processes")
 @Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "Type")
 public class Processes extends AbstractEntry {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
-	private int	ProcessID;
-	
-	public Processes() {
-		super();
-	}
-	
-	public Processes(int processID) {
-		super();
-		ProcessID = processID;
-	}
-	
-	public int getProcessID() {
-		return ProcessID;
-	}
-	
-	public void setProcessID(int processID) {
-		ProcessID = processID;
-	}
+	private int		ProcessID;
+	private String	Type;
 }

@@ -13,9 +13,9 @@ public class DatabaseManager implements DatabaseManagerInterface{
 	EntityManager entityManager;
 	EntityManagerFactory emFactory;
 	
-	public void writeToDatabase(AbstractEntry entry) {
+	public void setDatabaseEntry(AbstractEntry entry) {
 		createManager();
-		this.entityManager.merge(entry);
+		this.entityManager.persist(entry);
 		closeManager();
 	}
 	

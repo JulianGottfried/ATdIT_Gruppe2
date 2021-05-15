@@ -4,18 +4,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Addresses")
-public class Addresses extends AbstractEntry {
+@Table(name = "Assignees")
+public class Assignees extends AbstractEntry {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO) 
-	private int 	AddressID;
-	private String	Street;
-	private int		StreetNumber;
-	private String	SecondLine;
-	private int		Postcode;
-	private String	City;
-	private String	Country;
+	private int 		AssigneeID;
+	private String 		Name;
+	private String 		Surname;
+	@ManyToOne
+	private Addresses 	Address;
 }
