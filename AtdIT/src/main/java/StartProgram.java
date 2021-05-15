@@ -11,10 +11,11 @@ import main.java.persistence.databaseTables.Persons;
 public class StartProgram {
 
     public static void main(String[] args) {
-        new ScreenHandler();
+        // new ScreenHandler();
     	
     	DatabaseManager dbm = new DatabaseManager();
     	
+    	// moin meister
     	ChangesOfAddresses x = new ChangesOfAddresses();
     	dbm.writeToDatabase(x);
     }
