@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -13,18 +14,18 @@ public class HouseOwners extends AbstractEntry {
 	private int 	OwnerID;
 	private String 	Name;
 	private String 	Surname;
-	private int 	AddressID;
+	@ManyToOne
+	private Addresses AddressID;
 	
 	public HouseOwners() {
 		super();
 	}
 	
-	public HouseOwners(int ownerID, String name, String surname, int addressID) {
+	public HouseOwners(int ownerID, String name, String surname) {
 		super();
 		OwnerID = ownerID;
 		Name = name;
 		Surname = surname;
-		AddressID = addressID;
 	}
 	
 	public int getOwnerID() {
@@ -51,11 +52,11 @@ public class HouseOwners extends AbstractEntry {
 		Surname = surname;
 	}
 	
-	public int getAddressID() {
+	public Addresses getAddress() {
 		return AddressID;
 	}
 	
-	public void setAddressID(int addressID) {
-		AddressID = addressID;
+	public void setAddress(Addresses address) {
+		AddressID = address;
 	}
 }

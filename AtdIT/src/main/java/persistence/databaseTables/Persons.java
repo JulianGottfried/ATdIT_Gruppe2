@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,7 +17,8 @@ public class Persons extends AbstractEntry {
 	private String	Name;
 	private String	Surname;
 	private String	Gender;
-	private int		AddressID;
+	@ManyToOne
+	private Addresses	Address;
 	private Date	DateOfBirth;
 	private String	PlaceOfBirth;
 	private String	MaritalStatus;
@@ -29,7 +31,7 @@ public class Persons extends AbstractEntry {
 		super();
 	}
 	
-	public Persons(int personID, String name, String surname, String gender, int address, Date dateOfBirth,
+	public Persons(int personID, String name, String surname, String gender, Date dateOfBirth,
 			String placeOfBirth, String maritalStatus, Date dateOfMarriage, String placOfMarriage, String citizenship,
 			String iDNumber) {
 		super();
@@ -37,7 +39,6 @@ public class Persons extends AbstractEntry {
 		Name = name;
 		Surname = surname;
 		Gender = gender;
-		AddressID = address;
 		DateOfBirth = dateOfBirth;
 		PlaceOfBirth = placeOfBirth;
 		MaritalStatus = maritalStatus;
@@ -79,12 +80,12 @@ public class Persons extends AbstractEntry {
 		Gender = gender;
 	}
 	
-	public int getAddressID() {
-		return AddressID;
+	public Addresses getAddress() {
+		return Address;
 	}
 	
-	public void setAddressID(int addressID) {
-		AddressID = addressID;
+	public void setAddress(Addresses addressID) {
+		Address = addressID;
 	}
 	
 	public Date getDateOfBirth() {

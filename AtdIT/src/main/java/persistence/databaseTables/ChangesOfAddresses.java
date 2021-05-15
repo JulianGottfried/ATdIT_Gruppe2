@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
@@ -17,25 +18,24 @@ import javax.persistence.Table;
 public class ChangesOfAddresses extends Processes {
 	private int 	PersonID;
 	private Date	MoveInDate;
-	private int 	OldAddressID;
-	private int 	NewAddressID;
-	private int 	HouseOwnerID;
-	private int 	HouseProviderID;
+	@ManyToOne
+	private Addresses 	OldAddress;
+	@ManyToOne
+	private Addresses 	NewAddress;
+	@ManyToOne
+	private HouseOwners HouseOwner;
+	@ManyToOne
+	private HouseProviders 	HouseProvider;
 	private int 	AssigneeID;
 	
 	public ChangesOfAddresses() {
 		super();
 	}
 	
-	public ChangesOfAddresses(int processID, int personID, Date moveInDate, int oldAddressID, int newAddressID,
-			int houseOwnerID, int houseProviderID, int assigneeID) {
+	public ChangesOfAddresses(int processID, int personID, Date moveInDate, int assigneeID) {
 		super(processID);
 		PersonID = personID;
 		MoveInDate = moveInDate;
-		OldAddressID = oldAddressID;
-		NewAddressID = newAddressID;
-		HouseOwnerID = houseOwnerID;
-		HouseProviderID = houseProviderID;
 		AssigneeID = assigneeID;
 	}
 	
@@ -55,36 +55,36 @@ public class ChangesOfAddresses extends Processes {
 		MoveInDate = moveInDate;
 	}
 	
-	public int getOldAddressID() {
-		return OldAddressID;
+	public Addresses getOldAddress() {
+		return OldAddress;
 	}
 	
-	public void setOldAddressID(int oldAddressID) {
-		OldAddressID = oldAddressID;
+	public void setOldAddress(Addresses oldAddress) {
+		OldAddress = oldAddress;
 	}
 	
-	public int getNewAddressID() {
-		return NewAddressID;
+	public Addresses getNewAddress() {
+		return NewAddress;
 	}
 	
-	public void setNewAddressID(int newAddressID) {
-		NewAddressID = newAddressID;
+	public void setNewAddress(Addresses newAddress) {
+		NewAddress = newAddress;
 	}
 	
-	public int getHouseOwnerID() {
-		return HouseOwnerID;
+	public HouseOwners getHouseOwner() {
+		return HouseOwner;
 	}
 	
-	public void setHouseOwnerID(int houseOwnerID) {
-		HouseOwnerID = houseOwnerID;
+	public void setHouseOwner(HouseOwners houseOwner) {
+		HouseOwner = houseOwner;
 	}
 	
-	public int getHouseProviderID() {
-		return HouseProviderID;
+	public HouseProviders getHouseProvider() {
+		return HouseProvider;
 	}
 	
-	public void setHouseProviderID(int houseProviderID) {
-		HouseProviderID = houseProviderID;
+	public void setHouseProvider(HouseProviders houseProvider) {
+		HouseProvider = houseProvider;
 	}
 	
 	public int getAssigneeID() {
