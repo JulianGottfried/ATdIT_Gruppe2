@@ -1,18 +1,18 @@
 package main.java.persistence.databaseTables;
 
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "Identifications")
-public class Identifications extends AbstractEntry {
-	private int 	IDNumber;
+public class Identifications implements AbstractEntry, Serializable {
+	@Id
+	private String 	IDNumber;
 	private String 	IssuingAuthority;
 	private Date 	DateOfIssuing;
 	private Date 	ExpiryDate;
@@ -21,7 +21,7 @@ public class Identifications extends AbstractEntry {
 		super();
 	}
 
-	public Identifications(int iDNumber, String issuingAuthority, Date dateOfIssuing, Date expiryDate) {
+	public Identifications(String iDNumber, String issuingAuthority, Date dateOfIssuing, Date expiryDate) {
 		super();
 		IDNumber = iDNumber;
 		IssuingAuthority = issuingAuthority;
@@ -29,11 +29,11 @@ public class Identifications extends AbstractEntry {
 		ExpiryDate = expiryDate;
 	}
 
-	public int getIDNumber() {
+	public String getIDNumber() {
 		return IDNumber;
 	}
 
-	public void setIDNumber(int iDNumber) {
+	public void setIDNumber(String iDNumber) {
 		IDNumber = iDNumber;
 	}
 

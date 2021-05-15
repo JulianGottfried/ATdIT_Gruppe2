@@ -1,5 +1,6 @@
 package main.java.persistence.databaseTables;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -12,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Persons")
-public class Persons extends AbstractEntry {
+public class Persons implements AbstractEntry, Serializable {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private int 			PersonID;
 	private String			Name;
@@ -33,22 +34,18 @@ public class Persons extends AbstractEntry {
 		super();
 	}
 
-	public Persons(int personID, String name, String surname, String gender, Addresses address, Date dateOfBirth,
-			String placeOfBirth, String maritalStatus, Date dateOfMarriage, String placOfMarriage, String citizenship,
-			Identifications identification) {
+	public Persons(String name, String surname, String gender, Date dateOfBirth,
+			String placeOfBirth, String maritalStatus, Date dateOfMarriage, String placOfMarriage, String citizenship) {
 		super();
-		PersonID = personID;
 		Name = name;
 		Surname = surname;
 		Gender = gender;
-		Address = address;
 		DateOfBirth = dateOfBirth;
 		PlaceOfBirth = placeOfBirth;
 		MaritalStatus = maritalStatus;
 		DateOfMarriage = dateOfMarriage;
 		PlacOfMarriage = placOfMarriage;
 		Citizenship = citizenship;
-		Identification = identification;
 	}
 
 	public int getPersonID() {

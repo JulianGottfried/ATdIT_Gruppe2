@@ -1,37 +1,40 @@
 package main.java.persistence.databaseTables;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "StagesOfCOA")
-public class StagesOfCOA extends AbstractEntry {
-	@Id
-	private int		ProcessID;
-	private boolean	Received;
-	private boolean	DataProcessing;	
-	private boolean	ReadyForMeeting;
+public class StagesOfCOA implements AbstractEntry, Serializable {
+	@Id @OneToOne 
+	private ChangesOfAddresses	ChangeOfAddress;
+	private boolean				Received;
+	private boolean				DataProcessing;	
+	private boolean				ReadyForMeeting;
 
 	public StagesOfCOA() {
 		super();
 	}
 
-	public StagesOfCOA(int processID, boolean received, boolean dataProcessing, boolean readyForMeeting) {
+	public StagesOfCOA(boolean received, boolean dataProcessing, boolean readyForMeeting) {
 		super();
-		ProcessID = processID;
 		Received = received;
 		DataProcessing = dataProcessing;
 		ReadyForMeeting = readyForMeeting;
 	}
 
-	public int getProcessID() {
-		return ProcessID;
+	public ChangesOfAddresses getProcessID() {
+		return ChangeOfAddress;
 	}
 
-	public void setProcessID(int processID) {
-		ProcessID = processID;
+	public void setProcessID(ChangesOfAddresses changeOfAddress) {
+		ChangeOfAddress = changeOfAddress;
 	}
 
 	public boolean isReceived() {

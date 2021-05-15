@@ -1,5 +1,7 @@
 package main.java.persistence.databaseTables;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Assignees")
-public class Assignees extends AbstractEntry {
+public class Assignees implements AbstractEntry, Serializable {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO) 
 	private int 		AssigneeID;
 	private String 		Name;
@@ -21,11 +23,10 @@ public class Assignees extends AbstractEntry {
 		super();
 	}
 	
-	public Assignees(String name, String surname, Addresses address) {
+	public Assignees(String name, String surname) {
 		super();
 		Name = name;
 		Surname = surname;
-		Address = address;
 	}
 
 	public int getAssigneeID() {

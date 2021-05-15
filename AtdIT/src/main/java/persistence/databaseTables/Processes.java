@@ -1,5 +1,7 @@
 package main.java.persistence.databaseTables;
 
+import java.io.Serializable;
+
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,19 +15,16 @@ import javax.persistence.Table;
 @Table(name = "Processes")
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "Type")
-public class Processes extends AbstractEntry {
+public class Processes implements AbstractEntry, Serializable {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private int		ProcessID;
-	private String	Type;
 
 	public Processes() {
 		super();
 	}
 
-	public Processes(int processID, String type) {
+	public Processes(String type) {
 		super();
-		ProcessID = processID;
-		Type = type;
 	}
 
 	public int getProcessID() {
@@ -34,13 +33,5 @@ public class Processes extends AbstractEntry {
 
 	public void setProcessID(int processID) {
 		ProcessID = processID;
-	}
-
-	public String getType() {
-		return Type;
-	}
-
-	public void setType(String type) {
-		Type = type;
 	}
 }
