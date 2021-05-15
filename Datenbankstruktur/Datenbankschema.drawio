@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-05-15T11:49:12.946Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36" etag="qEiL4qbLmKFvzjsYI95n" version="14.6.13" type="github">
+<mxfile host="app.diagrams.net" modified="2021-05-15T12:19:42.073Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36" etag="AkhIi7PwC9CPapBIpOht" version="14.6.13" type="github">
   <diagram name="Page-1" id="efa7a0a1-bf9b-a30e-e6df-94a7791c09e9">
-    <mxGraphModel dx="1363" dy="-96" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
+    <mxGraphModel dx="1635" dy="50" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -17,7 +17,7 @@
           <mxGeometry x="985" y="1019" width="160" height="90" as="geometry" />
         </mxCell>
         <mxCell id="UFs2jIFRDD2P4dvM7TEg-118" value="&lt;p style=&quot;margin: 4px 0px 0px ; text-align: center&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;&lt;b&gt;&lt;u&gt;Identifications&lt;/u&gt;&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;&lt;br&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;&lt;b&gt;&lt;font color=&quot;#000000&quot;&gt;IDNumber (int)&lt;/font&gt;&lt;/b&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;IssuingAuthority (String)&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;DateOfIssuing (Date)&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;ExpiryDate (Date)&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;shadow=0;fontColor=#003366;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="25" y="1209" width="160" height="90" as="geometry" />
+          <mxGeometry x="60" y="1094" width="160" height="90" as="geometry" />
         </mxCell>
         <mxCell id="UFs2jIFRDD2P4dvM7TEg-119" value="&lt;p style=&quot;margin: 4px 0px 0px ; text-align: center&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;&lt;b&gt;&lt;u&gt;Persons&lt;/u&gt;&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;&lt;br&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;&lt;b&gt;&lt;font color=&quot;#000000&quot;&gt;PersonID (int)&lt;/font&gt;&lt;/b&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Name (String)&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Surname (String)&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Gender (&lt;/font&gt;&lt;span style=&quot;color: rgb(0 , 0 , 0)&quot;&gt;String&lt;/span&gt;&lt;font color=&quot;#000000&quot;&gt;)&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;AddressID (int)&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;DateOfBirth (Date)&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;PlaceOfBirth (String)&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;MaritalStatus (String)&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;DateOfMarriage (Date)&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;PlaceOfMarriage (String)&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Citizenship (String)&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;IDNumber (String)&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;shadow=0;fontColor=#003366;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="405" y="1039" width="160" height="200" as="geometry" />
@@ -105,6 +105,10 @@
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="371.96000000000004" y="1226.1999999999998" as="sourcePoint" />
             <mxPoint x="195" y="1226" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="310" y="1224" />
+              <mxPoint x="310" y="1107" />
+            </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="UFs2jIFRDD2P4dvM7TEg-147" value="1" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" parent="UFs2jIFRDD2P4dvM7TEg-146" connectable="0" vertex="1">
@@ -228,6 +232,31 @@
         <mxCell id="ltlh27bSGSaUEZf7e7pa-30" value="1" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" connectable="0" vertex="1" parent="ltlh27bSGSaUEZf7e7pa-28">
           <mxGeometry x="1" relative="1" as="geometry">
             <mxPoint x="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ltlh27bSGSaUEZf7e7pa-32" value="&lt;p style=&quot;margin: 4px 0px 0px ; text-align: center&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;&lt;span style=&quot;font-size: 12px&quot;&gt;&lt;b&gt;&lt;u&gt;StagesOfCOA&lt;/u&gt;&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;&lt;br&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;&lt;b&gt;&lt;font color=&quot;#000000&quot;&gt;ProcessID (int)&lt;/font&gt;&lt;/b&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;Received (boolean)&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;DataProcessing (boolean)&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;ReadyForMeeting (boolean)&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px&quot;&gt;&lt;font color=&quot;#000000&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;shadow=0;fontColor=#003366;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="60" y="1310" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ltlh27bSGSaUEZf7e7pa-34" value="" style="endArrow=classic;html=1;entryX=-0.007;entryY=0.069;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="UFs2jIFRDD2P4dvM7TEg-115">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="57" y="1349" as="sourcePoint" />
+            <mxPoint x="440" y="1355" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="20" y="1349" />
+              <mxPoint x="20" y="1450" />
+              <mxPoint x="260" y="1450" />
+              <mxPoint x="260" y="1344" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ltlh27bSGSaUEZf7e7pa-35" value="1" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;" connectable="0" vertex="1" parent="ltlh27bSGSaUEZf7e7pa-34">
+          <mxGeometry x="-1" relative="1" as="geometry">
+            <mxPoint x="-17" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ltlh27bSGSaUEZf7e7pa-36" value="1" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;" connectable="0" vertex="1" parent="ltlh27bSGSaUEZf7e7pa-34">
+          <mxGeometry x="1" relative="1" as="geometry">
+            <mxPoint x="-15" as="offset" />
           </mxGeometry>
         </mxCell>
       </root>
