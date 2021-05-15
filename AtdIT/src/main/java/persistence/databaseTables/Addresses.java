@@ -1,14 +1,16 @@
 package main.java.persistence.databaseTables;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "Addresses")
 public class Addresses extends AbstractEntry {
-	@Id
-	private int		AddressID;
+	@Id @GeneratedValue(strategy=GenerationType.AUTO) 
+	private int 	AddressID;
 	private String	Street;
 	private int		StreetNumber;
 	private String	SecondLine;
@@ -17,10 +19,12 @@ public class Addresses extends AbstractEntry {
 	private String	Country;
 	
 	public Addresses() {
+		super();
 	}
 	
 	public Addresses(int addressID, String street, int streetNumber, String secondLine, int postcode, String city,
 			String country) {
+		super();
 		AddressID = addressID;
 		Street = street;
 		StreetNumber = streetNumber;

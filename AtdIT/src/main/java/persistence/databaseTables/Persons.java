@@ -3,13 +3,15 @@ package main.java.persistence.databaseTables;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "Persons")
 public class Persons extends AbstractEntry {
-	@Id
+	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private int 	PersonID;
 	private String	Name;
 	private String	Surname;
@@ -24,11 +26,13 @@ public class Persons extends AbstractEntry {
 	private String	IDNumber;
 	
 	public Persons() {
+		super();
 	}
 	
 	public Persons(int personID, String name, String surname, String gender, int address, Date dateOfBirth,
 			String placeOfBirth, String maritalStatus, Date dateOfMarriage, String placOfMarriage, String citizenship,
 			String iDNumber) {
+		super();
 		PersonID = personID;
 		Name = name;
 		Surname = surname;

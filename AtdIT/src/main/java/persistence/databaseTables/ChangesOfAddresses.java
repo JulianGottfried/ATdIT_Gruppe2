@@ -1,16 +1,20 @@
 package main.java.persistence.databaseTables;
 
+import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ChangeOfAddress")
-public class ChangeOfAddress extends AbstractEntry {
-	@Id
-	private int 	ProcessID;
+@PrimaryKeyJoinColumn(referencedColumnName = "ProcessID")
+@Table(name = "ChangesOfAddresses")
+public class ChangesOfAddresses extends Processes {
 	private int 	PersonID;
 	private Date	MoveInDate;
 	private int 	OldAddressID;
@@ -19,12 +23,13 @@ public class ChangeOfAddress extends AbstractEntry {
 	private int 	HouseProviderID;
 	private int 	AssigneeID;
 	
-	public ChangeOfAddress() {
+	public ChangesOfAddresses() {
+		super();
 	}
 	
-	public ChangeOfAddress(int processID, int personID, Date moveInDate, int oldAddressID, int newAddressID,
+	public ChangesOfAddresses(int processID, int personID, Date moveInDate, int oldAddressID, int newAddressID,
 			int houseOwnerID, int houseProviderID, int assigneeID) {
-		ProcessID = processID;
+		super(processID);
 		PersonID = personID;
 		MoveInDate = moveInDate;
 		OldAddressID = oldAddressID;
@@ -32,14 +37,6 @@ public class ChangeOfAddress extends AbstractEntry {
 		HouseOwnerID = houseOwnerID;
 		HouseProviderID = houseProviderID;
 		AssigneeID = assigneeID;
-	}
-	
-	public int getProcessID() {
-		return ProcessID;
-	}
-	
-	public void setProcessID(int processID) {
-		ProcessID = processID;
 	}
 	
 	public int getPersonID() {

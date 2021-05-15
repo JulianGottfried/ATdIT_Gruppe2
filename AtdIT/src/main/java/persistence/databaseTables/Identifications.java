@@ -4,22 +4,26 @@ package main.java.persistence.databaseTables;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "Identifications")
 public class Identifications extends AbstractEntry {
-	@Id
+	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private int 	IDNumber;
 	private String 	IssuingAuthority;
 	private Date 	DateOfIssuing;
 	private Date 	ExpiryDate;
 	
 	public Identifications() {
+		super();
 	}
 	
 	public Identifications(int iDNumber, String issuingAuthority, Date dateOfIssuing, Date expiryDate) {
+		super();
 		IDNumber = iDNumber;
 		IssuingAuthority = issuingAuthority;
 		DateOfIssuing = dateOfIssuing;
