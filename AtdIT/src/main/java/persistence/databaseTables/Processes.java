@@ -17,4 +17,30 @@ public class Processes extends AbstractEntry {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private int		ProcessID;
 	private String	Type;
+
+	public Processes() {
+		super();
+	}
+
+	public Processes(int processID, String type) {
+		super();
+		ProcessID = processID;
+		Type = type;
+	}
+
+	public int getProcessID() {
+		return ProcessID;
+	}
+
+	public void setProcessID(int processID) {
+		ProcessID = processID;
+	}
+
+	public String getType() {
+		return Type;
+	}
+
+	public void setType(String type) {
+		Type = type;
+	}
 }

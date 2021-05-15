@@ -28,4 +28,122 @@ public class Persons extends AbstractEntry {
 	private String			Citizenship;
 	@OneToOne
 	private Identifications	Identification;
+
+	public Persons() {
+		super();
+	}
+
+	public Persons(int personID, String name, String surname, String gender, Addresses address, Date dateOfBirth,
+			String placeOfBirth, String maritalStatus, Date dateOfMarriage, String placOfMarriage, String citizenship,
+			Identifications identification) {
+		super();
+		PersonID = personID;
+		Name = name;
+		Surname = surname;
+		Gender = gender;
+		Address = address;
+		DateOfBirth = dateOfBirth;
+		PlaceOfBirth = placeOfBirth;
+		MaritalStatus = maritalStatus;
+		DateOfMarriage = dateOfMarriage;
+		PlacOfMarriage = placOfMarriage;
+		Citizenship = citizenship;
+		Identification = identification;
+	}
+
+	public int getPersonID() {
+		return PersonID;
+	}
+
+	public void setPersonID(int personID) {
+		PersonID = personID;
+	}
+
+	public String getName() {
+		return Name;
+	}
+
+	public void setName(String name) {
+		Name = name;
+	}
+
+	public String getSurname() {
+		return Surname;
+	}
+
+	public void setSurname(String surname) {
+		Surname = surname;
+	}
+
+	public String getGender() {
+		return Gender;
+	}
+
+	public void setGender(String gender) {
+		Gender = gender;
+	}
+
+	public Addresses getAddress() {
+		return Address;
+	}
+
+	public void setAddress(Addresses address) {
+		Address = address;
+	}
+
+	public Date getDateOfBirth() {
+		return DateOfBirth;
+	}
+
+	public void setDateOfBirth(Date dateOfBirth) {
+		DateOfBirth = dateOfBirth;
+	}
+
+	public String getPlaceOfBirth() {
+		return PlaceOfBirth;
+	}
+
+	public void setPlaceOfBirth(String placeOfBirth) {
+		PlaceOfBirth = placeOfBirth;
+	}
+
+	public String getMaritalStatus() {
+		return MaritalStatus;
+	}
+
+	public void setMaritalStatus(String maritalStatus) {
+		MaritalStatus = maritalStatus;
+	}
+
+	public Date getDateOfMarriage() {
+		return DateOfMarriage;
+	}
+
+	public void setDateOfMarriage(Date dateOfMarriage) {
+		DateOfMarriage = dateOfMarriage;
+	}
+
+	public String getPlacOfMarriage() {
+		return PlacOfMarriage;
+	}
+
+	public void setPlacOfMarriage(String placOfMarriage) {
+		PlacOfMarriage = placOfMarriage;
+	}
+
+	public String getCitizenship() {
+		return Citizenship;
+	}
+
+	public void setCitizenship(String citizenship) {
+		Citizenship = citizenship;
+	}
+
+	public Identifications getIdentification() {
+		return Identification;
+	}
+
+	public void setIdentification(Identifications identification) {
+		Identification = identification;
+	}
 }
