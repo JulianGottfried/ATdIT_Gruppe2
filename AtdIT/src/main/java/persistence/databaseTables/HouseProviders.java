@@ -10,8 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "HouseProviders")
 public class HouseProviders extends AbstractEntry {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Id @GeneratedValue(strategy = GenerationType.AUTO)
 	private int ProviderID;
 	private String Name;
 	private String Surname;
