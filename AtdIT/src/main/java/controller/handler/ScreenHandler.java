@@ -25,7 +25,7 @@ public class ScreenHandler {
     private WindowFrame mainScreen;
 
     public ScreenHandler() {
-    	this.language = Locale.getDefault();
+    	this.language = new Locale("de_DE");
     	this.colorTemplate = "colors/normalColors.properties";
     	this.fontTemplate = "fonts/normalFonts.properties";
     	this.imageTemplate = "images.properties";
