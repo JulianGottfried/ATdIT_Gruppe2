@@ -19,7 +19,7 @@ public class StartProgram {
 	public static void main(String[] args) {
         // new ScreenHandler();
     	DatabaseManager dbm = new DatabaseManager();
-    	
+    	   	
     	ChangesOfAddresses coa = new ChangesOfAddresses(new Date());
     	
 	    	Persons person1 = new Persons("Marvin", "Weitz", "m", new Date(2000, 11, 24), "Bad Hersfeld", "ledig", null, null, "Deutsch");
@@ -27,6 +27,7 @@ public class StartProgram {
 		    	Addresses person1Ad = new Addresses("Rohrbacher Str", 59, "Stock 1", 69115, "Heidelberg", "Deutschland");
 		    	dbm.setDatabaseEntry(person1Ad);
 		    	
+
 		    	Identifications id1 = new Identifications("X4D567", "Wildeck-Obersuhl", new Date(2011, 12, 24), new Date(2025, 12, 24));
 		    	dbm.setDatabaseEntry(id1);
 		    	
@@ -53,7 +54,7 @@ public class StartProgram {
 		    	persons.add(person2);
 		    
 		     coa.setPersonList(persons);	   
-    	
+
     	
 	    	Addresses adOld = new Addresses("Rohrbacher Str", 69, null, 69115, "Heidelberg", "Deutschland");
 	    		dbm.setDatabaseEntry(adOld);
@@ -75,6 +76,7 @@ public class StartProgram {
 	    	
 	    dbm.setDatabaseEntry(coa);
 	    
+    	
 	    
 	    StagesOfCOA sOCOA = new StagesOfCOA(true, false, false);
 	    

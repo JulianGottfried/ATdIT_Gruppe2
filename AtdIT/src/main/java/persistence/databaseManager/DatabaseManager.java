@@ -4,10 +4,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import org.json.simple.JSONObject;
+import org.postgresql.util.PSQLException;
 
 import main.java.persistence.databaseTables.AbstractEntry;
-import main.java.persistence.databaseTables.Persons;
 
 public class DatabaseManager implements DatabaseManagerInterface{
 	EntityManager entityManager;
@@ -17,6 +16,7 @@ public class DatabaseManager implements DatabaseManagerInterface{
 		createManager();
 		this.entityManager.persist(entry);
 		closeManager();
+
 	}
 	
 	public void updateDatabase(AbstractEntry newEntry) {
