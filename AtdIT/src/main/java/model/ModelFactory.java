@@ -1,9 +1,13 @@
 package main.java.model;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Optional;
 
 import main.java.persistence.databaseManager.DatabaseManager;
+import main.java.persistence.databaseTables.AbstractEntry;
 import main.java.persistence.databaseTables.Addresses;
 import main.java.persistence.databaseTables.Assignees;
 import main.java.persistence.databaseTables.ChangesOfAddresses;
@@ -21,18 +25,44 @@ public class ModelFactory {
 		this.dbm = new DatabaseManager();
 	}
 	
+//	public static Object getAttribute(AbstractEntry obj, String methodName) {
+//		Method method = null;
+//		Object attribute = null;
+//		try {
+//			method = getMethode(obj.getClass(), methodName);			
+//			try {
+//				attribute = method.invoke(obj);
+//			} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException | NullPointerException e) {
+//				e.printStackTrace();
+//			}
+//		} catch (NoSuchMethodException | SecurityException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		return attribute;
+//	}
+//	
+//	public static Method getMethode(Class<? extends AbstractEntry> c, String methodName) throws NoSuchMethodException, SecurityException {
+//		Method method = null;
+//		method = c.getMethod(methodName);
+//		return method;
+//		
+//	}
+	
 	public Address createAddress(String street, int streetNumber, String secondLine, int postcode, String city, String country) {		
 		return new Address(street, streetNumber, secondLine, postcode, city, country);
 	}
 
 	public Address createAddress(Addresses addressEntry) {
 		Address address = new Address();
-		address.setCity(addressEntry.getCity());
-		address.setCountry(addressEntry.getCountry());
-		address.setPostcode(addressEntry.getPostcode());
-		address.setSecondLine(addressEntry.getSecondLine());
-		address.setStreetNumber(addressEntry.getStreetNumber());
-		address.setStreet(addressEntry.getStreet());
+		if (addressEntry != null) {
+			address.setCity(addressEntry.getCity());
+			address.setCountry(addressEntry.getCountry());
+			address.setPostcode(addressEntry.getPostcode());
+			address.setSecondLine(addressEntry.getSecondLine());
+			address.setStreetNumber(addressEntry.getStreetNumber());
+			address.setStreet(addressEntry.getStreet());
+		}
 		return address;
 	}
 	
@@ -45,11 +75,14 @@ public class ModelFactory {
 		return new Assignee(name, surname, address);
 	}
 	
+	
 	public Assignee createAssignee(Assignees assigneeEntry) {
 		Assignee assignee = new Assignee();
-		assignee.setAddress(createAddress(assigneeEntry.getAddress()));
-		assignee.setName(assigneeEntry.getName());
-		assignee.setSurname(assigneeEntry.getSurname());
+		if (assigneeEntry != null) {
+			assignee.setAddress(createAddress(assigneeEntry.getAddress()));
+			assignee.setName(assigneeEntry.getName());
+			assignee.setSurname(assigneeEntry.getSurname());
+		}
 		return assignee;
 	}
 	
@@ -65,22 +98,24 @@ public class ModelFactory {
 	
 	public ChangeOfAddress createChangeOfAddress(ChangesOfAddresses coaEntry) {
 		ChangeOfAddress coa = new ChangeOfAddress();
-		coa.setAssignee(createAssignee(coaEntry.getAssignee()));
-		coa.setHouseOwner(createHouseOwner(coaEntry.getHouseOwner()));
-		coa.setHouseProvider(createHouseProvider(coaEntry.getHouseProvider()));
-		coa.setMoveInDate(coaEntry.getMoveInDate());
-		coa.setNewAddress(createAddress(coaEntry.getNewAddress()));
-		coa.setOldAddress(createAddress(coaEntry.getOldAddress()));
-		ArrayList<Person> personList = new ArrayList<Person>();
-		for (Persons personEntry : coaEntry.getPersonList()) {
-			personList.add(createPerson(personEntry));
+		if (coaEntry != null) {
+			coa.setAssignee(createAssignee(coaEntry.getAssignee()));
+			coa.setHouseOwner(createHouseOwner(coaEntry.getHouseOwner()));
+			coa.setHouseProvider(createHouseProvider(coaEntry.getHouseProvider()));
+			coa.setMoveInDate(coaEntry.getMoveInDate());
+			coa.setNewAddress(createAddress(coaEntry.getNewAddress()));
+			coa.setOldAddress(createAddress(coaEntry.getOldAddress()));
+			ArrayList<Person> personList = new ArrayList<Person>();
+			for (Persons personEntry : coaEntry.getPersonList()) {
+				personList.add(createPerson(personEntry));
+			}
+			coa.setPersons(personList);
 		}
-		coa.setPersons(personList);
 		return coa;
 	}
 
 	public ChangeOfAddress createChangeOfAddress(int key) {
-		ChangesOfAddresses coaEntry = new ChangesOfAddresses();
+		ChangesOfAddresses coaEntry = dbm.getDatabaseEntry(ChangesOfAddresses.class, key);
 		return createChangeOfAddress(coaEntry);
 	}
 	
@@ -90,9 +125,11 @@ public class ModelFactory {
 	
 	public HouseOwner createHouseOwner(HouseOwners houseOwnerEntry) {
 		HouseOwner houseOwner = new HouseOwner();
-		houseOwner.setAddress(createAddress(houseOwnerEntry.getAddress()));
-		houseOwner.setName(houseOwnerEntry.getName());
-		houseOwner.setSurname(houseOwnerEntry.getSurname());
+		if (houseOwnerEntry != null) {
+			houseOwner.setAddress(createAddress(houseOwnerEntry.getAddress()));
+			houseOwner.setName(houseOwnerEntry.getName());
+			houseOwner.setSurname(houseOwnerEntry.getSurname());
+		}
 		return houseOwner;
 	}
 	
@@ -107,9 +144,11 @@ public class ModelFactory {
 	
 	public HouseProvider createHouseProvider(HouseProviders houseProviderEntry) {
 		HouseProvider houseProvider = new HouseProvider();
-		houseProvider.setAddress(createAddress(houseProviderEntry.getAddress()));
-		houseProvider.setName(houseProviderEntry.getName());
-		houseProvider.setSurname(houseProviderEntry.getSurname());
+		if (houseProviderEntry != null) {
+			houseProvider.setAddress(createAddress(houseProviderEntry.getAddress()));
+			houseProvider.setName(houseProviderEntry.getName());
+			houseProvider.setSurname(houseProviderEntry.getSurname());
+		}
 		return houseProvider;
 	}
 	
@@ -124,10 +163,12 @@ public class ModelFactory {
 	
 	public Identification createIdentification(Identifications idEntry) {
 		Identification identification = new Identification();
-		identification.setDateOfIssuing(idEntry.getDateOfIssuing());
-		identification.setExpiryDate(idEntry.getExpiryDate());
-		identification.setIssuingAuthority(idEntry.getIssuingAuthority());
-		identification.setIDNumber(idEntry.getIDNumber());
+		if (idEntry != null) {
+			identification.setDateOfIssuing(idEntry.getDateOfIssuing());
+			identification.setExpiryDate(idEntry.getExpiryDate());
+			identification.setIssuingAuthority(idEntry.getIssuingAuthority());
+			identification.setIDNumber(idEntry.getIDNumber());
+		}
 		return identification;
 	}
 	
@@ -149,17 +190,19 @@ public class ModelFactory {
 	
 	public Person createPerson(Persons personEntry) {
 		Person person = new Person();
-		person.setAddress(createAddress(personEntry.getAddress()));
-		person.setCitizinship(personEntry.getCitizenship());
-		person.setDateOfBirth(personEntry.getDateOfBirth());
-		person.setDateOfMarriage(personEntry.getDateOfMarriage());
-		person.setGender(personEntry.getGender());
-		person.setIdentification(createIdentification(personEntry.getIdentification()));
-		person.setMaritalStatus(personEntry.getMaritalStatus());
-		person.setName(personEntry.getName());
-		person.setPlaceOfBirth(personEntry.getPlaceOfBirth());
-		person.setPlaceOfMarriage(personEntry.getPlacOfMarriage());
-		person.setSurname(personEntry.getSurname());
+		if (personEntry != null) {
+			person.setAddress(createAddress(personEntry.getAddress()));
+			person.setCitizinship(personEntry.getCitizenship());
+			person.setDateOfBirth(personEntry.getDateOfBirth());
+			person.setDateOfMarriage(personEntry.getDateOfMarriage());
+			person.setGender(personEntry.getGender());
+			person.setIdentification(createIdentification(personEntry.getIdentification()));
+			person.setMaritalStatus(personEntry.getMaritalStatus());
+			person.setName(personEntry.getName());
+			person.setPlaceOfBirth(personEntry.getPlaceOfBirth());
+			person.setPlaceOfMarriage(personEntry.getPlacOfMarriage());
+			person.setSurname(personEntry.getSurname());
+		}
 		return null;
 	}
 	
@@ -169,14 +212,16 @@ public class ModelFactory {
 	
 	public StageOfCOA createStagesOfCOA(StagesOfCOA stagesEntry) {
 		StageOfCOA stages = new StageOfCOA();
-		Boolean[] stagesList = {stagesEntry.isReceived(), 
-								stagesEntry.isDataProcessing(), 
-								stagesEntry.isReadyForMeeting()};
-		stages.setStages(stagesList);
+		if (stagesEntry != null) {
+			Boolean[] stagesList = {stagesEntry.isReceived(), 
+									stagesEntry.isDataProcessing(), 
+									stagesEntry.isReadyForMeeting()};
+			stages.setStages(stagesList);
+		}
 		return stages;
 	}
 	
-	public StageOfCOA readStagesOfCOAFromDB(int key) {
+	public StageOfCOA createStagesOfCOA(int key) {
 		StagesOfCOA stagesEntry = dbm.getDatabaseEntry(StagesOfCOA.class, key);
 		return createStagesOfCOA(stagesEntry);
 	}
