@@ -203,7 +203,7 @@ public class ModelFactory {
 			person.setPlaceOfMarriage(personEntry.getPlacOfMarriage());
 			person.setSurname(personEntry.getSurname());
 		}
-		return null;
+		return person;
 	}
 	
 	public StageOfCOA createStagesOfCOA(Boolean[] stages) {

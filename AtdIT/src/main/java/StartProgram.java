@@ -86,13 +86,5 @@ public class StartProgram {
 //	    sOCOA.setProcessID(coa);
 //    	
 //    	dbm.setDatabaseEntry(sOCOA);
-    	
-    	
-    	ModelFactory  mf = new ModelFactory();
-    	
-    	ChangeOfAddress coa = mf.createChangeOfAddress(294);
-    	StageOfCOA sCOA = mf.createStagesOfCOA(294);
-    	
-    	System.out.println(coa.getPersons());    	
     }
 }
