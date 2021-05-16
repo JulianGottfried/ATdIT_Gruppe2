@@ -20,7 +20,7 @@ public class StartProgram {
 
     @SuppressWarnings("deprecation")
 	public static void main(String[] args) {
-//         new ScreenHandler();
+        new ScreenHandler();
 //    	DatabaseManager dbm = new DatabaseManager();
 //    	   	
 //    	ChangesOfAddresses coa = new ChangesOfAddresses(new Date());
