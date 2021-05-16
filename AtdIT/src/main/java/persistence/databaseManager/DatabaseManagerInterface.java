@@ -1,7 +1,6 @@
 package main.java.persistence.databaseManager;
 
 import main.java.persistence.databaseTables.AbstractEntry;
-import main.java.persistence.databaseTables.Persons;
 
 public interface DatabaseManagerInterface {
 	static final String PERSISTENCEUNITNAME = "PostgreSQL";

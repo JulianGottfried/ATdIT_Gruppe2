@@ -1,7 +1,5 @@
 package main.java.view.screen.views;
 
-import java.util.Locale;
-
 import main.java.controller.handler.ScreenHandler;
 
 public class BlankView extends AbstractView {

@@ -4,8 +4,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import org.postgresql.util.PSQLException;
-
 import main.java.persistence.databaseTables.AbstractEntry;
 
 public class DatabaseManager implements DatabaseManagerInterface{
