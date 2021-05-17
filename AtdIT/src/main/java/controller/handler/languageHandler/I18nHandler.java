@@ -28,9 +28,7 @@ public class I18nHandler {
         try {
             this.bundle = ResourceBundle.getBundle(constructBundleLink(bundleName), language);
         } catch (MissingResourceException e) {
-            new ErrorPopUp(screenHandler, i18n.getString("errorMessage"),
-                    i18n.getString("errorTitle"));
-            throw new InterruptDrawException("TEST");
+            throw new InterruptDrawException("");
         }
     }
 

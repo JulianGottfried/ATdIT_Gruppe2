@@ -9,7 +9,9 @@ import java.awt.Insets;
 
 import org.json.simple.JSONObject;
 
+import main.java.controller.exceptions.InterruptDrawException;
 import main.java.controller.handler.ScreenHandler;
+import main.java.controller.handler.languageHandler.I18nHandler;
 import main.java.questions.QuestionHandler;
 import main.java.view.guiElements.JButtonElems.FancyButton;
 import main.java.view.guiElements.JTextAreaElems.FancyTextArea;
@@ -22,27 +24,48 @@ public class QALabel extends AbstractJPanel {
 	private QuestionHandler qh;
 	private JSONObject questionObj;
 	private JSONObject currentQuestion;
+	private I18nHandler i18n;
 
 	public QALabel(ScreenHandler screenHandler, Dimension dimensions, String questionFile) {
 		super(screenHandler);
-		this.language = screenHandler.getLanguage().getDisplayLanguage();
+		this.setI18n(screenHandler);
+		this.language = screenHandler.getLanguage().getLanguage();
+		this.setPreferredSize(dimensions);
+		this.setMinimumSize(dimensions);
+		this.setLayout(new GridBagLayout());
+		this.setBackground(this.colorHandler.getColor("menuButton2"));
+		
 		this.qh = new QuestionHandler();
 		this.questionObj = qh.getQuestion(questionFile);
 		String initialKey = qh.getString(this.questionObj, "initial");
 		this.currentQuestion = qh.getJSON(questionObj, initialKey);
-		this.setPreferredSize(dimensions);
-		this.setMinimumSize(dimensions);
-		this.setLayout(new GridBagLayout());
+		
 		this.qPanel =  new QuestionLabel(screenHandler);
 		this.aPanel =  new AnswerLabel(screenHandler);
-		FancyButton confirm = new FancyButton(screenHandler, "menuButton2", "bigMenuButton");
-        confirm.setForeground("bigMenuButtonFG");
-		confirm.setText("Weiter");
+		
+		FancyButton next = new FancyButton(screenHandler, "menuButton2", "bigMenuButton");
+		next.setForeground(colorHandler.getColor("bigMenuButtonFG"));
+		next.setBackground(colorHandler.getColor("bigMenuButtonBG"));
+		next.setText(i18n.getString("nextButton"));
+		FancyButton previous = new FancyButton(screenHandler, "menuButton2", "bigMenuButton");
+		previous.setForeground(colorHandler.getColor("bigMenuButtonFG"));
+		previous.setBackground(colorHandler.getColor("bigMenuButtonBG"));
+		previous.setText(i18n.getString("previousButton"));
 		
 		this.showQuestion(currentQuestion);
 		
-		GridBagConstraints gbc = new GridBagConstraints();
+		GridBagConstraints 
+		gbc = new GridBagConstraints();
 		gbc.gridx = 0;
+		gbc.gridy = 1;
+		gbc.weightx = 1.0;
+		gbc.weighty = 1.0;
+		gbc.insets = new Insets(0, 50, 50, 20);
+		gbc.anchor = GridBagConstraints.LAST_LINE_END;
+		this.add(previous, gbc);
+		
+		gbc = new GridBagConstraints();
+		gbc.gridx = 1;
 		gbc.gridy = 0;
 		gbc.weightx = 1.0;
 		gbc.weighty = 1.0;
@@ -51,7 +74,7 @@ public class QALabel extends AbstractJPanel {
 		this.add(qPanel, gbc);
 		
 		gbc = new GridBagConstraints();
-		gbc.gridx = 0;
+		gbc.gridx = 1;
 		gbc.gridy = 1;
 		gbc.weightx = 1.0;
 		gbc.weighty = 1.0;
@@ -60,13 +83,21 @@ public class QALabel extends AbstractJPanel {
 		this.add(aPanel, gbc);
 		
 		gbc = new GridBagConstraints();
-		gbc.gridx = 1;
+		gbc.gridx = 2;
 		gbc.gridy = 1;
 		gbc.weightx = 1.0;
 		gbc.weighty = 1.0;
-		gbc.insets = new Insets(0, 50, 50, 50);
+		gbc.insets = new Insets(0, 20, 50, 50);
 		gbc.anchor = GridBagConstraints.LAST_LINE_START;
-		this.add(confirm, gbc);
+		this.add(next, gbc);	
+	}
+	
+	public void setI18n(ScreenHandler screenHandler) {
+		try {
+			this.i18n = new I18nHandler(this.getClass().getSimpleName(), screenHandler.getLanguage(), screenHandler);
+		} catch (InterruptDrawException e) {
+            screenHandler.changeCurrentView(screenHandler.getPreviousView());
+		}
 	}
 	
 	public void showQuestion(JSONObject questionObj) {
@@ -89,15 +120,16 @@ public class QALabel extends AbstractJPanel {
 		public QuestionLabel(ScreenHandler screenHandler) {
 			super(screenHandler);
 			this.setLayout(new GridBagLayout());
-			this.setBackground(Color.BLACK);
+			this.setBackground(colorHandler.getColor("transparent"));
 			this.questionArea = new FancyTextArea(screenHandler);
-			this.questionArea.setBackground(Color.BLACK);
+			
 			GridBagConstraints gbc = new GridBagConstraints();
 			gbc.gridx = 0;
 			gbc.gridy = 0;
 			gbc.weightx = 1.0;
 			gbc.weighty = 1.0;
-			gbc.fill = GridBagConstraints.BOTH;
+			gbc.fill = GridBagConstraints.HORIZONTAL;
+			gbc.anchor = GridBagConstraints.CENTER;
 			gbc.insets = new Insets(15, 25, 15, 25);
 			this.add(this.questionArea, gbc);
 		}
@@ -114,7 +146,6 @@ public class QALabel extends AbstractJPanel {
 			super(screenHandler);
 			this.screenHandler = screenHandler;
 			this.setLayout(new GridBagLayout());
-			this.setBackground(Color.BLACK);
 		}
 		
 		public void adjustAnswerType(String answerType) {

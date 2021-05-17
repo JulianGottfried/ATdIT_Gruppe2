@@ -51,7 +51,7 @@ public class ChangeOfAddressInitial extends AbstractView {
             text.setText(i18n.getString("text"));
             
             FancyButton startProcess = new FancyButton(screenHandler, "menuButton2", "bigMenuButton");
-            startProcess.setForeground("bigMenuButtonFG");
+            startProcess.setForeground(colorHandler.getColor("bigMenuButtonFG"));
             startProcess.setText(i18n.getString("startButton"));
             startProcess.addActionListener(new ViewSwitcher(screenHandler, new ChangeOfAddressQA(screenHandler)));
             

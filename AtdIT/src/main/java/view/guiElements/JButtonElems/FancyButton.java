@@ -18,8 +18,4 @@ public class FancyButton extends AbstractButton{
 		this.setBackground(colorHandler.getColor(bgColorKey));
 		this.setFont(fontHandler.getFont(fontKey));
 	}
-	
-	public void setForeground(String fgColorKey) {
-		super.setForeground(colorHandler.getColor(fgColorKey));
-	}
 }

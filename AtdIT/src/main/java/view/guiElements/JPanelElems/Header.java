@@ -9,7 +9,6 @@ import javax.swing.plaf.InsetsUIResource;
 import main.java.controller.exceptions.InterruptDrawException;
 import main.java.view.guiElements.JButtonElems.FancyButton;
 import main.java.view.guiElements.JLabelElems.ImageDisplay;
-import main.java.view.guiElements.JOptionPaneElems.ErrorPopUp;
 import main.java.controller.handler.ScreenHandler;
 import main.java.controller.handler.languageHandler.I18nHandler;
 import main.java.controller.listener.ActionListener.ChangeLanguage;
@@ -19,17 +18,11 @@ import main.java.view.screen.views.*;
 
 public class Header extends AbstractJPanel{
     private GridBagConstraints gbc;
-    private ScreenHandler screenHandler;
-    private Locale language;
-    private String bundleName;
     private I18nHandler i18n;
 
     public Header(ScreenHandler screenHandler) {
     	super(screenHandler);
-        this.screenHandler = screenHandler;
-        this.language = screenHandler.getLanguage();
-        this.bundleName = this.getClass().getSimpleName();
-        this.setI18n();
+        this.setI18n(screenHandler);
         this.setLayout(new GridBagLayout());
 
         ImageDisplay logo = new ImageDisplay(screenHandler, imageHandler.getImage("logo"), -1, 100, new Return2Home(screenHandler));
@@ -57,12 +50,11 @@ public class Header extends AbstractJPanel{
         this.add(langButtons, gbc);
     }
 
-    public void setI18n() {
+    public void setI18n(ScreenHandler screenHandler) {
         try {
-            this.i18n = new I18nHandler(this.bundleName, this.language, this.screenHandler);
+            this.i18n = new I18nHandler(this.getClass().getSimpleName(), screenHandler.getLanguage(), screenHandler);
         } catch (InterruptDrawException e) {
-            new ErrorPopUp(this.screenHandler, i18n.getString("errorMessage"), i18n.getString("errorTitle"));
-            this.screenHandler.changeCurrentView(this.screenHandler.getPreviousView());
+            screenHandler.changeCurrentView(screenHandler.getPreviousView());
         }
     }
     

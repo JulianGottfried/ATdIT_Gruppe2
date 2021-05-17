@@ -12,7 +12,12 @@ public class ColorHandler extends AbstractUtilityHandler {
 	
 	public Color getColor(String colorKey) {
 		String colorString = this.getProperty(colorKey);
-		ArrayList<String> colors = new ArrayList<>(Arrays.asList(colorString.split("\\s*,\\s*")));
+		ArrayList<String> colors = new ArrayList<>();
+		try {
+			colors = new ArrayList<>(Arrays.asList(colorString.split("\\s*,\\s*")));
+		} catch (NullPointerException npe) {
+			return new Color(0, 0, 0);
+		}
 		int r = Integer.parseInt(colors.get(0));
 		int g = Integer.parseInt(colors.get(1));
 		int b = Integer.parseInt(colors.get(2));
