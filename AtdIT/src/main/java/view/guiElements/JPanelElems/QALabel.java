@@ -101,7 +101,6 @@ public class QALabel extends AbstractJPanel {
 	}
 	
 	public void showQuestion(JSONObject questionObj) {
-		System.out.println(this.language);
 		this.setQuestion(qh.getString(questionObj, this.language));
 		this.setAnswerType(qh.getString(questionObj, "type"));
 	}
