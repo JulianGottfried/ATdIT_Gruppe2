@@ -1,8 +1,10 @@
 package main.java.view.guiElements.JPanelElems;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 import java.awt.Insets;
 import java.util.ArrayList;
 
@@ -13,45 +15,42 @@ import javax.swing.JLabel;
 import main.java.controller.handler.ScreenHandler;
 
 public class ProgressBar extends AbstractJPanel {
-	ArrayList<ProgressRect> progressRects;
-	Dimension rectDimensions;
+	private ArrayList<ProgressBox> progressBoxes;
+	private String boxColorKey;
 
-	public ProgressBar(ScreenHandler screenHandler, String bgColorKey, Dimension dimensions, int elemCount) {
+	public ProgressBar(ScreenHandler screenHandler, Dimension dimensions, String bgColorKey, String boxColor, int boxesCount, int overallTasks, int doneTasks) {
 		super(screenHandler);
-		progressRects = new ArrayList<ProgressRect>();
+		progressBoxes = new ArrayList<ProgressBox>();
+		this.boxColorKey = boxColor;
 		this.setLayout(new GridBagLayout());
 		this.setMinimumSize(dimensions);
 		this.setBackground(colorHandler.getColor(bgColorKey));
 		this.setBorder(BorderFactory.createLineBorder(colorHandler.getColor("frameBorder"), 5, true));
-		this.setPreferredSize(new Dimension(600, 800));
-		setRectDimensions(dimensions, elemCount);
+		this.setPreferredSize(dimensions);
 				
-		for (int i=0; i<elemCount; i++) {
-			ProgressRect pr = new ProgressRect();
-			this.progressRects.add(i, pr);
-			pr.setMinimumSize(rectDimensions);
-			
+		for (int i=0; i<boxesCount; i++) {
+			ProgressBox pr = new ProgressBox();
+			progressBoxes.add(pr);
 			GridBagConstraints gbc = new GridBagConstraints();
 			gbc.gridx = 0;
-			gbc.gridy = elemCount - i - 1;
+			gbc.gridy = boxesCount - i - 1;
 			gbc.weightx = 1.0;
 			gbc.weighty = 1.0;
 			gbc.fill = GridBagConstraints.BOTH;
-			gbc.insets = new Insets(0, 5, 0, 5);
+			gbc.insets = new Insets(1, 5, 1, 5);
 			this.add(pr, gbc);
+		}		
+	}
+	
+	public class ProgressBox extends JLabel {
+		public ProgressBox() {
+			this.setBackground(colorHandler.getColor(boxColorKey));
+			this.setOpaque(false);
 		}
 	}
 	
-	public void setRectDimensions(Dimension progBarDim, int elemCount) {
-		int width = (int) progBarDim.getWidth();
-		int height = (int) progBarDim.getHeight()/elemCount;
-		this.rectDimensions = new Dimension(width, height);
-	}
-	
-	public class ProgressRect extends JLabel {
-		public ProgressRect() {
-			this.setBackground(colorHandler.getColor("progressBarBlock"));
-			this.setMinimumSize(rectDimensions);
-		}
+	public void updateBox(int index, boolean show) {
+		ProgressBox progressBox = progressBoxes.get(index);
+		progressBox.setOpaque(show);
 	}
 }
