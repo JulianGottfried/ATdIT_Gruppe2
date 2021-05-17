@@ -66,24 +66,40 @@
 			"verheiratet": {
 				"question6-1": {
 					"type": "date",
-					"de_DE": "Wie lautet das Datum der Eheschließung?",
+					"de_DE": "Wie lautet das Datum der Eheschließung?"
+				},
+				"question6-2": {
+					"type": "input",
+					"de_DE": "Wie lautet der Ort der Eheschließung?"
+				}
+			},
+			"married": {
+				"question6-1": {
+					"type": "date",
 					"en_US": "What is the marriage date?"
 				},
 				"question6-2": {
 					"type": "input",
-					"de_DE": "Wie lautet der Ort der Eheschließung?",
 					"en_US": "What is the place of marriage?"
 				}
 			},
 			"Lebenspartnerschaft": {
 				"question6-3": {
 					"type": "date",
-					"de_DE": "Wann wurde die Lebenspartnerschaft beschlossen?",
+					"de_DE": "Wann wurde die Lebenspartnerschaft beschlossen?"
+				},
+				"question6-4": {
+					"type": "input",
+					"de_DE": "Wie lautet der Ort, an dem die Lebenspartnerschaft beschlossen wurde?"
+				}
+			},
+			"Civil partnership": {
+				"question6-3": {
+					"type": "date",
 					"en_US": "When was the partnership decided?"
 				},
 				"question6-4": {
 					"type": "input",
-					"de_DE": "Wie lautet der Ort, an dem die Lebenspartnerschaft beschlossen wurde?",
 					"en_US": "What is the place where the partnership was decided?"
 				}
 			}
@@ -106,7 +122,12 @@
 				"andere": {
 					"question7-1": {
 						"type": "input",
-						"de_DE": "Was für eine Staatsangehörigkeit besitzen Sie?",
+						"de_DE": "Was für eine Staatsangehörigkeit besitzen Sie?"
+					}
+				},
+				"other": {
+					"question7-1": {
+						"type": "input",
 						"en_US": "What is your nationality?"
 					}
 				}
@@ -147,13 +168,12 @@
 				]
 			},
 			"case": {
-				"Ja": {
+					"Ja": {
 					"loop": "1-12"
 				},
 				"Yes": {
 					"loop": "1-12"
 				}
-				
 			}
 		},
 		"question13": {
@@ -229,11 +249,14 @@
 				"anderes": {
 					"question24-1": {
 						"type": "input",
-						"de_DE": "In welchem Land liegt Ihre neuen Addresse?",
-						"en_US": "In which country is your new address located?"
+						"de_DE": "In welchem Land liegt Ihre neuen Addresse?"
 					}
+				},
+				"other": {
+					"question24-1": "type": "input",
+					"en_US": "In which country is your new address located?"
 				}
 			}
-		}
+			
 	}
 }
