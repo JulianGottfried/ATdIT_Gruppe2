@@ -17,9 +17,7 @@ import org.json.simple.parser.ParseException;
 import main.java.controller.handler.languageHandler.I18nHandler;
 import main.java.controller.handler.utilityHandler.InternalPathsHandler;
 
-public class ChangeOfAddressQuestions {
-	final String LINK2QUESTIONS = new InternalPathsHandler().getProperty("questions");
-	
+public class ChangeOfAddressQuestions extends QuestionHandler {
 	public ChangeOfAddressQuestions() {
 		readQuestions();
 	}
@@ -33,16 +31,16 @@ public class ChangeOfAddressQuestions {
             System.out.println(jsonObject);
             
             JSONObject questionObj;
-            String next = (String) jsonObject.get("initial");
+            this.next = (String) jsonObject.get("initial");
             
             while (true) {
-            	questionObj = (JSONObject) jsonObject.get(next);
-            	next = (String) questionObj.getOrDefault("next", null);
+            	questionObj = (JSONObject) jsonObject.get(this.next);
+            	this.next = (String) questionObj.getOrDefault("next", null);
             	
             	System.out.println(questionObj.get("q"));
             	
             	
-            	if (next == null) {
+            	if (this.next == null) {
             		break;
             	}
             }
@@ -62,9 +60,9 @@ public class ChangeOfAddressQuestions {
 //            }
 
         } catch (IOException e) {
-            e.printStackTrace();
+            //TODO: logger
         } catch (ParseException e) {
-            e.printStackTrace();
+        	//TODO: logger
         }
 	}
 }

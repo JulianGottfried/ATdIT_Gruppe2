@@ -7,6 +7,7 @@ import java.awt.Insets;
 import javax.swing.plaf.InsetsUIResource;
 
 import main.java.controller.handler.ScreenHandler;
+import main.java.questions.ChangeOfAddressQuestions;
 import main.java.view.guiElements.JPanelElems.BackgroundPanel;
 import main.java.view.guiElements.JPanelElems.Header;
 import main.java.view.guiElements.JPanelElems.ProgressBar;
@@ -66,9 +67,7 @@ public class ChangeOfAddressQA extends AbstractView {
             lowerText.setText("Start");
             progBarLabel.setLowerText(lowerText);
             
-            QALabel qaLabel = new QALabel(screenHandler, new Dimension(800, 600));
-            qaLabel.setQuestion("TEST QUESTION");
-            qaLabel.adjustAnswerType("Date");
+            QALabel qaLabel = new QALabel(screenHandler, new Dimension(800, 600), "ChangeOfAddressQuestions.json");
             
             gbc = new GridBagConstraints();
             gbc.gridx = 0;

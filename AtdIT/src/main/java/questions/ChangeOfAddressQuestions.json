@@ -168,7 +168,7 @@
 				]
 			},
 			"case": {
-					"Ja": {
+				"Ja": {
 					"loop": "1-12"
 				},
 				"Yes": {
@@ -253,10 +253,12 @@
 					}
 				},
 				"other": {
-					"question24-1": "type": "input",
-					"en_US": "In which country is your new address located?"
+					"question24-1": {
+						"type": "input",
+						"en_US": "In which country is your new address located?"
+					}
 				}
 			}
-			
+		}
 	}
 }

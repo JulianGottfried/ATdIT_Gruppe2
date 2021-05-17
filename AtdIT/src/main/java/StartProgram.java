@@ -21,8 +21,8 @@ public class StartProgram {
 
 	public static void main(String[] args) {
 		
-		new ChangeOfAddressQuestions();
-//        new ScreenHandler();
+//		new ChangeOfAddressQuestions();
+        new ScreenHandler();
 //    	DatabaseManager dbm = new DatabaseManager();
 //    	   	
 //    	ChangesOfAddresses coa = new ChangesOfAddresses(new Date());

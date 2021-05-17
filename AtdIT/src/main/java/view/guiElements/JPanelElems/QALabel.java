@@ -7,7 +7,10 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 
+import org.json.simple.JSONObject;
+
 import main.java.controller.handler.ScreenHandler;
+import main.java.questions.QuestionHandler;
 import main.java.view.guiElements.JButtonElems.FancyButton;
 import main.java.view.guiElements.JTextAreaElems.FancyTextArea;
 import main.java.view.guiElements.JTextFieldElems.InputAnswer;
@@ -15,9 +18,18 @@ import main.java.view.guiElements.JTextFieldElems.InputAnswer;
 public class QALabel extends AbstractJPanel {
 	private QuestionLabel qPanel;
 	private AnswerLabel aPanel;
+	private String language;
+	private QuestionHandler qh;
+	private JSONObject questionObj;
+	private JSONObject currentQuestion;
 
-	public QALabel(ScreenHandler screenHandler, Dimension dimensions) {
+	public QALabel(ScreenHandler screenHandler, Dimension dimensions, String questionFile) {
 		super(screenHandler);
+		this.language = screenHandler.getLanguage().getDisplayLanguage();
+		this.qh = new QuestionHandler();
+		this.questionObj = qh.getQuestion(questionFile);
+		String initialKey = qh.getString(this.questionObj, "initial");
+		this.currentQuestion = qh.getJSON(questionObj, initialKey);
 		this.setPreferredSize(dimensions);
 		this.setMinimumSize(dimensions);
 		this.setLayout(new GridBagLayout());
@@ -26,6 +38,8 @@ public class QALabel extends AbstractJPanel {
 		FancyButton confirm = new FancyButton(screenHandler, "menuButton2", "bigMenuButton");
         confirm.setForeground("bigMenuButtonFG");
 		confirm.setText("Weiter");
+		
+		this.showQuestion(currentQuestion);
 		
 		GridBagConstraints gbc = new GridBagConstraints();
 		gbc.gridx = 0;
@@ -55,11 +69,17 @@ public class QALabel extends AbstractJPanel {
 		this.add(confirm, gbc);
 	}
 	
+	public void showQuestion(JSONObject questionObj) {
+		System.out.println(this.language);
+		this.setQuestion(qh.getString(questionObj, this.language));
+		this.setAnswerType(qh.getString(questionObj, "type"));
+	}
+	
 	public void setQuestion(String question) {
 		this.qPanel.setQuestion(question);
 	}
 	
-	public void adjustAnswerType(String answerType) {
+	public void setAnswerType(String answerType) {
 		this.aPanel.adjustAnswerType(answerType);
 	}
 	
@@ -71,7 +91,7 @@ public class QALabel extends AbstractJPanel {
 			this.setLayout(new GridBagLayout());
 			this.setBackground(Color.BLACK);
 			this.questionArea = new FancyTextArea(screenHandler);
-			this.questionArea.setBackground(Color.WHITE);
+			this.questionArea.setBackground(Color.BLACK);
 			GridBagConstraints gbc = new GridBagConstraints();
 			gbc.gridx = 0;
 			gbc.gridy = 0;
