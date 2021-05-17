@@ -3,6 +3,7 @@
     "question1": {
         "type": "input",
         "de_DE": "Wie lautet Ihr Vorname?",
+				"us_US": "Test",
 		"next": "question2"
     },
     "question2": {
