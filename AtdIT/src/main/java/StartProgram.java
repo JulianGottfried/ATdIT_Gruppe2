@@ -15,11 +15,14 @@ import main.java.persistence.databaseTables.HouseOwners;
 import main.java.persistence.databaseTables.Identifications;
 import main.java.persistence.databaseTables.Persons;
 import main.java.persistence.databaseTables.StagesOfCOA;
+import main.java.questions.ChangeOfAddressQuestions;
 
 public class StartProgram {
 
 	public static void main(String[] args) {
-        new ScreenHandler();
+		
+		new ChangeOfAddressQuestions();
+//        new ScreenHandler();
 //    	DatabaseManager dbm = new DatabaseManager();
 //    	   	
 //    	ChangesOfAddresses coa = new ChangesOfAddresses(new Date());

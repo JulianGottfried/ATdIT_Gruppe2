@@ -18,11 +18,11 @@ import main.java.controller.listener.mouseAdapter.Return2Home;
 import main.java.view.screen.views.*;
 
 public class Header extends AbstractJPanel{
-    GridBagConstraints gbc;
-    ScreenHandler screenHandler;
+    private GridBagConstraints gbc;
+    private ScreenHandler screenHandler;
     private Locale language;
-    String bundleName;
-    I18nHandler i18n;
+    private String bundleName;
+    private I18nHandler i18n;
 
     public Header(ScreenHandler screenHandler) {
     	super(screenHandler);
@@ -61,8 +61,8 @@ public class Header extends AbstractJPanel{
         try {
             this.i18n = new I18nHandler(this.bundleName, this.language, this.screenHandler);
         } catch (InterruptDrawException e) {
-            new ErrorPopUp(screenHandler, i18n.getString("errorMessage"), i18n.getString("errorTitle"));
-            screenHandler.changeCurrentView(screenHandler.getPreviousView());
+            new ErrorPopUp(this.screenHandler, i18n.getString("errorMessage"), i18n.getString("errorTitle"));
+            this.screenHandler.changeCurrentView(this.screenHandler.getPreviousView());
         }
     }
     

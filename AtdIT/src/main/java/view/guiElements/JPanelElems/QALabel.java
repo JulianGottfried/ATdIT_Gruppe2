@@ -8,6 +8,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 
 import main.java.controller.handler.ScreenHandler;
+import main.java.view.guiElements.JButtonElems.FancyButton;
 import main.java.view.guiElements.JTextAreaElems.FancyTextArea;
 import main.java.view.guiElements.JTextFieldElems.InputAnswer;
 
@@ -22,6 +23,9 @@ public class QALabel extends AbstractJPanel {
 		this.setLayout(new GridBagLayout());
 		this.qPanel =  new QuestionLabel(screenHandler);
 		this.aPanel =  new AnswerLabel(screenHandler);
+		FancyButton confirm = new FancyButton(screenHandler, "menuButton2", "bigMenuButton");
+        confirm.setForeground("bigMenuButtonFG");
+		confirm.setText("Weiter");
 		
 		GridBagConstraints gbc = new GridBagConstraints();
 		gbc.gridx = 0;
@@ -40,6 +44,15 @@ public class QALabel extends AbstractJPanel {
 		gbc.insets = new Insets(50, 50, 50, 50);
 		gbc.fill = GridBagConstraints.BOTH;
 		this.add(aPanel, gbc);
+		
+		gbc = new GridBagConstraints();
+		gbc.gridx = 1;
+		gbc.gridy = 1;
+		gbc.weightx = 1.0;
+		gbc.weighty = 1.0;
+		gbc.insets = new Insets(0, 50, 50, 50);
+		gbc.anchor = GridBagConstraints.LAST_LINE_START;
+		this.add(confirm, gbc);
 	}
 	
 	public void setQuestion(String question) {
@@ -102,6 +115,8 @@ public class QALabel extends AbstractJPanel {
 		
 		public void updateAnswerLabel(Component answerLabel) {
 			GridBagConstraints gbc = new GridBagConstraints();
+			gbc.gridx = 0;
+			gbc.gridy = 0;
 			gbc.weightx = 1.0;
 			gbc.weighty = 1.0;
 			gbc.insets = new Insets(20, 20, 20, 20);
