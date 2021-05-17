@@ -7,7 +7,7 @@ public interface DatabaseManagerInterface {
 	
 	public void setDatabaseEntry(AbstractEntry entry);
 	
-	public void updateDatabase(AbstractEntry newEntry);
+	public void updateDatabaseEntry(AbstractEntry newEntry);
 	
 	public <T extends AbstractEntry> T getDatabaseEntry(Class<T> entityClass, int key);
 }

@@ -1,12 +1,13 @@
 package main.java.view.screen.views;
 
 import java.awt.GridBagConstraints;
+import java.awt.Insets;
 
 import javax.swing.plaf.InsetsUIResource;
 
 import main.java.view.guiElements.JPanelElems.BackgroundPanel;
 import main.java.view.guiElements.JPanelElems.Header;
-import main.java.view.guiElements.JTextAreaElems.TextArea;
+import main.java.view.guiElements.JTextAreaElems.FancyTextArea;
 import main.java.controller.handler.ScreenHandler;
 
 public class HomeScreenView extends AbstractView {
@@ -41,10 +42,10 @@ public class HomeScreenView extends AbstractView {
         	super(screenHandler);
             gbc = new GridBagConstraints();
 
-            TextArea title = new TextArea(screenHandler, 0, 0, fontHandler.getFont("h1"));
-            title.setText(i18n.getString("title").toUpperCase());
+            FancyTextArea title = new FancyTextArea(screenHandler, 1600, 600, fontHandler.getFont("h1"));
+            title.setText(i18n.getString("title"));
 
-            TextArea text = new TextArea(screenHandler, 600, 600);
+            FancyTextArea text = new FancyTextArea(screenHandler, 1600, 600);
             text.setText(i18n.getString("welcome"));
 
             gbc.fill = GridBagConstraints.BOTH;

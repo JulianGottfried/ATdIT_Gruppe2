@@ -17,7 +17,7 @@ public class ColorHandler extends AbstractUtilityHandler {
 		int g = Integer.parseInt(colors.get(1));
 		int b = Integer.parseInt(colors.get(2));
 		if (colors.size() > 3) {
-			int alpha = Integer.parseInt(colors.get(0));
+			int alpha = Integer.parseInt(colors.get(3));
 			return new Color(r, g, b, alpha);
 		} else {
 			return new Color(r, g, b);

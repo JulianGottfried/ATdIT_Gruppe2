@@ -12,7 +12,4 @@ public abstract class AbstractJLabel extends JLabel {
 		this.colorHandler = screenHandler.getColorHandler();
 		this.setBackground(colorHandler.getColor("background"));
 	}
-	
-	public AbstractJLabel() {
-	}
 }

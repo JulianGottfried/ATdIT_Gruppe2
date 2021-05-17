@@ -2,30 +2,36 @@ package main.java.view.guiElements.JLabelElems;
 
 import javax.swing.ImageIcon;
 
+import main.java.controller.handler.ScreenHandler;
+
 import java.awt.event.MouseListener;
 import java.awt.Image;
 
 
 public class ImageDisplay extends AbstractJLabel {
 
-    public ImageDisplay(Image image) {
+    public ImageDisplay(ScreenHandler screenHandler, Image image) {
+    	super(screenHandler);
         ImageIcon icon = new ImageIcon(image);
         this.setIcon(icon);
     }
 
-    public ImageDisplay(Image image, MouseListener listener) {
+    public ImageDisplay(ScreenHandler screenHandler, Image image, MouseListener listener) {
+    	super(screenHandler);
         ImageIcon icon = new ImageIcon(image);
         this.setIcon(icon);
         this.addMouseListener(listener);
     }
 
-    public ImageDisplay(Image image, int width, int height) {
+    public ImageDisplay(ScreenHandler screenHandler, Image image, int width, int height) {
+    	super(screenHandler);
         Image newimg = image.getScaledInstance(width, height, Image.SCALE_SMOOTH);
         ImageIcon icon = new ImageIcon(newimg);
         this.setIcon(icon);
     }
 
-    public ImageDisplay(Image image, int width, int height, MouseListener listener) {
+    public ImageDisplay(ScreenHandler screenHandler, Image image, int width, int height, MouseListener listener) {
+    	super(screenHandler);
         Image newimg = image.getScaledInstance(width, height, Image.SCALE_SMOOTH);
         ImageIcon icon = new ImageIcon(newimg);
         this.setIcon(icon);

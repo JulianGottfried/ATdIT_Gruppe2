@@ -4,10 +4,10 @@ import java.util.Locale;
 import java.awt.*;
 
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.plaf.InsetsUIResource;
 
 import main.java.controller.exceptions.InterruptDrawException;
+import main.java.view.guiElements.JButtonElems.FancyButton;
 import main.java.view.guiElements.JLabelElems.ImageDisplay;
 import main.java.view.guiElements.JOptionPaneElems.ErrorPopUp;
 import main.java.controller.handler.ScreenHandler;
@@ -32,7 +32,7 @@ public class Header extends AbstractJPanel{
         this.setI18n();
         this.setLayout(new GridBagLayout());
 
-        ImageDisplay logo = new ImageDisplay(imageHandler.getImage("logo"), -1, 100, new Return2Home(screenHandler));
+        ImageDisplay logo = new ImageDisplay(screenHandler, imageHandler.getImage("logo"), -1, 100, new Return2Home(screenHandler));
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 0;
@@ -61,7 +61,7 @@ public class Header extends AbstractJPanel{
         try {
             this.i18n = new I18nHandler(this.bundleName, this.language, this.screenHandler);
         } catch (InterruptDrawException e) {
-            new ErrorPopUp(screenHandler.getCurrentView(), i18n.getString("errorMessage"), i18n.getString("errorTitle"));
+            new ErrorPopUp(screenHandler, i18n.getString("errorMessage"), i18n.getString("errorTitle"));
             screenHandler.changeCurrentView(screenHandler.getPreviousView());
         }
     }
@@ -75,33 +75,21 @@ public class Header extends AbstractJPanel{
 
             // TODO Class with key exception handler for i18n
             // TODO Class with image exception handler for image loads
-            JButton latestButton = new JButton();
+            FancyButton latestButton = new FancyButton(screenHandler, "menuButton1");
             latestButton.setText(i18n.getString("latest"));
             latestButton.addActionListener(new ViewSwitcher(screenHandler, new CurrentEventsView(screenHandler)));
-            latestButton.setBackground(colorHandler.getColor("menuButton1"));
-            latestButton.setFont(fontHandler.getFont("menuButton"));
-            latestButton.setForeground(colorHandler.getColor("menuButtonText"));
 
-            JButton addressButton = new JButton();
+            FancyButton addressButton = new FancyButton(screenHandler, "menuButton2");
             addressButton.setText(i18n.getString("changeAddress"));
-            addressButton.addActionListener(new ViewSwitcher(screenHandler, new AddressView(screenHandler)));
-            addressButton.setBackground(colorHandler.getColor("menuButton2"));
-            addressButton.setFont(fontHandler.getFont("menuButton"));
-            addressButton.setForeground(colorHandler.getColor("menuButtonText"));
+            addressButton.addActionListener(new ViewSwitcher(screenHandler, new ChangeOfAddressInitial(screenHandler)));
 
-            JButton contactButton = new JButton();
+            FancyButton contactButton = new FancyButton(screenHandler, "menuButton3");
             contactButton.setText(i18n.getString("contact"));
             contactButton.addActionListener(new ViewSwitcher(screenHandler, new ContactView(screenHandler)));
-            contactButton.setBackground(colorHandler.getColor("menuButton3"));
-            contactButton.setFont(fontHandler.getFont("menuButton"));
-            contactButton.setForeground(colorHandler.getColor("menuButtonText"));
 
-            JButton processButton = new JButton();
+            FancyButton processButton = new FancyButton(screenHandler, "menuButton4");
             processButton.setText(i18n.getString("processesing"));
             processButton.addActionListener(new ViewSwitcher(screenHandler, new TokenInspectorView(screenHandler)));
-            processButton.setBackground(colorHandler.getColor("menuButton4"));
-            processButton.setFont(fontHandler.getFont("menuButton"));
-            processButton.setForeground(colorHandler.getColor("menuButtonText"));
 
             gbc = new GridBagConstraints();
             gbc.insets = new InsetsUIResource(0, 50, 0, 50);
@@ -126,8 +114,8 @@ public class Header extends AbstractJPanel{
 
         public LangButtons(ScreenHandler screenHandler) {
         	super(screenHandler);
-            JButton german = new JButton();
-            JButton english = new JButton();
+            FancyButton german = new FancyButton(screenHandler);
+            FancyButton english = new FancyButton(screenHandler);
 
             german.setContentAreaFilled(false);
             english.setContentAreaFilled(false);

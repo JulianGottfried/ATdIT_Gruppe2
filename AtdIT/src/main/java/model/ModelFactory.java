@@ -25,30 +25,6 @@ public class ModelFactory {
 		this.dbm = new DatabaseManager();
 	}
 	
-//	public static Object getAttribute(AbstractEntry obj, String methodName) {
-//		Method method = null;
-//		Object attribute = null;
-//		try {
-//			method = getMethode(obj.getClass(), methodName);			
-//			try {
-//				attribute = method.invoke(obj);
-//			} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException | NullPointerException e) {
-//				e.printStackTrace();
-//			}
-//		} catch (NoSuchMethodException | SecurityException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		return attribute;
-//	}
-//	
-//	public static Method getMethode(Class<? extends AbstractEntry> c, String methodName) throws NoSuchMethodException, SecurityException {
-//		Method method = null;
-//		method = c.getMethod(methodName);
-//		return method;
-//		
-//	}
-	
 	public Address createAddress(String street, int streetNumber, String secondLine, int postcode, String city, String country) {		
 		return new Address(street, streetNumber, secondLine, postcode, city, country);
 	}

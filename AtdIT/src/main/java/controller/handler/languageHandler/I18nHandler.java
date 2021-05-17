@@ -28,7 +28,7 @@ public class I18nHandler {
         try {
             this.bundle = ResourceBundle.getBundle(constructBundleLink(bundleName), language);
         } catch (MissingResourceException e) {
-            new ErrorPopUp(screenHandler.getCurrentView(), i18n.getString("errorMessage"),
+            new ErrorPopUp(screenHandler, i18n.getString("errorMessage"),
                     i18n.getString("errorTitle"));
             throw new InterruptDrawException("TEST");
         }
@@ -54,10 +54,9 @@ public class I18nHandler {
         try {
             return bundle.getString(key);
         } catch (MissingResourceException e) {
-            new ErrorPopUp(screenHandler.getCurrentView(), i18n.getString("keyErrorMessage") + " " + key,
+            new ErrorPopUp(screenHandler, i18n.getString("keyErrorMessage") + " " + key,
                     i18n.getString("keyErrorTitle"));
             return i18n.getString("missingKey");
         }
-
     }
 }

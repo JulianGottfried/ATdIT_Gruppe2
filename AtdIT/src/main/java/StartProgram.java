@@ -18,7 +18,6 @@ import main.java.persistence.databaseTables.StagesOfCOA;
 
 public class StartProgram {
 
-    @SuppressWarnings("deprecation")
 	public static void main(String[] args) {
         new ScreenHandler();
 //    	DatabaseManager dbm = new DatabaseManager();

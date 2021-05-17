@@ -12,8 +12,4 @@ public abstract class AbstractJOptionPane extends JOptionPane {
 		this.colorHandler = screenHandler.getColorHandler();
 		this.setBackground(colorHandler.getColor("background"));
 	}
-	
-	public AbstractJOptionPane() {
-		
-	}
 }

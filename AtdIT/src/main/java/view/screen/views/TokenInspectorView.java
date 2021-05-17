@@ -5,6 +5,7 @@ import javax.swing.plaf.InsetsUIResource;
 
 import main.java.view.guiElements.JPanelElems.BackgroundPanel;
 import main.java.view.guiElements.JPanelElems.Header;
+import main.java.view.guiElements.JTextAreaElems.FancyTextArea;
 import main.java.controller.handler.ScreenHandler;
 
 import java.awt.GridBagConstraints;
@@ -38,6 +39,7 @@ public class TokenInspectorView extends AbstractView {
     class Body extends BackgroundPanel {
         public Body(ScreenHandler screenHandler) {
         	super(screenHandler);
+        	
             JLabel label = new JLabel(i18n.getString("message"));
 
             gbc = new GridBagConstraints();

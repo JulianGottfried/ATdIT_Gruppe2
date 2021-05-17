@@ -14,10 +14,9 @@ public class DatabaseManager implements DatabaseManagerInterface{
 		createManager();
 		this.entityManager.persist(entry);
 		closeManager();
-
 	}
 	
-	public void updateDatabase(AbstractEntry newEntry) {
+	public void updateDatabaseEntry(AbstractEntry newEntry) {
 		createManager();
 		this.entityManager.merge(newEntry);
 		closeManager();
