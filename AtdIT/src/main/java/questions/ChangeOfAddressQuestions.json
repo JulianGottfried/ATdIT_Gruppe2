@@ -31,7 +31,7 @@
 			"en_US": [
 				"male",
 				"female",
-				"diverse"
+				"non-binary"
 			]
 		},
 		"question5": {
@@ -149,7 +149,11 @@
 			"case": {
 				"Ja": {
 					"loop": "1-12"
+				},
+				"Yes": {
+					"loop": "1-12"
 				}
+				
 			}
 		},
 		"question13": {
