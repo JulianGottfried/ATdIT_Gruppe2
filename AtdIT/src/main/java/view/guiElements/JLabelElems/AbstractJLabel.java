@@ -5,6 +5,13 @@ import javax.swing.JLabel;
 import main.java.controller.handler.ScreenHandler;
 import main.java.controller.handler.utilityHandler.ColorHandler;
 
+/**
+* This class is the basic label model. 
+* @author weilichsoheisse
+* @version 16.05.2021
+*
+*/
+
 public abstract class AbstractJLabel extends JLabel {
 	ColorHandler colorHandler;
 	

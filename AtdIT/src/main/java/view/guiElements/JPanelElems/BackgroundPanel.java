@@ -9,6 +9,13 @@ import javax.swing.JPanel;
 
 import main.java.controller.handler.ScreenHandler;
 
+/**
+*  
+* @author weilichsoheisse
+* @version 16.05.2021
+*
+*/
+
 public class BackgroundPanel extends AbstractJPanel {
     Image bg;
     JPanel panel;

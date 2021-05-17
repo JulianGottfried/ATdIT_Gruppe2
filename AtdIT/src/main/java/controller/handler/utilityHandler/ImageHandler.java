@@ -4,6 +4,13 @@ import java.awt.Image;
 
 import javax.swing.ImageIcon;
 
+/**
+ * This class gets and returns the image from resources.
+ * @author weilichsoheisse
+ * @version 16.05.2021
+ *
+ */
+
 public class ImageHandler extends AbstractUtilityHandler {
 	private static final String LINK2IMAGES = new InternalPathsHandler().getProperty("images");
 

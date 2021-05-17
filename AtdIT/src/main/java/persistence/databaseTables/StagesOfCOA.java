@@ -7,6 +7,13 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+/**
+* This class is a basic data model for the Stages of COA table. 
+* @author weilichsoheisse
+* @version 16.05.2021
+*
+*/
+
 @Entity
 @Table(name = "StagesOfCOA")
 public class StagesOfCOA implements AbstractEntry, Serializable {

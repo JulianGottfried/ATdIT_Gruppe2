@@ -11,6 +11,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+/**
+* This class is a basic data model for the people table. 
+* @author weilichsoheisse
+* @version 16.05.2021
+*
+*/
+
 @Entity
 @Table(name = "Persons")
 public class Persons implements AbstractEntry, Serializable {

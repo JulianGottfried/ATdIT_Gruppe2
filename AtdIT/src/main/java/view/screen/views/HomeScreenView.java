@@ -9,6 +9,13 @@ import main.java.view.guiElements.JPanelElems.Header;
 import main.java.view.guiElements.JTextAreaElems.TextArea;
 import main.java.controller.handler.ScreenHandler;
 
+/**
+*  
+* @author weilichsoheisse
+* @version 16.05.2021
+*
+*/
+
 public class HomeScreenView extends AbstractView {
 
     public HomeScreenView(ScreenHandler screenHandler) {

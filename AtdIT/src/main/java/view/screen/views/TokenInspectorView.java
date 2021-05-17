@@ -9,6 +9,13 @@ import main.java.controller.handler.ScreenHandler;
 
 import java.awt.GridBagConstraints;
 
+/**
+*  
+* @author weilichsoheisse
+* @version 16.05.2021
+*
+*/
+
 public class TokenInspectorView extends AbstractView {
 
     public TokenInspectorView(ScreenHandler screenHandler) {

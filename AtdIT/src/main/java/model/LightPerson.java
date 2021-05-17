@@ -1,5 +1,10 @@
   package main.java.model;
-
+  /**
+  * This is the basic concept of a person. getters and setters included
+  * @author weilichsoheisse
+  * @version 16.05.2021
+  *
+  */
 public class LightPerson {
 	private String 	name;
 	private String 	surname;

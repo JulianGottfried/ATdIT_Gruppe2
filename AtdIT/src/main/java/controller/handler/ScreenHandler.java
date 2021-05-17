@@ -11,7 +11,12 @@ import main.java.view.screen.views.HomeScreenView;
 
 import java.awt.Container;
 
-
+/**
+ * This class switches and loads the screens.
+ * @author weilichsoheisse
+ * @version 16.05.2021
+ *
+ */
 public class ScreenHandler {
     private Locale language;
     private String colorTemplate;
@@ -23,7 +28,9 @@ public class ScreenHandler {
     private AbstractView currentView;
     private AbstractView previousView;
     private WindowFrame mainScreen;
-
+/**
+ * <code>ScreenHandler</code> loads all the required resources
+ */
     public ScreenHandler() {
     	this.language = new Locale("de_DE");
     	this.colorTemplate = "colors/normalColors.properties";

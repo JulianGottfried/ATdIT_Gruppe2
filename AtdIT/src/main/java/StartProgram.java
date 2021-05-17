@@ -13,6 +13,13 @@ import main.java.persistence.databaseTables.Identifications;
 import main.java.persistence.databaseTables.Persons;
 import main.java.persistence.databaseTables.StagesOfCOA;
 
+/**
+* This class contains the main method. It starts the required processes and creates some Mock Data. 
+* @author weilichsoheisse
+* @version 16.05.2021
+*
+*/
+
 public class StartProgram {
 
     @SuppressWarnings("deprecation")
@@ -28,7 +35,7 @@ public class StartProgram {
 		    	dbm.setDatabaseEntry(person1Ad);
 		    	
 
-		    	Identifications id1 = new Identifications("X4D567", "Wildeck-Obersuhl", new Date(2011, 12, 24), new Date(2025, 12, 24));
+		    	Identifications id1 = new Identifications("PPSQ34", "Wildeck-Obersuhl", new Date(2011, 12, 24), new Date(2025, 12, 24));
 		    	dbm.setDatabaseEntry(id1);
 		    	
 		    	person1.setAddress(person1Ad);
@@ -41,7 +48,7 @@ public class StartProgram {
 		    	Addresses person2Ad = new Addresses("Rotdornweg", 32, null, 36208, "Wildeck", "Deutschland");
 		    	dbm.setDatabaseEntry(person2Ad);
 		    	
-		    	Identifications id2 = new Identifications("X4D645645", "Wildeck-Obersuhl", new Date(2011, 12, 24), new Date(2025, 12, 24));
+		    	Identifications id2 = new Identifications("HHSS88SHAH18", "Wildeck-Obersuhl", new Date(2011, 12, 24), new Date(2025, 12, 24));
 		    	dbm.setDatabaseEntry(id2);
 		    	
 		    	person2.setAddress(person2Ad);

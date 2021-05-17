@@ -7,6 +7,13 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * This class gets and returns the font from resources.
+ * @author weilichsoheisse
+ * @version 16.05.2021
+ *
+ */
+
 public class FontHandler extends AbstractUtilityHandler {
 
 	public FontHandler(String fontTemplate) {

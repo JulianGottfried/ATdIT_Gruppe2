@@ -8,6 +8,13 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+* This class is a basic data model for the identifications table. 
+* @author weilichsoheisse
+* @version 16.05.2021
+*
+*/
+
 @Entity
 @Table(name = "Identifications")
 public class Identifications implements AbstractEntry, Serializable {

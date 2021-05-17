@@ -3,6 +3,13 @@ package main.java.controller.handler.utilityHandler;
 import java.io.IOException;
 import java.util.Properties;
 
+/**
+* 
+* @author weilichsoheisse
+* @version 16.05.2021
+*
+*/
+
 public interface UtilityHandlerInterface {
 	String propsPath = "AtdIT/src/main/resources/utilities/";
 	

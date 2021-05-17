@@ -8,6 +8,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+* This class is a basic data model for the addresses table. 
+* @author weilichsoheisse
+* @version 16.05.2021
+*
+*/
+
 @Entity
 @Table(name = "Addresses")
 public class Addresses implements AbstractEntry, Serializable  {

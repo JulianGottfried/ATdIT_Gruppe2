@@ -5,6 +5,13 @@ import java.awt.Font;
 
 import main.java.controller.handler.ScreenHandler;
 
+/**
+*  
+* @author weilichsoheisse
+* @version 16.05.2021
+*
+*/
+
 public class TextArea extends AbstractJTextArea {
     int areaHeight;
     int areWidth;

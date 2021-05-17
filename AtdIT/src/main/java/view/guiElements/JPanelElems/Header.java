@@ -17,6 +17,13 @@ import main.java.controller.listener.ActionListener.ViewSwitcher;
 import main.java.controller.listener.mouseAdapter.Return2Home;
 import main.java.view.screen.views.*;
 
+/**
+* This class creates the navigation bar at the top. 
+* @author weilichsoheisse
+* @version 16.05.2021
+*
+*/
+
 public class Header extends AbstractJPanel{
     GridBagConstraints gbc;
     ScreenHandler screenHandler;

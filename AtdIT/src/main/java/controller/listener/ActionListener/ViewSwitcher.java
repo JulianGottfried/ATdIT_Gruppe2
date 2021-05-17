@@ -6,7 +6,13 @@ import main.java.controller.handler.ScreenHandler;
 import main.java.view.screen.views.AbstractView;
 
 import java.awt.event.ActionEvent;
-
+/**
+ * 
+ * This class is used as an action listener for a view switch command.
+ * @author weilichsoheisse
+ * @version 16.05.2021
+ *
+ */
 public class ViewSwitcher implements ActionListener {
     ScreenHandler screenHandler;
     AbstractView view;

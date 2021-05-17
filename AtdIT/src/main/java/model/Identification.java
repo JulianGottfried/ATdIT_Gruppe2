@@ -1,7 +1,12 @@
 package main.java.model;
 
 import java.util.Date;
-
+/**
+* This class is used for identification data model. Getters and setters included.
+* @author weilichsoheisse
+* @version 16.05.2021
+*
+*/
 public class Identification {
 	private String 	IDNumber;
 	private String 	IssuingAuthority;

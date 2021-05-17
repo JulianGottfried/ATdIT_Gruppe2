@@ -11,6 +11,13 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
+/**
+* This class is the basic data model for the process table.
+* @author weilichsoheisse
+* @version 16.05.2021
+*
+*/
+
 @Entity
 @Table(name = "Processes")
 @Inheritance(strategy = InheritanceType.JOINED)

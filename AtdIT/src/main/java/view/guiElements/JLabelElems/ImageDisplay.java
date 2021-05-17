@@ -5,6 +5,12 @@ import javax.swing.ImageIcon;
 import java.awt.event.MouseListener;
 import java.awt.Image;
 
+/**
+* This class builds the different images. 
+* @author weilichsoheisse
+* @version 16.05.2021
+*
+*/
 
 public class ImageDisplay extends AbstractJLabel {
 

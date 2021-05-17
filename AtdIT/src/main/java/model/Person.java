@@ -2,6 +2,13 @@ package main.java.model;
 
 import java.util.Date;
 
+/**
+* This class is the data model of a person. getters and setters included.
+* @author weilichsoheisse
+* @version 16.05.2021
+*
+*/
+
 public class Person {
 	private String			name;
 	private String			surname;

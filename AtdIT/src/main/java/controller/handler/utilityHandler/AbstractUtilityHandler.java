@@ -5,6 +5,13 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
+/**
+* This class is a basic model for the different utilities.
+* @author weilichsoheisse
+* @version 16.05.2021
+*
+*/
+
 public abstract class AbstractUtilityHandler implements UtilityHandlerInterface {
 	private Properties prop;
 

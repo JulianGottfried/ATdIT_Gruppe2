@@ -6,6 +6,13 @@ import javax.persistence.Persistence;
 
 import main.java.persistence.databaseTables.AbstractEntry;
 
+/**
+* This class creates, updates and gets database entries. It also creates the connection with the PostgreSQL Service.
+* @author weilichsoheisse
+* @version 16.05.2021
+*
+*/
+
 public class DatabaseManager implements DatabaseManagerInterface{
 	EntityManager entityManager;
 	EntityManagerFactory emFactory;
@@ -17,7 +24,7 @@ public class DatabaseManager implements DatabaseManagerInterface{
 
 	}
 	
-	public void updateDatabase(AbstractEntry newEntry) {
+	public void updateDatabaseEntry(AbstractEntry newEntry) {
 		createManager();
 		this.entityManager.merge(newEntry);
 		closeManager();

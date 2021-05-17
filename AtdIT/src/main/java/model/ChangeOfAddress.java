@@ -2,7 +2,12 @@ package main.java.model;
 
 import java.util.ArrayList;
 import java.util.Date;
-
+/**
+ * This class changes the address. getters and setters included.
+ * @author weilichsoheisse
+ * @version 16.05.2021
+ *
+ */
 public class ChangeOfAddress {
 	private ArrayList<Person>	persons;
 	private Date			moveInDate;

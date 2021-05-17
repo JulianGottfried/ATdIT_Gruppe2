@@ -3,7 +3,12 @@ package main.java.controller.handler.utilityHandler;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Arrays;
-
+/**
+ * This class gets and returns the colour from resources.
+ * @author weilichsoheisse
+ * @version 16.05.2021
+ *
+ */
 public class ColorHandler extends AbstractUtilityHandler {
 
 	public ColorHandler(String colorTemplate) {

@@ -12,6 +12,13 @@ import main.java.controller.handler.utilityHandler.*;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
+/**
+* This class is the basic model for the different views(sites) of the UI. 
+* @author weilichsoheisse
+* @version 16.05.2021
+*
+*/
+
 public abstract class AbstractView extends JPanel implements ViewInterface {
     String bundleName;
     ScreenHandler screenHandler;

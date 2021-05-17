@@ -1,5 +1,10 @@
 package main.java.model;
-
+/**
+ * This is the address class data model with getters and setters.
+ * @author weilichsoheisse
+ * @version 16.05.2021
+ *
+ */
 public class Address {
 	private String	street;
 	private int		streetNumber;

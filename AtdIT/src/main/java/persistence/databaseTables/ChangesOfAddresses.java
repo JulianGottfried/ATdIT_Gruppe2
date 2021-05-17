@@ -6,17 +6,25 @@ import java.util.List;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+
+/**
+* This class is a basic data model for the COA table. 
+* @author weilichsoheisse
+* @version 16.05.2021
+*
+*/
 
 @Entity
 @Table(name = "ChangesOfAddresses")
 @PrimaryKeyJoinColumn(referencedColumnName = "ProcessID")
 @DiscriminatorValue("ChangesOfAddresses")
 public class ChangesOfAddresses extends Processes implements Serializable {
-	@OneToMany (targetEntity=Persons.class)
+	@OneToMany (targetEntity=Persons.class, fetch = FetchType.EAGER)
 	private List<Persons>	PersonList;
 	private Date			MoveInDate;
 	@ManyToOne

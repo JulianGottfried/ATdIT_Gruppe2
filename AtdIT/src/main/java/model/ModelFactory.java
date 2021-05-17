@@ -13,6 +13,13 @@ import main.java.persistence.databaseTables.Identifications;
 import main.java.persistence.databaseTables.Persons;
 import main.java.persistence.databaseTables.StagesOfCOA;
 
+/**
+* This class is used for creating used data models.
+* @author weilichsoheisse
+* @version 16.05.2021
+*
+*/
+
 public class ModelFactory {
 	
 	private DatabaseManager dbm;

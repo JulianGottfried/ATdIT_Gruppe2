@@ -5,7 +5,12 @@ import java.awt.event.ActionListener;
 import java.util.Locale;
 
 import main.java.controller.handler.ScreenHandler;
-
+/**
+ * This class waits for language change command.
+ * @author weilichsoheisse
+ * @version 16.05.2021
+ *
+ */
 public class ChangeLanguage implements ActionListener {
     Locale language;
     ScreenHandler screenHandler;

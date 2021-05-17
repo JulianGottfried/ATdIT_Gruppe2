@@ -9,6 +9,13 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/**
+* This class is a basic data model for the house owners table. 
+* @author weilichsoheisse
+* @version 16.05.2021
+*
+*/
+
 @Entity
 @Table(name = "HouseOwners")
 public class HouseOwners implements AbstractEntry, Serializable {

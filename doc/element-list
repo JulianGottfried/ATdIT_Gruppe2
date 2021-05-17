@@ -1,0 +1,16 @@
+main.java
+main.java.controller.exceptions
+main.java.controller.handler
+main.java.controller.handler.languageHandler
+main.java.controller.handler.utilityHandler
+main.java.controller.listener.ActionListener
+main.java.controller.listener.mouseAdapter
+main.java.model
+main.java.persistence.databaseManager
+main.java.persistence.databaseTables
+main.java.view.guiElements.JLabelElems
+main.java.view.guiElements.JOptionPaneElems
+main.java.view.guiElements.JPanelElems
+main.java.view.guiElements.JTextAreaElems
+main.java.view.screen
+main.java.view.screen.views
