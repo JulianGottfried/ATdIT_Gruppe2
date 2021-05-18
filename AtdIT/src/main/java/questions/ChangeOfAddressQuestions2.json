@@ -1,10 +1,9 @@
 {
-	"initial": "question3",
+	"initial": "question1",
 	"question1": {
 		"type": "input",
 		"de": "Wie lautet Ihr Vorname?",
 		"en": "What's your first name?",
-		"model": "person",
 		"previous": null,
 		"next": "question2"
 	},
@@ -12,14 +11,14 @@
 		"type": "input",
 		"de": "Wie lautet Ihr Nachname?",
 		"en": "What's your last name?",
-		"previous": "question1",
+		"previous": null,
 		"next": "question3"
 	},
 	"question3": {
 		"type": "date",
 		"de": "Wie lautet Ihr Geburtsdatum?",
 		"en": "What's your date of birth?",
-		"previous": "question2",
+		"previous": null,
 		"next": "question4"
 	},
 	"question4": {
@@ -37,16 +36,12 @@
 				"female",
 				"non-binary"
 			]
-		},
-		"previous": "question3",
-		"next": "question5"
+		}
 	},
 	"question5": {
 		"type": "input",
 		"de": "Wo sind Sie geboren?",
-		"en": "Where were you born?",
-		"previous": "question4",
-		"next": "question6"
+		"en": "Where were you born?"
 	},
 	"question6": {
 		"type": "select",
@@ -72,47 +67,52 @@
 		},
 		"case": {
 			"verheiratet": {
-				"next": "question6-1-1"
+				"initial": "question6-1",
+				"question6-1": {
+					"type": "date",
+					"de": "Wie lautet das Datum der Eheschließung?",
+					"previous": "question6",
+					"next": "question6-2"
+				},
+				"question6-2": {
+					"type": "input",
+					"de": "Wie lautet der Ort der Eheschließung?",
+					"previous": "question6-1",
+					"next": "question6-3"
+				}
 			},
 			"married": {
-				"next": "question6-1-1"
+				"question6-1": {
+					"type": "date",
+					"en": "What is the marriage date?"
+				},
+				"question6-2": {
+					"type": "input",
+					"en": "What is the place of marriage?"
+				}
 			},
 			"Lebenspartnerschaft": {
-				"next": "question6-2-1"
+				"question6-3": {
+					"type": "date",
+					"de": "Wann wurde die Lebenspartnerschaft beschlossen?"
+				},
+				"question6-4": {
+					"type": "input",
+					"de": "Wie lautet der Ort, an dem die Lebenspartnerschaft beschlossen wurde?"
+				}
 			},
 			"Civil partnership": {
-				"next": "question6-2-1"
+				"question6-3": {
+					"type": "date",
+					"en": "When was the partnership decided?"
+				},
+				"question6-4": {
+					"type": "input",
+					"en": "What is the place where the partnership was decided?"
+				}
 			}
 		},
 		"previous": "question5",
-		"next": "question7"
-	},
-	"question6-1-1": {
-		"type": "date",
-		"de": "Wie lautet das Datum der Eheschließung?",
-		"en": "What is the marriage date?",
-		"previous": "question6",
-		"next": "question6-1-2"
-	},
-	"question6-1-2": {
-		"type": "input",
-		"de": "Wie lautet der Ort der Eheschließung?",
-		"en": "What is the place of marriage?",
-		"previous": "question6-1-1",
-		"next": "question7"
-	},
-	"question6-2-1": {
-		"type": "date",
-		"de": "Wann wurde die Lebenspartnerschaft beschlossen?",
-		"en": "When was the partnership decided?",
-		"previous": "question6",
-		"next": "question6-2-2"
-	},
-	"question6-2-2": {
-		"type": "input",
-		"de": "Wie lautet der Ort, an dem die Lebenspartnerschaft beschlossen wurde?",
-		"en": "What is the place where the partnership was decided?",
-		"previous": "question6-2-1",
 		"next": "question7"
 	},
 	"question7": {

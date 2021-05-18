@@ -7,7 +7,6 @@ import java.awt.Insets;
 import javax.swing.plaf.InsetsUIResource;
 
 import main.java.controller.handler.ScreenHandler;
-import main.java.questions.ChangeOfAddressQuestions;
 import main.java.view.guiElements.JPanelElems.BackgroundPanel;
 import main.java.view.guiElements.JPanelElems.Header;
 import main.java.view.guiElements.JPanelElems.ProgressBar;

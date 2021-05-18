@@ -67,9 +67,9 @@ public class ModelFactory {
 		return createAssignee(assigneeEntry);
 	}
 	
-	public ChangeOfAddress createChangeOfAddress(ArrayList<Person> persons, Date moveInDate, Address oldAddress, Address newAddress,
+	public ChangeOfAddress createChangeOfAddress(Person person, Date moveInDate, Address oldAddress, Address newAddress,
 			HouseProvider houseProvider, HouseOwner houseOwner, Assignee assignee) {
-		return new ChangeOfAddress(persons, moveInDate, oldAddress, newAddress, houseProvider, houseOwner, assignee);
+		return new ChangeOfAddress(person, moveInDate, oldAddress, newAddress, houseProvider, houseOwner, assignee);
 	}
 	
 	public ChangeOfAddress createChangeOfAddress(ChangesOfAddresses coaEntry) {
@@ -81,11 +81,7 @@ public class ModelFactory {
 			coa.setMoveInDate(coaEntry.getMoveInDate());
 			coa.setNewAddress(createAddress(coaEntry.getNewAddress()));
 			coa.setOldAddress(createAddress(coaEntry.getOldAddress()));
-			ArrayList<Person> personList = new ArrayList<Person>();
-			for (Persons personEntry : coaEntry.getPersonList()) {
-				personList.add(createPerson(personEntry));
-			}
-			coa.setPersons(personList);
+			coa.setPerson(createPerson(coaEntry.getPerson()));
 		}
 		return coa;
 	}

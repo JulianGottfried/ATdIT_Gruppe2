@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
@@ -17,8 +18,8 @@ import javax.persistence.Table;
 @PrimaryKeyJoinColumn(referencedColumnName = "ProcessID")
 @DiscriminatorValue("ChangesOfAddresses")
 public class ChangesOfAddresses extends Processes implements Serializable {
-	@OneToMany (targetEntity=Persons.class, fetch = FetchType.EAGER)
-	private List<Persons>	PersonList;
+	@OneToOne
+	private Persons			Person;
 	private Date			MoveInDate;
 	@ManyToOne
 	private Addresses 		OldAddress;
@@ -40,12 +41,12 @@ public class ChangesOfAddresses extends Processes implements Serializable {
 		MoveInDate = moveInDate;
 	}
 
-	public List<Persons> getPersonList() {
-		return PersonList;
+	public Persons getPerson() {
+		return Person;
 	}
 
-	public void setPersonList(List<Persons> personList) {
-		PersonList = personList;
+	public void setPerson(Persons person) {
+		Person = person;
 	}
 
 	public Date getMoveInDate() {

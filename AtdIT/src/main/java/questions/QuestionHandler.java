@@ -5,7 +5,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.util.List;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -15,12 +17,11 @@ import main.java.controller.handler.utilityHandler.InternalPathsHandler;
 public class QuestionHandler {
 	public String next;
 	public String previous;
-	final String LINK2QUESTIONS = new InternalPathsHandler().getProperty("questions");
+	private final String LINK2QUESTIONS = new InternalPathsHandler().getProperty("questions");
 
 	
-	public JSONObject getQuestion(String filename) {
+	public JSONObject getQuestionsFromJSON(String filename) {
 		JSONParser parser = new JSONParser();
-		System.out.println(LINK2QUESTIONS + filename);
         try (Reader reader = new BufferedReader(new InputStreamReader(new FileInputStream(LINK2QUESTIONS + filename), "UTF-8"))) {
         	JSONObject jsonObject = (JSONObject) parser.parse(reader);
         	return jsonObject;
@@ -39,4 +40,10 @@ public class QuestionHandler {
 	public JSONObject getJSON(JSONObject obj, String key) {
 		return (JSONObject) obj.get(key);
 	}
+	
+	public JSONArray getJSONArray(JSONObject obj, String key, String language) {
+		obj = this.getJSON(obj, key);
+		return (JSONArray) obj.get(language);
+	}
+
 }

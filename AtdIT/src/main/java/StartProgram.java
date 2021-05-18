@@ -15,7 +15,6 @@ import main.java.persistence.databaseTables.HouseOwners;
 import main.java.persistence.databaseTables.Identifications;
 import main.java.persistence.databaseTables.Persons;
 import main.java.persistence.databaseTables.StagesOfCOA;
-import main.java.questions.ChangeOfAddressQuestions;
 
 public class StartProgram {
 

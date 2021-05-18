@@ -10,4 +10,9 @@ public class InputAnswer extends AbstractJTextField implements AnswerInterface {
 		this.setFont(fontHandler.getFont("inputQuestion"));
 	}
 
+	@Override
+	public String getAnswer() {
+		return this.getText();
+	}
+
 }

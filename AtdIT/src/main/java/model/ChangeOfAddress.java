@@ -1,10 +1,9 @@
 package main.java.model;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 public class ChangeOfAddress {
-	private ArrayList<Person>	persons;
+	private Person			person;
 	private Date			moveInDate;
 	private Address			oldAddress;
 	private Address			newAddress;
@@ -15,9 +14,9 @@ public class ChangeOfAddress {
 	public ChangeOfAddress() {
 	}
 	
-	public ChangeOfAddress(ArrayList<Person> persons, Date moveInDate, Address oldAddress, Address newAddress,
+	public ChangeOfAddress(Person person, Date moveInDate, Address oldAddress, Address newAddress,
 			HouseProvider houseProvider, HouseOwner houseOwner, Assignee assignee) {
-		this.persons = persons;
+		this.person = person;
 		this.moveInDate = moveInDate;
 		this.oldAddress = oldAddress;
 		this.newAddress = newAddress;
@@ -26,12 +25,12 @@ public class ChangeOfAddress {
 		this.assignee = assignee;
 	}
 
-	public ArrayList<Person> getPersons() {
-		return persons;
+	public Person getPerson() {
+		return person;
 	}
 
-	public void setPersons(ArrayList<Person> persons) {
-		this.persons = persons;
+	public void setPerson(Person person) {
+		this.person = person;
 	}
 
 	public Date getMoveInDate() {

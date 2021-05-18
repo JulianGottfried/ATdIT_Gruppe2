@@ -6,13 +6,17 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.util.Date;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import main.java.controller.exceptions.InterruptDrawException;
 import main.java.controller.handler.ScreenHandler;
 import main.java.controller.handler.languageHandler.I18nHandler;
+import main.java.controller.listener.ActionListener.SaveQuestionToModel;
 import main.java.questions.QuestionHandler;
+import main.java.view.guiElements.AnswerInterface;
 import main.java.view.guiElements.JButtonElems.FancyButton;
 import main.java.view.guiElements.JTextAreaElems.FancyTextArea;
 import main.java.view.guiElements.JTextFieldElems.InputAnswer;
@@ -24,6 +28,7 @@ public class QALabel extends AbstractJPanel {
 	private QuestionHandler qh;
 	private JSONObject questionObj;
 	private JSONObject currentQuestion;
+	private AnswerInterface currentAnswerLabel;
 	private I18nHandler i18n;
 
 	public QALabel(ScreenHandler screenHandler, Dimension dimensions, String questionFile) {
@@ -36,7 +41,7 @@ public class QALabel extends AbstractJPanel {
 		this.setBackground(this.colorHandler.getColor("menuButton2"));
 		
 		this.qh = new QuestionHandler();
-		this.questionObj = qh.getQuestion(questionFile);
+		this.questionObj = qh.getQuestionsFromJSON(questionFile);
 		String initialKey = qh.getString(this.questionObj, "initial");
 		this.currentQuestion = qh.getJSON(questionObj, initialKey);
 		
@@ -47,10 +52,12 @@ public class QALabel extends AbstractJPanel {
 		next.setForeground(colorHandler.getColor("bigMenuButtonFG"));
 		next.setBackground(colorHandler.getColor("bigMenuButtonBG"));
 		next.setText(i18n.getString("nextButton"));
+		next.addActionListener(new SaveQuestionToModel(this, this.qh));
 		FancyButton previous = new FancyButton(screenHandler, "menuButton2", "bigMenuButton");
 		previous.setForeground(colorHandler.getColor("bigMenuButtonFG"));
 		previous.setBackground(colorHandler.getColor("bigMenuButtonBG"));
 		previous.setText(i18n.getString("previousButton"));
+		previous.addActionListener(new SaveQuestionToModel(this, this.qh));
 		
 		this.showQuestion(currentQuestion);
 		
@@ -101,16 +108,16 @@ public class QALabel extends AbstractJPanel {
 	}
 	
 	public void showQuestion(JSONObject questionObj) {
-		this.setQuestion(qh.getString(questionObj, this.language));
-		this.setAnswerType(qh.getString(questionObj, "type"));
+		this.setQuestion(this.currentQuestion);
+		this.setAnswerType(this.currentQuestion);
 	}
 	
-	public void setQuestion(String question) {
-		this.qPanel.setQuestion(question);
+	public void setQuestion(JSONObject question) {
+		this.qPanel.setQuestion(qh.getString(question, this.language));
 	}
 	
-	public void setAnswerType(String answerType) {
-		this.aPanel.adjustAnswerType(answerType);
+	public void setAnswerType(JSONObject question) {
+		this.aPanel.adjustAnswerType(question);
 	}
 	
 	public class QuestionLabel extends AbstractJPanel {
@@ -147,23 +154,28 @@ public class QALabel extends AbstractJPanel {
 			this.setLayout(new GridBagLayout());
 		}
 		
-		public void adjustAnswerType(String answerType) {
+		public void adjustAnswerType(JSONObject question) {
+			String answerType = qh.getString(question, "type");
+			
 			this.removeAll();
 			
 			switch(answerType.toLowerCase()) {
-			case "input": updateAnswerLabel(new InputAnswer(screenHandler));
+			case "input": 
+				updateAnswerLabel(new InputAnswer(screenHandler));
 				break;
-			case "date": updateAnswerLabel(new DateAnswer(screenHandler));
+			case "date": 
+				updateAnswerLabel(new DateAnswer(screenHandler));
 				break; 
 			case "select": 
-				String[] options = {"question 1", "question2", "q3", "q4"};
+				JSONArray options = qh.getJSONArray(question, "options", language);
 				updateAnswerLabel(new SelectionAnswer(screenHandler, options, true));
 				break;
 			default:
 			}
 		}
 		
-		public void updateAnswerLabel(Component answerLabel) {
+		public void updateAnswerLabel(AnswerInterface answerLabel) {
+			currentAnswerLabel = answerLabel;
 			GridBagConstraints gbc = new GridBagConstraints();
 			gbc.gridx = 0;
 			gbc.gridy = 0;
@@ -172,9 +184,25 @@ public class QALabel extends AbstractJPanel {
 			gbc.insets = new Insets(20, 20, 20, 20);
 			gbc.fill = GridBagConstraints.BOTH;
 			this.removeAll();	
-			this.add(answerLabel, gbc);
+			this.add((Component) answerLabel, gbc);
 			this.revalidate();
 			this.repaint();
 		}
+	}
+
+	public JSONObject getCurrentQuestion() {
+		return currentQuestion;
+	}
+
+	public void setCurrentQuestion(JSONObject currentQuestion) {
+		this.currentQuestion = currentQuestion;
+	}
+
+	public AnswerInterface getCurrentAnswerLabel() {
+		return currentAnswerLabel;
+	}
+
+	public void setCurrentAnswerLabel(AnswerInterface currentAnswerLabel) {
+		this.currentAnswerLabel = currentAnswerLabel;
 	}
 }
