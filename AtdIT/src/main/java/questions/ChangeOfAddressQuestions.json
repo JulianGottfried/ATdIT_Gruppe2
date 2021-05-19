@@ -1,12 +1,14 @@
 {	
 	"baseModel": "main.java.model.ChangeOfAddress",
 	"initial": "question1",
+	"questionCount": 24,
 	"questions": {
 		"question1": {
 			"type": "input",
 			"de": "Wie lautet Ihr Vorname?",
 			"en": "What's your first name?",
 			"model": "person.name",
+			"number": 1,
 			"previous": null,
 			"next": "question2"
 		},
@@ -15,6 +17,7 @@
 			"de": "Wie lautet Ihr Nachname?",
 			"en": "What's your surname?",
 			"model": "person.surname",
+			"number": 2,
 			"previous": "question1",
 			"next": "question3"
 		},

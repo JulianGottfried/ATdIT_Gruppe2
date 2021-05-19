@@ -39,6 +39,10 @@ public class QuestionHandler {
 		return (String) obj.get(key);
 	}
 	
+	public int getInt(JSONObject obj, String key) {
+		return ((Long) obj.get(key)).intValue();
+	}
+	
 	public JSONObject getJSON(JSONObject obj, String key) {
 		return (JSONObject) obj.get(key);
 	}

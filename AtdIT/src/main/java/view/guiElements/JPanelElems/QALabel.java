@@ -39,6 +39,7 @@ public class QALabel extends AbstractJPanel {
 	public QALabel(ScreenHandler screenHandler, Dimension dimensions, String questionFile, ProgressBar progressBar) {
 		this(screenHandler, dimensions, questionFile);
 		this.progressBar = progressBar;
+		this.progressBar.setBoxes(this.questionCount);
 	}
 
 	public QALabel(ScreenHandler screenHandler, Dimension dimensions, String questionFile) {
@@ -56,8 +57,7 @@ public class QALabel extends AbstractJPanel {
 		this.questionsObj = qh.getJSON(wholeJSON, "questions");
 		String initialKey = qh.getString(wholeJSON, "initial");
 		this.baseModel = qh.getBaseModel(wholeJSON);
-		this.questionCount = qh.getString(wholeJSON, "questionCount");
-		System.out.println(questionCount);
+		this.questionCount = qh.getInt(wholeJSON, "questionCount");
 		this.currentQuestion = qh.getJSON(this.questionsObj, initialKey);
 		
 		this.qPanel =  new QuestionLabel(screenHandler);
@@ -130,7 +130,12 @@ public class QALabel extends AbstractJPanel {
 	}
 	
 	public void updateProgrssBar(int answeredQuestions) {
-		
+		if (this.progressBar != null) {
+			this.progressBar.emptyBar();
+			for (int i=0; i<answeredQuestions; i++) {
+				this.progressBar.updateBox(i, true);
+			}
+		}
 	}
 	
 	public void setQuestion(JSONObject question) {

@@ -52,8 +52,16 @@ public class ProgressBar extends AbstractJPanel {
 		}
 	}
 	
+	public void emptyBar() {
+		for (int i=0; i<progressBoxes.size(); i++) {
+			updateBox(i, false);
+		}
+	}
+	
 	public void updateBox(int index, boolean show) {
 		ProgressBox progressBox = progressBoxes.get(index);
 		progressBox.setOpaque(show);
+		this.revalidate();
+		this.repaint();
 	}
 }

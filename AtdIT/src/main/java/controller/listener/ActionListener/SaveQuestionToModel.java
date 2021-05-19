@@ -25,6 +25,8 @@ public class SaveQuestionToModel implements ActionListener {
 		try {
 			this.answer = qaLabel.getCurrentAnswerLabel().getAnswer();
 			this.currentQuestion = qaLabel.getCurrentQuestion();
+			int answeredQuestions = qh.getInt(this.currentQuestion, "number");
+			qaLabel.updateProgrssBar(answeredQuestions);
 			this.saveAnswer();
 			this.switchToNextAnswer();
 		} catch (FaltyAnswerException fae) {

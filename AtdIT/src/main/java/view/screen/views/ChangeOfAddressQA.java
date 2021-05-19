@@ -54,18 +54,6 @@ public class ChangeOfAddressQA extends AbstractView {
             ProgressBar progressBar = new ProgressBar(screenHandler, new Dimension(100, 400), "menuButton2", "progressBarBox");
             ProgressBarLabel progBarLabel = new ProgressBarLabel(screenHandler, progressBar, "menuButton2", new Dimension(100, 400));
             
-            FancyTextArea titleText = new FancyTextArea(screenHandler, fontHandler.getFont("progBarTitle"));
-            titleText.setText("Frage 1/14");
-            progBarLabel.setTitle(titleText);
-            
-            FancyTextArea upperText = new FancyTextArea(screenHandler, fontHandler.getFont("progBarUpper"));
-            upperText.setText("Ende");
-            progBarLabel.setUpperText(upperText);
-            
-            FancyTextArea lowerText = new FancyTextArea(screenHandler, fontHandler.getFont("progBarLower"));
-            lowerText.setText("Start");
-            progBarLabel.setLowerText(lowerText);
-            
             QALabel qaLabel = new QALabel(screenHandler, new Dimension(800, 600), "ChangeOfAddressQuestions.json", progressBar);
             
             gbc = new GridBagConstraints();
