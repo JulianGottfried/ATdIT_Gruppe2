@@ -1,6 +1,11 @@
 package main.java;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -21,9 +26,7 @@ import main.java.persistence.databaseTables.StagesOfCOA;
 public class StartProgram {
 
 	public static void main(String[] args) {
-		
-//		new ChangeOfAddressQuestions();
-		System.out.println(new ModelFactory().turnToJSON(ChangeOfAddress.class));
+				
         new ScreenHandler();
 //    	DatabaseManager dbm = new DatabaseManager();
 //    	   	

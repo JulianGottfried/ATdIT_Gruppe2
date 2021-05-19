@@ -12,12 +12,12 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import main.java.controller.exceptions.InterruptDrawException;
+import main.java.controller.handler.JSONHandler;
 import main.java.controller.handler.ScreenHandler;
 import main.java.controller.handler.languageHandler.I18nHandler;
 import main.java.controller.listener.ActionListener.GetPreviousQuestion;
 import main.java.controller.listener.ActionListener.SaveQuestionToModel;
 import main.java.model.ModelFactory;
-import main.java.questions.QuestionHandler;
 import main.java.view.guiElements.AnswerInterface;
 import main.java.view.guiElements.JButtonElems.FancyButton;
 import main.java.view.guiElements.JTextAreaElems.FancyTextArea;
@@ -28,8 +28,9 @@ public class QALabel extends AbstractJPanel {
 	private AnswerLabel aPanel;
 	private ProgressBar progressBar;
 	private String language;
-	private QuestionHandler qh;
+	private JSONHandler jsonHandler;
 	private JSONObject baseModel;
+	private JSONObject wholeJSON;
 	private JSONObject questionsObj;
 	private int questionCount;
 	private JSONObject currentQuestion;
@@ -51,14 +52,14 @@ public class QALabel extends AbstractJPanel {
 		this.setLayout(new GridBagLayout());
 		this.setBackground(this.colorHandler.getColor("menuButton2"));
 		
-		this.qh = new QuestionHandler();
+		this.jsonHandler = new JSONHandler();
 		
-		JSONObject wholeJSON = qh.getBaseJSON(questionFile);
-		this.questionsObj = qh.getJSON(wholeJSON, "questions");
-		String initialKey = qh.getString(wholeJSON, "initial");
-		this.baseModel = qh.getBaseModel(wholeJSON);
-		this.questionCount = qh.getInt(wholeJSON, "questionCount");
-		this.currentQuestion = qh.getJSON(this.questionsObj, initialKey);
+		this.wholeJSON = jsonHandler.getBaseJSON(questionFile);
+		this.questionsObj = jsonHandler.getJSON(this.wholeJSON, "questions");
+		String initialKey = jsonHandler.getString(this.wholeJSON, "initial");
+		this.baseModel = jsonHandler.getBaseModel(this.wholeJSON);
+		this.questionCount = jsonHandler.getInt(this.wholeJSON, "questionCount");
+		this.currentQuestion = jsonHandler.getJSON(this.questionsObj, initialKey);
 		
 		this.qPanel =  new QuestionLabel(screenHandler);
 		this.aPanel =  new AnswerLabel(screenHandler);
@@ -67,14 +68,13 @@ public class QALabel extends AbstractJPanel {
 		next.setForeground(colorHandler.getColor("bigMenuButtonFG"));
 		next.setBackground(colorHandler.getColor("bigMenuButtonBG"));
 		next.setText(i18n.getString("nextButton"));
-		next.addActionListener(new SaveQuestionToModel(this, this.qh));
+		next.addActionListener(new SaveQuestionToModel(this, this.jsonHandler));
 		
 		FancyButton previous = new FancyButton(screenHandler, "menuButton2", "bigMenuButton");
 		previous.setForeground(colorHandler.getColor("bigMenuButtonFG"));
 		previous.setBackground(colorHandler.getColor("bigMenuButtonBG"));
 		previous.setText(i18n.getString("previousButton"));
-		previous.addActionListener(new SaveQuestionToModel(this, this.qh));
-		previous.addActionListener(new GetPreviousQuestion(this, this.qh));
+		previous.addActionListener(new GetPreviousQuestion(this, this.jsonHandler));
 		
 		this.showQuestion(currentQuestion);
 		
@@ -139,7 +139,7 @@ public class QALabel extends AbstractJPanel {
 	}
 	
 	public void setQuestion(JSONObject question) {
-		this.qPanel.setQuestion(qh.getString(question, this.language));
+		this.qPanel.setQuestion(jsonHandler.getString(question, this.language));
 	}
 	
 	public void setAnswerType(JSONObject question) {
@@ -147,7 +147,10 @@ public class QALabel extends AbstractJPanel {
 	}
 	
 	public void showAnswers() {
-		System.out.println(this.baseModel);
+		
+		ModelFactory mf = new ModelFactory();
+
+		mf.saveChangeOfAddressToDB(mf.createChangeOfAddress(this.baseModel));
 	}
 	
 	public class QuestionLabel extends AbstractJPanel {
@@ -188,7 +191,7 @@ public class QALabel extends AbstractJPanel {
 		}
 		
 		public void adjustAnswerType(JSONObject question) {
-			String answerType = qh.getString(question, "type");
+			String answerType = jsonHandler.getString(question, "type");
 			
 			this.removeAll();
 			
@@ -200,7 +203,7 @@ public class QALabel extends AbstractJPanel {
 				updateAnswerLabel(new DateAnswer(screenHandler));
 				break; 
 			case "select": 
-				JSONArray options = qh.getJSONArray(question, "options", language);
+				JSONArray options = jsonHandler.getJSONArray(question, "options", language);
 				updateAnswerLabel(new SelectionAnswer(screenHandler, options, true));
 				break;
 			default:

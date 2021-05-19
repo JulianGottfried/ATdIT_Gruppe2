@@ -5,25 +5,28 @@ import java.awt.event.ActionListener;
 
 import org.json.simple.JSONObject;
 
-import main.java.questions.QuestionHandler;
+import main.java.controller.handler.JSONHandler;
 import main.java.view.guiElements.JPanelElems.QALabel;
 
 public class GetPreviousQuestion implements ActionListener {
 	private QALabel qaLabel;
-	private QuestionHandler qh;
+	private JSONHandler jsonHandler;
 	
-	public GetPreviousQuestion(QALabel qaLabel, QuestionHandler qh) {
+	public GetPreviousQuestion(QALabel qaLabel, JSONHandler jsonHandler) {
 		this.qaLabel = qaLabel;
-		this.qh = qh;
+		this.jsonHandler = jsonHandler;
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JSONObject currObj = qaLabel.getCurrentQuestion();
-		String previousKey = qh.getString(currObj, "previous");
-		JSONObject previousQuestion = qh.getJSON(qaLabel.getQuestionsObj(), previousKey);
-		qaLabel.showQuestion(previousQuestion);
-		qaLabel.setCurrentQuestion(previousQuestion);
+		String previousKey = jsonHandler.getString(currObj, "previous");
+		if (previousKey != null) {
+			JSONObject previousQuestion = jsonHandler.getJSON(qaLabel.getQuestionsObj(), previousKey);
+			qaLabel.updateProgrssBar(jsonHandler.getInt(previousQuestion, "number"));
+			qaLabel.showQuestion(previousQuestion);
+			qaLabel.setCurrentQuestion(previousQuestion);
+		}
 	}
 
 }

@@ -1,7 +1,7 @@
 {
 	"baseModel": "main.java.model.ChangeOfAddress",
 	"initial": "question1",
-	"questionCount": 38,
+	"questionCount": "50",
 	"questions": {
 		"question1": {
 			"type": "input",
@@ -181,7 +181,7 @@
 		},
 		"question10": {
 			"type": "date",
-			"de": "Wann wurde Ihr Personalausweis asugestellt?",
+			"de": "Wann wurde Ihr Personalausweis ausgestellt?",
 			"en": "When was your identity card issued?",
 			"number": 15,
 			"model": "person.identification.DateOfIssuing",

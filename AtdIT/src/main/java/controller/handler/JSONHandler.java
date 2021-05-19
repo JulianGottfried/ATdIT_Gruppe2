@@ -1,11 +1,12 @@
-package main.java.questions;
+package main.java.controller.handler;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -14,9 +15,8 @@ import org.json.simple.parser.ParseException;
 
 import main.java.controller.handler.utilityHandler.InternalPathsHandler;
 import main.java.model.ModelFactory;
-import main.java.view.guiElements.JPanelElems.QALabel;
 
-public class QuestionHandler {
+public class JSONHandler {
 	public String next;
 	public String previous;
 	private final String LINK2QUESTIONS = new InternalPathsHandler().getProperty("questions");
@@ -40,16 +40,42 @@ public class QuestionHandler {
 			return (String) obj.get(key);
 		} catch (NullPointerException npe) {
 			return null;
+		}		
+	}
+	
+	public Date getDate(JSONObject obj, String key) {
+		try {
+			Date date = new SimpleDateFormat("dd-MM-yyyy").parse((String) obj.get(key));
+			return date;
+		} catch (NullPointerException npe) {
+			return null;
+		} catch (java.text.ParseException pe) {
+			// TODO: logger
+			return null;
 		}
-		
 	}
 	
 	public int getInt(JSONObject obj, String key) {
-		return ((Long) obj.get(key)).intValue();
+		try {
+			return (int) Double.parseDouble((String) obj.get(key));
+		} catch(ClassCastException cce) {
+			return (int) ((long) obj.get(key));
+		} catch (NullPointerException npe) {
+			//TODO: logger
+			return 0;
+		} catch (NumberFormatException nfe) {
+			//TODO: logger
+			return 0;
+		}
 	}
 	
 	public JSONObject getJSON(JSONObject obj, String key) {
-		return (JSONObject) obj.get(key);
+		try {
+			return (JSONObject) obj.get(key);
+		} catch (ClassCastException cce) {
+			//TODO: logger
+			return new JSONObject();
+		}
 	}
 	
 	public JSONArray getJSONArray(JSONObject obj, String key, String language) {
@@ -72,7 +98,7 @@ public class QuestionHandler {
 			// TODO logger
 		}
 		
-		return mf.turnToJSON(baseModelClass);
+		return mf.modelToJSON(baseModelClass);
 	}
 	
 	public void safeAnswerAt(JSONObject baseModel, String answer, String saveLocation) {

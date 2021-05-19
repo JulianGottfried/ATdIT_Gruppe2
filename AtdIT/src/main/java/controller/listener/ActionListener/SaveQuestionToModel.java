@@ -5,19 +5,19 @@ import java.awt.event.ActionListener;
 
 import org.json.simple.JSONObject;
 
-import main.java.controller.exceptions.FaltyAnswerException;
-import main.java.questions.QuestionHandler;
+import main.java.controller.exceptions.FaultyAnswerException;
+import main.java.controller.handler.JSONHandler;
 import main.java.view.guiElements.JPanelElems.QALabel;
 
 public class SaveQuestionToModel implements ActionListener {
 	private QALabel qaLabel;
-	private QuestionHandler qh;
+	private JSONHandler jsonHandler;
 	private JSONObject currentQuestion;
 	private String answer;
 	
-	public SaveQuestionToModel(QALabel qaLabel, QuestionHandler qh) {
+	public SaveQuestionToModel(QALabel qaLabel, JSONHandler jsonHandler) {
 		this.qaLabel = qaLabel;
-		this.qh = qh;
+		this.jsonHandler = jsonHandler;
 	}
 	
 	@Override
@@ -25,37 +25,37 @@ public class SaveQuestionToModel implements ActionListener {
 		try {
 			this.answer = qaLabel.getCurrentAnswerLabel().getAnswer();
 			this.currentQuestion = qaLabel.getCurrentQuestion();
-			int answeredQuestions = qh.getInt(this.currentQuestion, "number");
-			qaLabel.updateProgrssBar(answeredQuestions);
 			this.saveAnswer();
 			this.switchToNextAnswer();
-		} catch (FaltyAnswerException fae) {
+		} catch (FaultyAnswerException fae) {
 			// TODO: logger
 		}
 	}
 	
 	public void saveAnswer() {
-		String saveLocation = qh.getString(this.currentQuestion, "model");
-		qh.safeAnswerAt(qaLabel.getBaseModel(), this.answer, saveLocation);
+		String saveLocation = jsonHandler.getString(this.currentQuestion, "model");
+		jsonHandler.safeAnswerAt(qaLabel.getBaseModel(), this.answer, saveLocation);
 	}
 	
 	public void switchToNextAnswer() {
 		String nextKey;
-		JSONObject cases = qh.getJSON(this.currentQuestion, "case");
+		JSONObject cases = jsonHandler.getJSON(this.currentQuestion, "case");
 		if (cases != null) {
-			String possibleNextKey = qh.getString(cases, this.answer);
+			String possibleNextKey = jsonHandler.getString(cases, this.answer);
 			if (possibleNextKey != null) {
 				nextKey = possibleNextKey;
 			} else {
-				nextKey = qh.getString(this.currentQuestion, "next");
+				nextKey = jsonHandler.getString(this.currentQuestion, "next");
 			}
 		} else {
-			nextKey = qh.getString(this.currentQuestion, "next");
+			nextKey = jsonHandler.getString(this.currentQuestion, "next");
 		}
-		JSONObject nextQuestion = qh.getJSON(qaLabel.getQuestionsObj(), nextKey);
+		JSONObject nextQuestion = jsonHandler.getJSON(qaLabel.getQuestionsObj(), nextKey);
 		if (nextQuestion != null) {
 			qaLabel.showQuestion(nextQuestion);
 			qaLabel.setCurrentQuestion(nextQuestion);
+			int answeredQuestions = jsonHandler.getInt(nextQuestion, "number");
+			qaLabel.updateProgrssBar(answeredQuestions);
 		} else {
 			qaLabel.showAnswers();
 		}
