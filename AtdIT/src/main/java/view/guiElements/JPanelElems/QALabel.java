@@ -56,8 +56,7 @@ public class QALabel extends AbstractJPanel {
 		this.questionsObj = qh.getJSON(wholeJSON, "questions");
 		String initialKey = qh.getString(wholeJSON, "initial");
 		this.baseModel = qh.getBaseModel(wholeJSON);
-		this.questionCount = this.questionsObj.keySet().size();
-//		this.progressBar.setBoxes(this.questionCount);
+		this.questionCount = qh.getString(wholeJSON, "questionCount");
 		System.out.println(questionCount);
 		this.currentQuestion = qh.getJSON(this.questionsObj, initialKey);
 		
