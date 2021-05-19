@@ -53,7 +53,11 @@ public class SaveQuestionToModel implements ActionListener {
 			nextKey = qh.getString(this.currentQuestion, "next");
 		}
 		JSONObject nextQuestion = qh.getJSON(qaLabel.getQuestionsObj(), nextKey);
-		qaLabel.showQuestion(nextQuestion);
-		qaLabel.setCurrentQuestion(nextQuestion);
+		if (nextQuestion != null) {
+			qaLabel.showQuestion(nextQuestion);
+			qaLabel.setCurrentQuestion(nextQuestion);
+		} else {
+			qaLabel.showAnswers();
+		}
 	}
 }

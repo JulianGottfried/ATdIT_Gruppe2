@@ -36,7 +36,12 @@ public class QuestionHandler {
 	}
 	
 	public String getString(JSONObject obj, String key) {
-		return (String) obj.get(key);
+		try {
+			return (String) obj.get(key);
+		} catch (NullPointerException npe) {
+			return null;
+		}
+		
 	}
 	
 	public int getInt(JSONObject obj, String key) {
@@ -71,6 +76,9 @@ public class QuestionHandler {
 	}
 	
 	public void safeAnswerAt(JSONObject baseModel, String answer, String saveLocation) {
+		if (saveLocation == null) {
+			return;
+		}
 		String[] mapToLocation = saveLocation.split("\\.");
 		for (int i=0; i<mapToLocation.length-1; i++) {
 			baseModel = this.getJSON(baseModel, mapToLocation[i]);

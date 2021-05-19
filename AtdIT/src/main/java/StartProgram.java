@@ -23,7 +23,7 @@ public class StartProgram {
 	public static void main(String[] args) {
 		
 //		new ChangeOfAddressQuestions();
-//		System.out.println(new ModelFactory().turnToJSON(ChangeOfAddress.class));
+		System.out.println(new ModelFactory().turnToJSON(ChangeOfAddress.class));
         new ScreenHandler();
 //    	DatabaseManager dbm = new DatabaseManager();
 //    	   	

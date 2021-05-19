@@ -146,6 +146,10 @@ public class QALabel extends AbstractJPanel {
 		this.aPanel.adjustAnswerType(question);
 	}
 	
+	public void showAnswers() {
+		System.out.println(this.baseModel);
+	}
+	
 	public class QuestionLabel extends AbstractJPanel {
 		ScreenHandler screenHandler;
 		
