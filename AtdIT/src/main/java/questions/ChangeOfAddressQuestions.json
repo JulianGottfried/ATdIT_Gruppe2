@@ -1,14 +1,12 @@
-{	
+{
 	"baseModel": "main.java.model.ChangeOfAddress",
 	"initial": "question1",
-	"questionCount": 24,
 	"questions": {
 		"question1": {
 			"type": "input",
 			"de": "Wie lautet Ihr Vorname?",
 			"en": "What's your first name?",
 			"model": "person.name",
-			"number": 1,
 			"previous": null,
 			"next": "question2"
 		},
@@ -17,7 +15,6 @@
 			"de": "Wie lautet Ihr Nachname?",
 			"en": "What's your surname?",
 			"model": "person.surname",
-			"number": 2,
 			"previous": "question1",
 			"next": "question3"
 		},
@@ -119,7 +116,7 @@
 			"en": "What is the place where the partnership was decided?",
 			"model": "person.placeOfMarriage",
 			"previous": "question6-2-1",
-			"next": "question7"	
+			"next": "question7"
 		},
 		"question7": {
 			"type": "select",
@@ -303,6 +300,104 @@
 			},
 			"model": "newAddress.country",
 			"previous": "question23",
+			"next": "question25"
+		},
+		"question25": {
+			"type": "date",
+			"de": "An welchem Datum ziehen Sie um",
+			"en": "What date are you moving?",
+			"model": "moveInData",
+			"previous": "question24",
+			"next": "question26"
+		},
+		"question26": {
+			"type": "input",
+			"de": "Wie lautet der Vorname Ihres Wohnungsgebers?",
+			"en": "What is the first name of the house provider?",
+			"model": "houseProvider.name",
+			"previous": "question25",
+			"next": "question27"
+		},
+		"question27": {
+			"type": "input",
+			"de": "Wie lautet der Nachname Ihres Wohnungsgebers?",
+			"en": "What is the surname of the house provider?",
+			"model": "houseProvider.surname",
+			"previous": "question26",
+			"next": "question28"
+		},
+		"question28": {
+			"type": "select",
+			"de": "Ist ihr Wohnungsgeber auch der Hausbesitzer?",
+			"en": "Is your house provider also the house owner?",
+			"options": {
+				"de": [
+					"Ja",
+					"Nein"
+				],
+				"en": [
+					"Yes",
+					"No"
+				]
+			},
+			"case": {
+				"Nein": "question28-1",
+				"No": "question28-1"
+			},
+			"previous": "question27",
+			"next": "question29"
+		},
+		"question28-1": {
+			"type": "input",
+			"de": "Wie lautet der Vorname Ihres Wohnungsbesitzers?",
+			"en": "What is the first name of the house owner?",
+			"model": "houseOwner.name",
+			"previous": "question28",
+			"next": "question28-2"
+		},
+		"question28-2": {
+			"type": "input",
+			"de": "Wie lautet der Nachname Ihres Wohnungsbesitzers?",
+			"en": "What is the surname of the house owner?",
+			"model": "houseOwner.surname",
+			"previous": "question28-1",
+			"next": "question29"
+		},
+		"question29": {
+			"type": "select",
+			"de": "Schließen Sie die Ummeldung persönlich vor Ort ab oder möchten sie eine Vollmacht ausstellen?",
+			"en": "Complete the re-registration in person or would you like to designate an assignee",
+			"options": {
+				"de": [
+					"Persönlich abschließen",
+					"Vollmacht ausstellen"
+				],
+				"en": [
+					"Complete in person",
+					"Issue power of attorney"
+				]
+			},
+			"case": {
+				"Vollmacht ausstellen": "question29-1",
+				"Issue power of attorney": "question29-1"
+			},
+			"previous": "question28",
+			"next": null
+		},
+		"question29-1": {
+			"type": "input",
+			"de": "Wie lautet der Vorname ihres Bevollmächtigten?",
+			"en": "What is the first name of the assignee",
+			"model": "assignee.name",
+			"previous": "question28-2",
+			"next": "question29-2"
+		},
+		"question29-2": {
+			"type": "input",
+			"de": "Wie lautet der Nachname ihres Bevollmächtigten?",
+			"en": "What is the surname of the assignee",
+			"model": "assignee.surname",
+			"previous": "question29-1",
 			"next": null
 		}
 	}
