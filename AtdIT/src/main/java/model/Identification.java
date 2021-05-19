@@ -2,7 +2,7 @@ package main.java.model;
 
 import java.util.Date;
 
-public class Identification {
+public class Identification implements Model {
 	private String 	IDNumber;
 	private String 	IssuingAuthority;
 	private Date 	DateOfIssuing;

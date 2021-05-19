@@ -8,6 +8,7 @@ import net.sourceforge.jdatepicker.impl.UtilDateModel;
 import java.util.Calendar;
 import java.util.Date;
 
+import main.java.controller.exceptions.FaltyAnswerException;
 import main.java.controller.handler.ScreenHandler;
 
 public class DateAnswer extends AbstractJPanel implements AnswerInterface {
@@ -22,9 +23,12 @@ public class DateAnswer extends AbstractJPanel implements AnswerInterface {
 		this.add(datePicker);
 	}
 
-	@Override
-	public String getAnswer() {
+	public String getAnswer() throws FaltyAnswerException {
 		Date date = (Date) datePicker.getModel().getValue();
-		return date.toString();
+		try {
+			return date.toString();
+		} catch (NullPointerException npe) {
+			throw new FaltyAnswerException("No date picked");
+		}
 	}
 }

@@ -1,6 +1,6 @@
 package main.java.model;
 
-public class Address {
+public class Address implements Model {
 	private String	street;
 	private int		streetNumber;
 	private String	secondLine;

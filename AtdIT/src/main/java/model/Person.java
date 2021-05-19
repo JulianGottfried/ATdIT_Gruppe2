@@ -2,7 +2,7 @@ package main.java.model;
 
 import java.util.Date;
 
-public class Person {
+public class Person implements Model {
 	private String			name;
 	private String			surname;
 	private String			gender;

@@ -2,7 +2,7 @@ package main.java.model;
 
 import java.util.Date;
 
-public class ChangeOfAddress {
+public class ChangeOfAddress implements Model {
 	private Person			person;
 	private Date			moveInDate;
 	private Address			oldAddress;

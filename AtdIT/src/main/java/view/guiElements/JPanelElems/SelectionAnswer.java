@@ -9,6 +9,7 @@ import javax.swing.JRadioButton;
 
 import org.json.simple.JSONArray;
 
+import main.java.controller.exceptions.FaltyAnswerException;
 import main.java.controller.handler.ScreenHandler;
 import main.java.view.guiElements.AnswerInterface;
 
@@ -37,8 +38,11 @@ public class SelectionAnswer extends AbstractJPanel implements AnswerInterface {
 		}
 	}
 
-	@Override
-	public String getAnswer() {
-		return this.bg.getSelection().getActionCommand();
+	public String getAnswer() throws FaltyAnswerException {
+		try {
+			return this.bg.getSelection().getActionCommand();
+		} catch (NullPointerException npe) {
+			throw new FaltyAnswerException("No button picked");
+		}
 	}
 }

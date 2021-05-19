@@ -1,13 +1,14 @@
 package main.java.model;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
+import java.lang.reflect.Field;
 import java.util.Date;
-import java.util.Optional;
+
+import javax.lang.model.SourceVersion;
+
+import org.hibernate.mapping.Subclass;
+import org.json.simple.JSONObject;
 
 import main.java.persistence.databaseManager.DatabaseManager;
-import main.java.persistence.databaseTables.AbstractEntry;
 import main.java.persistence.databaseTables.Addresses;
 import main.java.persistence.databaseTables.Assignees;
 import main.java.persistence.databaseTables.ChangesOfAddresses;
@@ -16,6 +17,7 @@ import main.java.persistence.databaseTables.HouseProviders;
 import main.java.persistence.databaseTables.Identifications;
 import main.java.persistence.databaseTables.Persons;
 import main.java.persistence.databaseTables.StagesOfCOA;
+import net.bytebuddy.implementation.bind.annotation.Super;
 
 public class ModelFactory {
 	
@@ -24,6 +26,15 @@ public class ModelFactory {
 	public ModelFactory() {
 		this.dbm = new DatabaseManager();
 	}
+	
+	public Model createModelFromKeyWord(String keyword) {
+		switch (keyword.toLowerCase()) {
+		case "address":
+		}
+		return null;
+	}
+	
+
 	
 	public Address createAddress(String street, int streetNumber, String secondLine, int postcode, String city, String country) {		
 		return new Address(street, streetNumber, secondLine, postcode, city, country);
@@ -196,5 +207,25 @@ public class ModelFactory {
 	public StageOfCOA createStagesOfCOA(int key) {
 		StagesOfCOA stagesEntry = dbm.getDatabaseEntry(StagesOfCOA.class, key);
 		return createStagesOfCOA(stagesEntry);
+	}
+	
+	public JSONObject turnToJSON(Class model) {
+		JSONObject json = new JSONObject();
+		Field[] fields = model.getDeclaredFields();
+		for (Field field: fields) {
+			JSONObject value = null;
+			try {
+				Class<?> fieldClass = Class.forName(field.getType().getName());
+				
+				if (Model.class.isAssignableFrom(fieldClass)) {
+					value = turnToJSON(fieldClass);
+				};
+			} catch (ClassNotFoundException e) {
+				// TODO logger
+			}
+
+			json.put(field.getName(), value);
+		}
+		return json;
 	}
 }

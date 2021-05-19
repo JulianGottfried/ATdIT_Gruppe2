@@ -14,7 +14,9 @@ import org.json.simple.JSONObject;
 import main.java.controller.exceptions.InterruptDrawException;
 import main.java.controller.handler.ScreenHandler;
 import main.java.controller.handler.languageHandler.I18nHandler;
+import main.java.controller.listener.ActionListener.GetPreviousQuestion;
 import main.java.controller.listener.ActionListener.SaveQuestionToModel;
+import main.java.model.ModelFactory;
 import main.java.questions.QuestionHandler;
 import main.java.view.guiElements.AnswerInterface;
 import main.java.view.guiElements.JButtonElems.FancyButton;
@@ -26,7 +28,8 @@ public class QALabel extends AbstractJPanel {
 	private AnswerLabel aPanel;
 	private String language;
 	private QuestionHandler qh;
-	private JSONObject questionObj;
+	private JSONObject baseModel;
+	private JSONObject questionsObj;
 	private JSONObject currentQuestion;
 	private AnswerInterface currentAnswerLabel;
 	private I18nHandler i18n;
@@ -41,9 +44,10 @@ public class QALabel extends AbstractJPanel {
 		this.setBackground(this.colorHandler.getColor("menuButton2"));
 		
 		this.qh = new QuestionHandler();
-		this.questionObj = qh.getQuestionsFromJSON(questionFile);
-		String initialKey = qh.getString(this.questionObj, "initial");
-		this.currentQuestion = qh.getJSON(questionObj, initialKey);
+		this.questionsObj = qh.getQuestionsFromJSON(questionFile);	
+		String initialKey = qh.getString(this.questionsObj, "initial");
+		this.currentQuestion = qh.getJSON(this.questionsObj, initialKey);
+		this.baseModel = qh.getBaseModel(this.questionsObj);
 		
 		this.qPanel =  new QuestionLabel(screenHandler);
 		this.aPanel =  new AnswerLabel(screenHandler);
@@ -58,6 +62,7 @@ public class QALabel extends AbstractJPanel {
 		previous.setBackground(colorHandler.getColor("bigMenuButtonBG"));
 		previous.setText(i18n.getString("previousButton"));
 		previous.addActionListener(new SaveQuestionToModel(this, this.qh));
+		previous.addActionListener(new GetPreviousQuestion(this, this.qh));
 		
 		this.showQuestion(currentQuestion);
 		
@@ -99,17 +104,17 @@ public class QALabel extends AbstractJPanel {
 		this.add(next, gbc);	
 	}
 	
+	public void showQuestion(JSONObject question) {
+		this.setQuestion(question);
+		this.setAnswerType(question);
+	}
+
 	public void setI18n(ScreenHandler screenHandler) {
 		try {
 			this.i18n = new I18nHandler(this.getClass().getSimpleName(), screenHandler.getLanguage(), screenHandler);
 		} catch (InterruptDrawException e) {
             screenHandler.changeCurrentView(screenHandler.getPreviousView());
 		}
-	}
-	
-	public void showQuestion(JSONObject questionObj) {
-		this.setQuestion(this.currentQuestion);
-		this.setAnswerType(this.currentQuestion);
 	}
 	
 	public void setQuestion(JSONObject question) {
@@ -121,14 +126,19 @@ public class QALabel extends AbstractJPanel {
 	}
 	
 	public class QuestionLabel extends AbstractJPanel {
-		private FancyTextArea questionArea;
+		ScreenHandler screenHandler;
 		
 		public QuestionLabel(ScreenHandler screenHandler) {
 			super(screenHandler);
+			this.screenHandler = screenHandler;
 			this.setLayout(new GridBagLayout());
 			this.setBackground(colorHandler.getColor("transparent"));
-			this.questionArea = new FancyTextArea(screenHandler);
-			
+		}
+		
+		public void setQuestion(String question) {
+			this.removeAll();
+			FancyTextArea questionArea = new FancyTextArea(this.screenHandler);
+			questionArea.setText(question);
 			GridBagConstraints gbc = new GridBagConstraints();
 			gbc.gridx = 0;
 			gbc.gridy = 0;
@@ -137,11 +147,9 @@ public class QALabel extends AbstractJPanel {
 			gbc.fill = GridBagConstraints.HORIZONTAL;
 			gbc.anchor = GridBagConstraints.CENTER;
 			gbc.insets = new Insets(15, 25, 15, 25);
-			this.add(this.questionArea, gbc);
-		}
-		
-		public void setQuestion(String question) {
-			this.questionArea.setText(question);
+			this.add(questionArea, gbc);
+			this.revalidate();
+			this.repaint();
 		}		
 	}
 	
@@ -204,5 +212,29 @@ public class QALabel extends AbstractJPanel {
 
 	public void setCurrentAnswerLabel(AnswerInterface currentAnswerLabel) {
 		this.currentAnswerLabel = currentAnswerLabel;
+	}
+
+	public JSONObject getBaseModel() {
+		return baseModel;
+	}
+
+	public void setBaseModel(JSONObject baseModel) {
+		this.baseModel = baseModel;
+	}
+
+	public JSONObject getQuestionsObj() {
+		return questionsObj;
+	}
+
+	public void setQuestionsObj(JSONObject questionsObj) {
+		this.questionsObj = questionsObj;
+	}
+
+	public String getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(String language) {
+		this.language = language;
 	}
 }

@@ -13,6 +13,8 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import main.java.controller.handler.utilityHandler.InternalPathsHandler;
+import main.java.model.ModelFactory;
+import main.java.view.guiElements.JPanelElems.QALabel;
 
 public class QuestionHandler {
 	public String next;
@@ -43,7 +45,34 @@ public class QuestionHandler {
 	
 	public JSONArray getJSONArray(JSONObject obj, String key, String language) {
 		obj = this.getJSON(obj, key);
-		return (JSONArray) obj.get(language);
+		try {
+			return (JSONArray) obj.get(language);
+		} catch (NullPointerException npe) {
+			return null;
+		}
+		
 	}
 
+	public JSONObject getBaseModel(JSONObject initObj) {
+		ModelFactory mf = new ModelFactory();
+		
+		String baseModelString = this.getString(initObj, "baseModel");
+		Class<?> baseModelClass = null;
+		try {
+			baseModelClass = Class.forName(baseModelString);
+		} catch (ClassNotFoundException e) {
+			// TODO logger
+		}
+		
+		return mf.turnToJSON(baseModelClass);
+	}
+	
+	public void safeAnswerAt(JSONObject baseModel, String answer, String saveLocation) {
+		String[] mapToLocation = saveLocation.split("\\.");
+		for (int i=0; i<mapToLocation.length-1; i++) {
+			baseModel = this.getJSON(baseModel, mapToLocation[i]);
+		}
+		String key = mapToLocation[mapToLocation.length - 1];
+		baseModel.put(key, answer);
+	}
 }

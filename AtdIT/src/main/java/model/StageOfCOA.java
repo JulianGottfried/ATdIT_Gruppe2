@@ -1,6 +1,6 @@
 package main.java.model;
 
-public class StageOfCOA {
+public class StageOfCOA implements Model {
 	private Boolean[] stages;
 	
 	public StageOfCOA() {
