@@ -22,7 +22,7 @@ public class QuestionHandler {
 	private final String LINK2QUESTIONS = new InternalPathsHandler().getProperty("questions");
 
 	
-	public JSONObject getQuestionsFromJSON(String filename) {
+	public JSONObject getBaseJSON(String filename) {
 		JSONParser parser = new JSONParser();
         try (Reader reader = new BufferedReader(new InputStreamReader(new FileInputStream(LINK2QUESTIONS + filename), "UTF-8"))) {
         	JSONObject jsonObject = (JSONObject) parser.parse(reader);
@@ -50,7 +50,6 @@ public class QuestionHandler {
 		} catch (NullPointerException npe) {
 			return null;
 		}
-		
 	}
 
 	public JSONObject getBaseModel(JSONObject initObj) {

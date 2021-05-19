@@ -26,13 +26,20 @@ import main.java.view.guiElements.JTextFieldElems.InputAnswer;
 public class QALabel extends AbstractJPanel {
 	private QuestionLabel qPanel;
 	private AnswerLabel aPanel;
+	private ProgressBar progressBar;
 	private String language;
 	private QuestionHandler qh;
 	private JSONObject baseModel;
 	private JSONObject questionsObj;
+	private int questionCount;
 	private JSONObject currentQuestion;
 	private AnswerInterface currentAnswerLabel;
 	private I18nHandler i18n;
+	
+	public QALabel(ScreenHandler screenHandler, Dimension dimensions, String questionFile, ProgressBar progressBar) {
+		this(screenHandler, dimensions, questionFile);
+		this.progressBar = progressBar;
+	}
 
 	public QALabel(ScreenHandler screenHandler, Dimension dimensions, String questionFile) {
 		super(screenHandler);
@@ -44,10 +51,15 @@ public class QALabel extends AbstractJPanel {
 		this.setBackground(this.colorHandler.getColor("menuButton2"));
 		
 		this.qh = new QuestionHandler();
-		this.questionsObj = qh.getQuestionsFromJSON(questionFile);	
-		String initialKey = qh.getString(this.questionsObj, "initial");
+		
+		JSONObject wholeJSON = qh.getBaseJSON(questionFile);
+		this.questionsObj = qh.getJSON(wholeJSON, "questions");
+		String initialKey = qh.getString(wholeJSON, "initial");
+		this.baseModel = qh.getBaseModel(wholeJSON);
+		this.questionCount = this.questionsObj.keySet().size();
+//		this.progressBar.setBoxes(this.questionCount);
+		System.out.println(questionCount);
 		this.currentQuestion = qh.getJSON(this.questionsObj, initialKey);
-		this.baseModel = qh.getBaseModel(this.questionsObj);
 		
 		this.qPanel =  new QuestionLabel(screenHandler);
 		this.aPanel =  new AnswerLabel(screenHandler);
@@ -57,6 +69,7 @@ public class QALabel extends AbstractJPanel {
 		next.setBackground(colorHandler.getColor("bigMenuButtonBG"));
 		next.setText(i18n.getString("nextButton"));
 		next.addActionListener(new SaveQuestionToModel(this, this.qh));
+		
 		FancyButton previous = new FancyButton(screenHandler, "menuButton2", "bigMenuButton");
 		previous.setForeground(colorHandler.getColor("bigMenuButtonFG"));
 		previous.setBackground(colorHandler.getColor("bigMenuButtonBG"));
@@ -115,6 +128,10 @@ public class QALabel extends AbstractJPanel {
 		} catch (InterruptDrawException e) {
             screenHandler.changeCurrentView(screenHandler.getPreviousView());
 		}
+	}
+	
+	public void updateProgrssBar(int answeredQuestions) {
+		
 	}
 	
 	public void setQuestion(JSONObject question) {
@@ -236,5 +253,13 @@ public class QALabel extends AbstractJPanel {
 
 	public void setLanguage(String language) {
 		this.language = language;
+	}
+
+	public ProgressBar getProgressBar() {
+		return progressBar;
+	}
+
+	public void setProgressBar(ProgressBar progressBar) {
+		this.progressBar = progressBar;
 	}
 }

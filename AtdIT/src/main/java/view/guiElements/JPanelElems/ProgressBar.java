@@ -18,16 +18,19 @@ public class ProgressBar extends AbstractJPanel {
 	private ArrayList<ProgressBox> progressBoxes;
 	private String boxColorKey;
 
-	public ProgressBar(ScreenHandler screenHandler, Dimension dimensions, String bgColorKey, String boxColor, int boxesCount, int overallTasks, int doneTasks) {
+	public ProgressBar(ScreenHandler screenHandler, Dimension dimensions, String bgColorKey, String boxColor) {
 		super(screenHandler);
-		progressBoxes = new ArrayList<ProgressBox>();
 		this.boxColorKey = boxColor;
 		this.setLayout(new GridBagLayout());
 		this.setMinimumSize(dimensions);
 		this.setBackground(colorHandler.getColor(bgColorKey));
 		this.setBorder(BorderFactory.createLineBorder(colorHandler.getColor("frameBorder"), 5, true));
 		this.setPreferredSize(dimensions);
-				
+	}
+	
+	public void setBoxes(int boxesCount) {
+		progressBoxes = new ArrayList<ProgressBox>();
+		
 		for (int i=0; i<boxesCount; i++) {
 			ProgressBox pr = new ProgressBox();
 			progressBoxes.add(pr);
@@ -39,7 +42,7 @@ public class ProgressBar extends AbstractJPanel {
 			gbc.fill = GridBagConstraints.BOTH;
 			gbc.insets = new Insets(1, 5, 1, 5);
 			this.add(pr, gbc);
-		}		
+		}
 	}
 	
 	public class ProgressBox extends JLabel {

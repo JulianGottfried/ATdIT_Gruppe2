@@ -1,304 +1,306 @@
 {	
 	"baseModel": "main.java.model.ChangeOfAddress",
-	"initial": "question6",
-	"question1": {
-		"type": "input",
-		"de": "Wie lautet Ihr Vorname?",
-		"en": "What's your first name?",
-		"model": "person.name",
-		"previous": null,
-		"next": "question2"
-	},
-	"question2": {
-		"type": "input",
-		"de": "Wie lautet Ihr Nachname?",
-		"en": "What's your surname?",
-		"model": "person.surname",
-		"previous": "question1",
-		"next": "question3"
-	},
-	"question3": {
-		"type": "date",
-		"de": "Wie lautet Ihr Geburtsdatum?",
-		"en": "What's your date of birth?",
-		"model": "person.dateOfBirth",
-		"previous": "question2",
-		"next": "question4"
-	},
-	"question4": {
-		"type": "select",
-		"de": "Was ist Ihr Geschlecht?",
-		"en": "What is your gender?",
-		"options": {
-			"de": [
-				"männlich",
-				"weiblich",
-				"divers"
-			],
-			"en": [
-				"male",
-				"female",
-				"non-binary"
-			]
+	"initial": "question1",
+	"questions": {
+		"question1": {
+			"type": "input",
+			"de": "Wie lautet Ihr Vorname?",
+			"en": "What's your first name?",
+			"model": "person.name",
+			"previous": null,
+			"next": "question2"
 		},
-		"model": "person.gender",
-		"previous": "question3",
-		"next": "question5"
-	},
-	"question5": {
-		"type": "input",
-		"de": "Wo sind Sie geboren?",
-		"en": "Where were you born?",
-		"model": "person.placeOfBirth",
-		"previous": "question4",
-		"next": "question6"
-	},
-	"question6": {
-		"type": "select",
-		"model": "person.maritalStatus",
-		"de": "Was ist ihr momentaner Familienstand?",
-		"en": "What is your current marital status?",
-		"options": {
-			"de": [
-				"ledig",
-				"verheiratet",
-				"geschieden",
-				"Lebenspartnerschaft",
-				"Lebenspartner verstorben",
-				"Lebenspartnerschaft aufgehoben"
-			],
-			"en": [
-				"single",
-				"married",
-				"divorced",
-				"Civil partnership",
-				"Life partner has died",
-				"Civil partnership canceled"
-			]
+		"question2": {
+			"type": "input",
+			"de": "Wie lautet Ihr Nachname?",
+			"en": "What's your surname?",
+			"model": "person.surname",
+			"previous": "question1",
+			"next": "question3"
 		},
-		"case": {
-			"verheiratet": "question6-1-1",
-			"married": "question6-1-1",
-			"Lebenspartnerschaft": "question6-2-1",
-			"Civil partnership": "question6-2-1"
+		"question3": {
+			"type": "date",
+			"de": "Wie lautet Ihr Geburtsdatum?",
+			"en": "What's your date of birth?",
+			"model": "person.dateOfBirth",
+			"previous": "question2",
+			"next": "question4"
 		},
-		"previous": "question5",
-		"next": "question7"
-	},
-	"question6-1-1": {
-		"type": "date",
-		"de": "Wie lautet das Datum der Eheschließung?",
-		"en": "What is the marriage date?",
-		"model": "person.dateOfMarriage",
-		"previous": "question6",
-		"next": "question6-1-2"
-	},
-	"question6-1-2": {
-		"type": "input",
-		"de": "Wie lautet der Ort der Eheschließung?",
-		"en": "What is the place of marriage?",
-		"model": "person.placeOfMarriage",
-		"previous": "question6-1-1",
-		"next": "question7"
-	},
-	"question6-2-1": {
-		"type": "date",
-		"de": "Wann wurde die Lebenspartnerschaft beschlossen?",
-		"en": "When was the partnership decided?",
-		"model": "person.dateOfMarriage",
-		"previous": "question6",
-		"next": "question6-2-2"
-	},
-	"question6-2-2": {
-		"type": "input",
-		"de": "Wie lautet der Ort, an dem die Lebenspartnerschaft beschlossen wurde?",
-		"en": "What is the place where the partnership was decided?",
-		"model": "person.placeOfMarriage",
-		"previous": "question6-2-1",
-		"next": "question7"	
-	},
-	"question7": {
-		"type": "select",
-		"de": "Was für eine Staatsangehörigkeit besitzen Sie?",
-		"en": "What is your nationality?",
-		"options": {
-			"de": [
-				"Deutsch",
-				"andere"
-			],
-			"en": [
-				"German",
-				"other"
-			]
+		"question4": {
+			"type": "select",
+			"de": "Was ist Ihr Geschlecht?",
+			"en": "What is your gender?",
+			"options": {
+				"de": [
+					"männlich",
+					"weiblich",
+					"divers"
+				],
+				"en": [
+					"male",
+					"female",
+					"non-binary"
+				]
+			},
+			"model": "person.gender",
+			"previous": "question3",
+			"next": "question5"
 		},
-		"case": {
-			"andere": {
-				"question7-1": {
-					"type": "input",
-					"de": "Was für eine Staatsangehörigkeit besitzen Sie?"
+		"question5": {
+			"type": "input",
+			"de": "Wo sind Sie geboren?",
+			"en": "Where were you born?",
+			"model": "person.placeOfBirth",
+			"previous": "question4",
+			"next": "question6"
+		},
+		"question6": {
+			"type": "select",
+			"model": "person.maritalStatus",
+			"de": "Was ist ihr momentaner Familienstand?",
+			"en": "What is your current marital status?",
+			"options": {
+				"de": [
+					"ledig",
+					"verheiratet",
+					"geschieden",
+					"Lebenspartnerschaft",
+					"Lebenspartner verstorben",
+					"Lebenspartnerschaft aufgehoben"
+				],
+				"en": [
+					"single",
+					"married",
+					"divorced",
+					"Civil partnership",
+					"Life partner has died",
+					"Civil partnership canceled"
+				]
+			},
+			"case": {
+				"verheiratet": "question6-1-1",
+				"married": "question6-1-1",
+				"Lebenspartnerschaft": "question6-2-1",
+				"Civil partnership": "question6-2-1"
+			},
+			"previous": "question5",
+			"next": "question7"
+		},
+		"question6-1-1": {
+			"type": "date",
+			"de": "Wie lautet das Datum der Eheschließung?",
+			"en": "What is the marriage date?",
+			"model": "person.dateOfMarriage",
+			"previous": "question6",
+			"next": "question6-1-2"
+		},
+		"question6-1-2": {
+			"type": "input",
+			"de": "Wie lautet der Ort der Eheschließung?",
+			"en": "What is the place of marriage?",
+			"model": "person.placeOfMarriage",
+			"previous": "question6-1-1",
+			"next": "question7"
+		},
+		"question6-2-1": {
+			"type": "date",
+			"de": "Wann wurde die Lebenspartnerschaft beschlossen?",
+			"en": "When was the partnership decided?",
+			"model": "person.dateOfMarriage",
+			"previous": "question6",
+			"next": "question6-2-2"
+		},
+		"question6-2-2": {
+			"type": "input",
+			"de": "Wie lautet der Ort, an dem die Lebenspartnerschaft beschlossen wurde?",
+			"en": "What is the place where the partnership was decided?",
+			"model": "person.placeOfMarriage",
+			"previous": "question6-2-1",
+			"next": "question7"	
+		},
+		"question7": {
+			"type": "select",
+			"de": "Was für eine Staatsangehörigkeit besitzen Sie?",
+			"en": "What is your nationality?",
+			"options": {
+				"de": [
+					"Deutsch",
+					"andere"
+				],
+				"en": [
+					"German",
+					"other"
+				]
+			},
+			"case": {
+				"andere": {
+					"question7-1": {
+						"type": "input",
+						"de": "Was für eine Staatsangehörigkeit besitzen Sie?"
+					}
+				},
+				"other": {
+					"question7-1": {
+						"type": "input",
+						"en": "What is your nationality?"
+					}
 				}
 			},
-			"other": {
-				"question7-1": {
-					"type": "input",
-					"en": "What is your nationality?"
-				}
-			}
+			"model": "person.citizinship",
+			"previous": "question6",
+			"next": "question8"
 		},
-		"model": "person.citizinship",
-		"previous": "question6",
-		"next": "question8"
-	},
-	"question8": {
-		"type": "input",
-		"de": "Wie lautet die Nummer Ihres Personalausweises?",
-		"en": "What is the number of your identity card?",
-		"model": "person.identification.IDNumber",
-		"previous": "question7",
-		"next": "question9"
-	},
-	"question9": {
-		"type": "input",
-		"de": "Bei welcher Behörde wurde Ihr Personalausweis ausgestellt?",
-		"en": "Which authority was your identity card issued by?",
-		"model": "person.identification.IssuingAuthority",
-		"previous": "question8",
-		"next": "question10"
-	},
-	"question10": {
-		"type": "date",
-		"de": "Wann wurde Ihr Personalausweis asugestellt?",
-		"en": "When was your identity card issued?",
-		"model": "person.identification.DateOfIssuing",
-		"previous": "question9",
-		"next": "question11"
-	},
-	"question11": {
-		"type": "date",
-		"de": "Bis wann ist Ihr Personalausweis gültig?",
-		"en": "Until when is your ID card valid?",
-		"model": "person.identification.ExpiryDate",
-		"previous": "question10",
-		"next": "question13"
-	},
-	"question13": {
-		"type": "input",
-		"de": "Wie lautet die Straße Ihrer bisherigen Adresse?",
-		"en": "What is the street of your previous address?",
-		"model": "oldAddress.street",
-		"previous": "question12",
-		"next": "question14"
-	},
-	"question14": {
-		"type": "input",
-		"de": "Wie lautet die Hausnummer Ihrer bisherigen Adresse?",
-		"en": "What is the street number of your previous address?",
-		"model": "oldAddress.streetNumber",
-		"previous": "question13",
-		"next": "question15"
-	},
-	"question15": {
-		"type": "input",
-		"de": "Wie lautet die zusätzliche Addressinformation Ihrer bisherigen Addresse?\n(Geben Sie nichts ein, wenn nicht vorhanden)",
-		"en": "What is the additional address information of your previous address? \n (Do not enter anything if not available)",
-		"model": "oldAddress.secondLine",
-		"previous": "question14",
-		"next": "question16"
-	},
-	"question16": {
-		"type": "input",
-		"de": "Wie lautet die Postleitzahl Ihrer bisherigen Adresse?",
-		"en": "What is the postcode of your previous address?",
-		"model": "oldAddress.postcode",
-		"previous": "question15",
-		"next": "question17"
-	},
-	"question17": {
-		"type": "input",
-		"de": "In welcher Gemeinde liegt Ihrer bisherigen Adresse?",
-		"en": "In which municipality is your previous address?",
-		"model": "oldAddress.city",
-		"previous": "question16",
-		"next": "question18"
-	},
-	"question18": {
-		"type": "input",
-		"de": "In welchem Land liegt Ihre bisherige Addresse?",
-		"en": "In which country is your previous address?",
-		"model": "oldAddress.country",
-		"previous": "question17",
-		"next": "question19"
-	},
-	"question19": {
-		"type": "input",
-		"de": "Wie lautet die Straße Ihrer neuen Adresse?",
-		"en": "What is the street of your new address?",
-		"model": "newAddress.street",
-		"previous": "question18",
-		"next": "question20"
-	},
-	"question20": {
-		"type": "input",
-		"de": "Wie lautet die Hausnummer Ihrer neuen Adresse?",
-		"en": "What is the street number of your new address?",
-		"model": "newAddress.streetNumber",
-		"previous": "question19",
-		"next": "question21"
-	},
-	"question21": {
-		"type": "input",
-		"de": "Wie lautet die zusätzliche Addressinformation Ihrer neuen Addresse?\n(Geben Sie nichts ein, wenn nicht vorhanden)",
-		"en": "What is the additional address information of your new address? \n (Do not enter anything if it does not exist",
-		"model": "newAddress.secondLine",
-		"previous": "question20",
-		"next": "question22"
-	},
-	"question22": {
-		"type": "input",
-		"de": "Wie lautet die Postleitzahl Ihrer neuen Adresse?",
-		"en": "What is the postcode of your new address?",
-		"model": "newAddress.postcode",
-		"previous": "question21",
-		"next": "question23"
-	},
-	"question23": {
-		"type": "input",
-		"de": "In welcher Gemeinde liegt Ihrer neuen Adresse?",
-		"en": "In which municipality is your new address located?",
-		"model": "newAddress.city",
-		"previous": "question22",
-		"next": "question24"
-	},
-	"question24": {
-		"type": "select",
-		"de": "In welchem Land liegt Ihre neuen Addresse?",
-		"en": "In which country is your new address located?",
-		"options": {
-			"de": [
-				"Deutschland",
-				"andere"
-			],
-			"en": [
-				"Germany",
-				"other"
-			]
+		"question8": {
+			"type": "input",
+			"de": "Wie lautet die Nummer Ihres Personalausweises?",
+			"en": "What is the number of your identity card?",
+			"model": "person.identification.IDNumber",
+			"previous": "question7",
+			"next": "question9"
 		},
-		"case": {
-			"anderes": {
-				"question24-1": {
-					"type": "input",
-					"de": "In welchem Land liegt Ihre neuen Addresse?"
+		"question9": {
+			"type": "input",
+			"de": "Bei welcher Behörde wurde Ihr Personalausweis ausgestellt?",
+			"en": "Which authority was your identity card issued by?",
+			"model": "person.identification.IssuingAuthority",
+			"previous": "question8",
+			"next": "question10"
+		},
+		"question10": {
+			"type": "date",
+			"de": "Wann wurde Ihr Personalausweis asugestellt?",
+			"en": "When was your identity card issued?",
+			"model": "person.identification.DateOfIssuing",
+			"previous": "question9",
+			"next": "question11"
+		},
+		"question11": {
+			"type": "date",
+			"de": "Bis wann ist Ihr Personalausweis gültig?",
+			"en": "Until when is your ID card valid?",
+			"model": "person.identification.ExpiryDate",
+			"previous": "question10",
+			"next": "question13"
+		},
+		"question13": {
+			"type": "input",
+			"de": "Wie lautet die Straße Ihrer bisherigen Adresse?",
+			"en": "What is the street of your previous address?",
+			"model": "oldAddress.street",
+			"previous": "question12",
+			"next": "question14"
+		},
+		"question14": {
+			"type": "input",
+			"de": "Wie lautet die Hausnummer Ihrer bisherigen Adresse?",
+			"en": "What is the street number of your previous address?",
+			"model": "oldAddress.streetNumber",
+			"previous": "question13",
+			"next": "question15"
+		},
+		"question15": {
+			"type": "input",
+			"de": "Wie lautet die zusätzliche Addressinformation Ihrer bisherigen Addresse?\n(Geben Sie nichts ein, wenn nicht vorhanden)",
+			"en": "What is the additional address information of your previous address? \n (Do not enter anything if not available)",
+			"model": "oldAddress.secondLine",
+			"previous": "question14",
+			"next": "question16"
+		},
+		"question16": {
+			"type": "input",
+			"de": "Wie lautet die Postleitzahl Ihrer bisherigen Adresse?",
+			"en": "What is the postcode of your previous address?",
+			"model": "oldAddress.postcode",
+			"previous": "question15",
+			"next": "question17"
+		},
+		"question17": {
+			"type": "input",
+			"de": "In welcher Gemeinde liegt Ihrer bisherigen Adresse?",
+			"en": "In which municipality is your previous address?",
+			"model": "oldAddress.city",
+			"previous": "question16",
+			"next": "question18"
+		},
+		"question18": {
+			"type": "input",
+			"de": "In welchem Land liegt Ihre bisherige Addresse?",
+			"en": "In which country is your previous address?",
+			"model": "oldAddress.country",
+			"previous": "question17",
+			"next": "question19"
+		},
+		"question19": {
+			"type": "input",
+			"de": "Wie lautet die Straße Ihrer neuen Adresse?",
+			"en": "What is the street of your new address?",
+			"model": "newAddress.street",
+			"previous": "question18",
+			"next": "question20"
+		},
+		"question20": {
+			"type": "input",
+			"de": "Wie lautet die Hausnummer Ihrer neuen Adresse?",
+			"en": "What is the street number of your new address?",
+			"model": "newAddress.streetNumber",
+			"previous": "question19",
+			"next": "question21"
+		},
+		"question21": {
+			"type": "input",
+			"de": "Wie lautet die zusätzliche Addressinformation Ihrer neuen Addresse?\n(Geben Sie nichts ein, wenn nicht vorhanden)",
+			"en": "What is the additional address information of your new address? \n (Do not enter anything if it does not exist",
+			"model": "newAddress.secondLine",
+			"previous": "question20",
+			"next": "question22"
+		},
+		"question22": {
+			"type": "input",
+			"de": "Wie lautet die Postleitzahl Ihrer neuen Adresse?",
+			"en": "What is the postcode of your new address?",
+			"model": "newAddress.postcode",
+			"previous": "question21",
+			"next": "question23"
+		},
+		"question23": {
+			"type": "input",
+			"de": "In welcher Gemeinde liegt Ihrer neuen Adresse?",
+			"en": "In which municipality is your new address located?",
+			"model": "newAddress.city",
+			"previous": "question22",
+			"next": "question24"
+		},
+		"question24": {
+			"type": "select",
+			"de": "In welchem Land liegt Ihre neuen Addresse?",
+			"en": "In which country is your new address located?",
+			"options": {
+				"de": [
+					"Deutschland",
+					"andere"
+				],
+				"en": [
+					"Germany",
+					"other"
+				]
+			},
+			"case": {
+				"anderes": {
+					"question24-1": {
+						"type": "input",
+						"de": "In welchem Land liegt Ihre neuen Addresse?"
+					}
+				},
+				"other": {
+					"question24-1": {
+						"type": "input",
+						"en": "In which country is your new address located?"
+					}
 				}
 			},
-			"other": {
-				"question24-1": {
-					"type": "input",
-					"en": "In which country is your new address located?"
-				}
-			}
-		},
-		"model": "newAddress.country",
-		"previous": "question23",
-		"next": null
+			"model": "newAddress.country",
+			"previous": "question23",
+			"next": null
+		}
 	}
 }

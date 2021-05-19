@@ -12,7 +12,7 @@ import main.java.view.guiElements.JPanelElems.QALabel;
 public class SaveQuestionToModel implements ActionListener {
 	private QALabel qaLabel;
 	private QuestionHandler qh;
-	private JSONObject currQ;
+	private JSONObject currentQuestion;
 	private String answer;
 	
 	public SaveQuestionToModel(QALabel qaLabel, QuestionHandler qh) {
@@ -24,32 +24,31 @@ public class SaveQuestionToModel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		try {
 			this.answer = qaLabel.getCurrentAnswerLabel().getAnswer();
-			this.currQ = qaLabel.getCurrentQuestion();
+			this.currentQuestion = qaLabel.getCurrentQuestion();
 			this.saveAnswer();
 			this.switchToNextAnswer();
 		} catch (FaltyAnswerException fae) {
 			// TODO: logger
 		}
-		
 	}
 	
 	public void saveAnswer() {
-		String saveLocation = qh.getString(this.currQ, "model");
+		String saveLocation = qh.getString(this.currentQuestion, "model");
 		qh.safeAnswerAt(qaLabel.getBaseModel(), this.answer, saveLocation);
 	}
 	
 	public void switchToNextAnswer() {
 		String nextKey;
-		JSONObject cases = qh.getJSON(this.currQ, "case");
+		JSONObject cases = qh.getJSON(this.currentQuestion, "case");
 		if (cases != null) {
 			String possibleNextKey = qh.getString(cases, this.answer);
 			if (possibleNextKey != null) {
 				nextKey = possibleNextKey;
 			} else {
-				nextKey = qh.getString(this.currQ, "next");
+				nextKey = qh.getString(this.currentQuestion, "next");
 			}
 		} else {
-			nextKey = qh.getString(this.currQ, "next");
+			nextKey = qh.getString(this.currentQuestion, "next");
 		}
 		JSONObject nextQuestion = qh.getJSON(qaLabel.getQuestionsObj(), nextKey);
 		qaLabel.showQuestion(nextQuestion);
