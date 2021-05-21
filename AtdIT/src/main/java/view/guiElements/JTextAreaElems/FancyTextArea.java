@@ -31,34 +31,6 @@ public class FancyTextArea extends AbstractJTextArea {
 		setAttributes();
 	}
 
-	public FancyTextArea(ScreenHandler screenHandler, String fgColorKey, String bgColorKey) {
-		super(screenHandler);
-		this.fgColor = colorHandler.getColor(fgColorKey);
-		this.bgColor = colorHandler.getColor(bgColorKey);
-		setAttributes();
-	}
-
-	public FancyTextArea(ScreenHandler screenHandler, Font textFont) {
-		super(screenHandler);
-		this.textFont = textFont;
-		setAttributes();
-	}
-
-	public FancyTextArea(ScreenHandler screenHandler, Insets insets) {
-		super(screenHandler);
-		this.insets = insets;
-		setAttributes();
-	}
-
-	public FancyTextArea(ScreenHandler screenHandler, int width, int height, String fgColorKey, String bgColorKey) {
-		super(screenHandler);
-		this.areaWidth = width;
-		this.areaHeight = height;
-		this.fgColor = colorHandler.getColor(fgColorKey);
-		this.bgColor = colorHandler.getColor(bgColorKey);
-		setAttributes();
-	}
-
 	public FancyTextArea(ScreenHandler screenHandler, int width, int height, Font textFont) {
 		super(screenHandler);
 		this.areaWidth = width;
@@ -72,72 +44,6 @@ public class FancyTextArea extends AbstractJTextArea {
 		this.insets = insets;
 		this.areaWidth = width;
 		this.areaHeight = height;
-		setAttributes();
-	}
-
-	public FancyTextArea(ScreenHandler screenHandler, int width, int height, String fgColorKey, String bgColorKey,
-			Font textFont) {
-		super(screenHandler);
-		this.areaWidth = width;
-		this.areaHeight = height;
-		this.fgColor = colorHandler.getColor(fgColorKey);
-		this.bgColor = colorHandler.getColor(bgColorKey);
-		this.textFont = textFont;
-		setAttributes();
-	}
-
-	public FancyTextArea(ScreenHandler screenHandler, int width, int height, String fgColorKey, String bgColorKey,
-			Insets insets) {
-		super(screenHandler);
-		this.areaWidth = width;
-		this.areaHeight = height;
-		this.fgColor = colorHandler.getColor(fgColorKey);
-		this.bgColor = colorHandler.getColor(bgColorKey);
-		setAttributes();
-	}
-
-	public FancyTextArea(ScreenHandler screenHandler, int width, int height, String fgColorKey, String bgColorKey,
-			Font textFont, Insets insets) {
-		super(screenHandler);
-		this.insets = insets;
-		this.areaWidth = width;
-		this.areaHeight = height;
-		this.fgColor = colorHandler.getColor(fgColorKey);
-		this.bgColor = colorHandler.getColor(bgColorKey);
-		this.textFont = textFont;
-		setAttributes();
-	}
-
-	public FancyTextArea(ScreenHandler screenHandler, String fgColorKey, String bgColorKey, Font textFont) {
-		super(screenHandler);
-		this.textFont = textFont;
-		this.fgColor = colorHandler.getColor(fgColorKey);
-		this.bgColor = colorHandler.getColor(bgColorKey);
-		setAttributes();
-	}
-
-	public FancyTextArea(ScreenHandler screenHandler, String fgColorKey, String bgColorKey, Insets insets) {
-		super(screenHandler);
-		this.insets = insets;
-		this.fgColor = colorHandler.getColor(fgColorKey);
-		this.bgColor = colorHandler.getColor(bgColorKey);
-		setAttributes();
-	}
-
-	public FancyTextArea(ScreenHandler screenHandler, String fgColorKey, String bgColorKey, Font textFont,
-			Insets insets) {
-		super(screenHandler);
-		this.setMargin(insets);
-		this.textFont = textFont;
-		this.fgColor = colorHandler.getColor(fgColorKey);
-		this.bgColor = colorHandler.getColor(bgColorKey);
-		setAttributes();
-	}
-
-	public FancyTextArea(ScreenHandler screenHandler, Font textFont, Insets insets) {
-		super(screenHandler);
-		this.setMargin(insets);
-		this.textFont = textFont;
 		setAttributes();
 	}
 

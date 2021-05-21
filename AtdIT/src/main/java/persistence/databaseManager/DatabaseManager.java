@@ -31,7 +31,6 @@ public class DatabaseManager implements DatabaseManagerInterface{
 		} catch (PersistenceException pe) {
 			return false;
 		}
-		
 	}
 	
 	public <T extends AbstractEntry> T getDatabaseEntry(Class<T> entityClass, int key) {
