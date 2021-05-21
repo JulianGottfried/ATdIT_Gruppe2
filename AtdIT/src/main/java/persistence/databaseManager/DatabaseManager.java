@@ -29,6 +29,13 @@ public class DatabaseManager implements DatabaseManagerInterface{
 		return retrievedEntry;
 	}
 	
+	public <T extends AbstractEntry> T getDatabaseEntry(Class<T> entityClass, String key) {
+		createManager();
+		T retrievedEntry = this.entityManager.find(entityClass, key);
+		closeManager();
+		return retrievedEntry;
+	}
+	
 	private void createManager() {
 		this.emFactory = Persistence.createEntityManagerFactory(PERSISTENCEUNITNAME);
 		this.entityManager = emFactory.createEntityManager();

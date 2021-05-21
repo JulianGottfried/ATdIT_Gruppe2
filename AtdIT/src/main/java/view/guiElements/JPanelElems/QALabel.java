@@ -20,10 +20,12 @@ import main.java.controller.listener.ActionListener.SaveQuestionToModel;
 import main.java.model.ModelFactory;
 import main.java.view.guiElements.AnswerInterface;
 import main.java.view.guiElements.JButtonElems.FancyButton;
+import main.java.view.guiElements.JOptionPaneElems.ErrorPopUp;
 import main.java.view.guiElements.JTextAreaElems.FancyTextArea;
 import main.java.view.guiElements.JTextFieldElems.InputAnswer;
 
 public class QALabel extends AbstractJPanel {
+	private ScreenHandler screenHandler;
 	private QuestionLabel qPanel;
 	private AnswerLabel aPanel;
 	private ProgressBar progressBar;
@@ -46,6 +48,7 @@ public class QALabel extends AbstractJPanel {
 	public QALabel(ScreenHandler screenHandler, Dimension dimensions, String questionFile) {
 		super(screenHandler);
 		this.setI18n(screenHandler);
+		this.screenHandler = screenHandler;
 		this.language = screenHandler.getLanguage().getLanguage();
 		this.setPreferredSize(dimensions);
 		this.setMinimumSize(dimensions);
@@ -147,10 +150,14 @@ public class QALabel extends AbstractJPanel {
 	}
 	
 	public void showAnswers() {
-		
 		ModelFactory mf = new ModelFactory();
-
+		System.out.println(this.baseModel);
 		mf.saveChangeOfAddressToDB(mf.createChangeOfAddress(this.baseModel));
+//		mf.save
+	}
+	
+	public void showErrorPopup(String message) {
+		new ErrorPopUp(this.screenHandler, message, this.i18n.getString("answerError"));
 	}
 	
 	public class QuestionLabel extends AbstractJPanel {

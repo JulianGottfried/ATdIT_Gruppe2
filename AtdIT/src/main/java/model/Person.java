@@ -30,6 +30,7 @@ public class Person implements Model {
 		this.dateOfMarriage = dateOfMarriage;
 		this.placeOfMarriage = placeOfMarriage;
 		this.citizinship = citizinship;
+		this.identification = identification;
 	}
 
 	public String getName() {

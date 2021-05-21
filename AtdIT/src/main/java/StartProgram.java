@@ -26,8 +26,14 @@ import main.java.persistence.databaseTables.StagesOfCOA;
 public class StartProgram {
 
 	public static void main(String[] args) {
+		
+		new ScreenHandler();
+		
 				
-        new ScreenHandler();
+//		ModelFactory mf = new ModelFactory();
+//		
+//		System.out.println(mf.modelToJSON(StageOfCOA.class));
+        
 //    	DatabaseManager dbm = new DatabaseManager();
 //    	   	
 //    	ChangesOfAddresses coa = new ChangesOfAddresses(new Date());

@@ -9,6 +9,7 @@
 			"en": "What's your first name?",
 			"number": 1,
 			"model": "person.name",
+			"allowedEmpty": false,
 			"previous": null,
 			"next": "question2"
 		},
@@ -18,6 +19,7 @@
 			"en": "What's your surname?",
 			"number": 2,
 			"model": "person.surname",
+			"allowedEmpty": false,
 			"previous": "question1",
 			"next": "question3"
 		},
@@ -27,6 +29,7 @@
 			"en": "What's your date of birth?",
 			"number": 3,
 			"model": "person.dateOfBirth",
+			"allowedEmpty": false,
 			"previous": "question2",
 			"next": "question4"
 		},
@@ -48,6 +51,7 @@
 			},
 			"number": 4,
 			"model": "person.gender",
+			"allowedEmpty": false,
 			"previous": "question3",
 			"next": "question5"
 		},
@@ -57,6 +61,7 @@
 			"en": "Where were you born?",
 			"number": 5,
 			"model": "person.placeOfBirth",
+			"allowedEmpty": false,
 			"previous": "question4",
 			"next": "question6"
 		},
@@ -90,6 +95,7 @@
 			},
 			"number": 6,
 			"model": "person.maritalStatus",
+			"allowedEmpty": false,
 			"previous": "question5",
 			"next": "question7"
 		},
@@ -99,6 +105,7 @@
 			"en": "What is the marriage date?",
 			"number": 7,
 			"model": "person.dateOfMarriage",
+			"allowedEmpty": false,
 			"previous": "question6",
 			"next": "question6-1-2"
 		},
@@ -108,6 +115,7 @@
 			"en": "What is the place of marriage?",
 			"number": 8,
 			"model": "person.placeOfMarriage",
+			"allowedEmpty": false,
 			"previous": "question6-1-1",
 			"next": "question7"
 		},
@@ -117,6 +125,7 @@
 			"en": "When was the partnership decided?",
 			"number": 9,
 			"model": "person.dateOfMarriage",
+			"allowedEmpty": false,
 			"previous": "question6",
 			"next": "question6-2-2"
 		},
@@ -126,6 +135,7 @@
 			"en": "What is the place where the partnership was decided?",
 			"number": 10,
 			"model": "person.placeOfMarriage",
+			"allowedEmpty": false,
 			"previous": "question6-2-1",
 			"next": "question7"
 		},
@@ -149,6 +159,7 @@
 			},
 			"number": 11,
 			"model": "person.citizinship",
+			"allowedEmpty": false,
 			"previous": "question6",
 			"next": "question8"
 		},
@@ -158,6 +169,7 @@
 			"en": "What is your nationality?",
 			"number": 12,
 			"model": "person.citizinship",
+			"allowedEmpty": false,
 			"previous": "question7",
 			"next": "question8"
 		},
@@ -167,6 +179,7 @@
 			"en": "What is the number of your identity card?",
 			"number": 13,
 			"model": "person.identification.IDNumber",
+			"allowedEmpty": false,
 			"previous": "question7",
 			"next": "question9"
 		},
@@ -175,7 +188,8 @@
 			"de": "Bei welcher Behörde wurde Ihr Personalausweis ausgestellt?",
 			"en": "Which authority was your identity card issued by?",
 			"number": 14,
-			"model": "person.identification.IssuingAuthority",
+			"model": "person.identification.issuingAuthority",
+			"allowedEmpty": false,
 			"previous": "question8",
 			"next": "question10"
 		},
@@ -184,7 +198,8 @@
 			"de": "Wann wurde Ihr Personalausweis ausgestellt?",
 			"en": "When was your identity card issued?",
 			"number": 15,
-			"model": "person.identification.DateOfIssuing",
+			"model": "person.identification.dateOfIssuing",
+			"allowedEmpty": false,
 			"previous": "question9",
 			"next": "question11"
 		},
@@ -193,7 +208,8 @@
 			"de": "Bis wann ist Ihr Personalausweis gültig?",
 			"en": "Until when is your ID card valid?",
 			"number": 16,
-			"model": "person.identification.ExpiryDate",
+			"model": "person.identification.expiryDate",
+			"allowedEmpty": false,
 			"previous": "question10",
 			"next": "question13"
 		},
@@ -203,7 +219,8 @@
 			"en": "What is the street of your previous address?",
 			"number": 17,
 			"model": "oldAddress.street",
-			"previous": "question12",
+			"allowedEmpty": false,
+			"previous": "question11",
 			"next": "question14"
 		},
 		"question14": {
@@ -212,6 +229,7 @@
 			"en": "What is the street number of your previous address?",
 			"number": 18,
 			"model": "oldAddress.streetNumber",
+			"allowedEmpty": false,
 			"previous": "question13",
 			"next": "question15"
 		},
@@ -221,6 +239,7 @@
 			"en": "What is the additional address information of your previous address? \n (Do not enter anything if not available)",
 			"number": 19,
 			"model": "oldAddress.secondLine",
+			"allowedEmpty": true,
 			"previous": "question14",
 			"next": "question16"
 		},
@@ -230,6 +249,7 @@
 			"en": "What is the postcode of your previous address?",
 			"number": 20,
 			"model": "oldAddress.postcode",
+			"allowedEmpty": false,
 			"previous": "question15",
 			"next": "question17"
 		},
@@ -239,6 +259,7 @@
 			"en": "In which municipality is your previous address?",
 			"number": 21,
 			"model": "oldAddress.city",
+			"allowedEmpty": false,
 			"previous": "question16",
 			"next": "question18"
 		},
@@ -248,6 +269,7 @@
 			"en": "In which country is your previous address?",
 			"number": 22,
 			"model": "oldAddress.country",
+			"allowedEmpty": false,
 			"previous": "question17",
 			"next": "question19"
 		},
@@ -257,6 +279,7 @@
 			"en": "What is the street of your new address?",
 			"number": 23,
 			"model": "newAddress.street",
+			"allowedEmpty": false,
 			"previous": "question18",
 			"next": "question20"
 		},
@@ -266,6 +289,7 @@
 			"en": "What is the street number of your new address?",
 			"number": 24,
 			"model": "newAddress.streetNumber",
+			"allowedEmpty": false,
 			"previous": "question19",
 			"next": "question21"
 		},
@@ -275,6 +299,7 @@
 			"en": "What is the additional address information of your new address? \n (Do not enter anything if it does not exist",
 			"number": 25,
 			"model": "newAddress.secondLine",
+			"allowedEmpty": true,
 			"previous": "question20",
 			"next": "question22"
 		},
@@ -284,6 +309,7 @@
 			"en": "What is the postcode of your new address?",
 			"number": 26,
 			"model": "newAddress.postcode",
+			"allowedEmpty": false,
 			"previous": "question21",
 			"next": "question23"
 		},
@@ -293,6 +319,7 @@
 			"en": "In which municipality is your new address located?",
 			"number": 27,
 			"model": "newAddress.city",
+			"allowedEmpty": false,
 			"previous": "question22",
 			"next": "question24"
 		},
@@ -316,6 +343,7 @@
 			},
 			"number": 28,
 			"model": "newAddress.country",
+			"allowedEmpty": false,
 			"previous": "question23",
 			"next": "question25"
 		},
@@ -326,6 +354,7 @@
 			"number": 29,
 			"model": "newAddress.country",
 			"next": "question25",
+			"allowedEmpty": false,
 			"previous": "question24"
 		},
 		"question25": {
@@ -334,6 +363,7 @@
 			"en": "What date are you moving?",
 			"number": 30,
 			"model": "moveInData",
+			"allowedEmpty": false,
 			"previous": "question24",
 			"next": "question26"
 		},
@@ -343,6 +373,7 @@
 			"en": "What is the first name of the house provider?",
 			"number": 31,
 			"model": "houseProvider.name",
+			"allowedEmpty": false,
 			"previous": "question25",
 			"next": "question27"
 		},
@@ -352,6 +383,7 @@
 			"en": "What is the surname of the house provider?",
 			"number": 32,
 			"model": "houseProvider.surname",
+			"allowedEmpty": false,
 			"previous": "question26",
 			"next": "question28"
 		},
@@ -361,6 +393,7 @@
 			"en": "What is the street of your house provider?",
 			"number": 33,
 			"model": "houseProvider.address.street",
+			"allowedEmpty": false,
 			"previous": "question27",
 			"next": "question29"
 		},
@@ -370,6 +403,7 @@
 			"en": "What is the street number of your house provider?",
 			"number": 34,
 			"model": "houseProvider.address.streetNumber",
+			"allowedEmpty": false,
 			"previous": "question28",
 			"next": "question30"
 		},
@@ -379,6 +413,7 @@
 			"en": "What is the additional address information of your house provider? \n (Do not enter anything if not available)",
 			"number": 35,
 			"model": "houseProvider.address.secondLine",
+			"allowedEmpty": true,
 			"previous": "question29",
 			"next": "question31"
 		},
@@ -388,15 +423,17 @@
 			"en": "What is the postcode of your house provider?",
 			"number": 36,
 			"model": "houseProvider.address.postCode",
+			"allowedEmpty": false,
 			"previous": "question30",
 			"next": "question32"
 		},
 		"question32": {
 			"type": "input",
-			"de": "In welcher Gemeinde liegt Ihres die Adresse Wohnungsgebers?",
+			"de": "In welcher Gemeinde liegt die Adresse Ihres Wohnungsgebers?",
 			"en": "In which municipality is your previous address?",
 			"number": 37,
 			"model": "houseProvider.address.city",
+			"allowedEmpty": false,
 			"previous": "question31",
 			"next": "question33"
 		},
@@ -406,6 +443,7 @@
 			"en": "In which country is the address of your landlord?",
 			"number": 38,
 			"model": "houseProvider.address.country",
+			"allowedEmpty": false,
 			"previous": "question32",
 			"next": "question34"
 		},
@@ -429,6 +467,7 @@
 			},
 			"model": null,
 			"number": 39,
+			"allowedEmpty": false,
 			"previous": "question33",
 			"next": "question35"
 		},
@@ -438,6 +477,7 @@
 			"en": "What is the first name of the house owner?",
 			"number": 40,
 			"model": "houseOwner.name",
+			"allowedEmpty": false,
 			"previous": "question34",
 			"next": "question34-2"
 		},
@@ -447,6 +487,7 @@
 			"en": "What is the surname of the house owner?",
 			"number": 41,
 			"model": "houseOwner.surname",
+			"allowedEmpty": false,
 			"previous": "question34-1",
 			"next": "question34-3"
 		},
@@ -456,6 +497,7 @@
 			"en": "What is the street of your house owner?",
 			"number": 42,
 			"model": "houseOwner.address.street",
+			"allowedEmpty": false,
 			"previous": "question34-2",
 			"next": "question34-4"
 		},
@@ -465,6 +507,7 @@
 			"en": "What is the street number of your house owner?",
 			"number": 43,
 			"model": "houseOwner.address.streetNumber",
+			"allowedEmpty": false,
 			"previous": "question34-3",
 			"next": "question34-5"
 		},
@@ -474,6 +517,7 @@
 			"en": "What is the additional address information of your house owner? \n (Do not enter anything if not available)",
 			"number": 44,
 			"model": "houseOwner.address.secondLine",
+			"allowedEmpty": true,
 			"previous": "question34-4",
 			"next": "question34-6"
 		},
@@ -483,6 +527,7 @@
 			"en": "What is the postcode of your house owner?",
 			"number": 45,
 			"model": "houseOwner.address.postcode",
+			"allowedEmpty": false,
 			"previous": "question34-5",
 			"next": "question34-7"
 		},
@@ -492,6 +537,7 @@
 			"en": "In which municipality is the address of your house owner?",
 			"number": 46,
 			"model": "houseOwner.address.city",
+			"allowedEmpty": false,
 			"previous": "question34-6",
 			"next": "question34-8"
 		},
@@ -501,6 +547,7 @@
 			"en": "In which country is the address of your house owner?",
 			"number": 47,
 			"model": "houseOwner.address.country",
+			"allowedEmpty": false,
 			"previous": "question34-7",
 			"next": "question35"
 		},
@@ -523,6 +570,7 @@
 				"Issue power of attorney": "question35-1"
 			},
 			"number": 48,
+			"allowedEmpty": false,
 			"previous": "question34-8",
 			"next": null
 		},
@@ -532,6 +580,7 @@
 			"en": "What is the first name of the assignee",
 			"number": 49,
 			"model": "assignee.name",
+			"allowedEmpty": false,
 			"previous": "question35",
 			"next": "question35-2"
 		},
@@ -541,6 +590,7 @@
 			"en": "What is the surname of the assignee",
 			"number": 50,
 			"model": "assignee.surname",
+			"allowedEmpty": false,
 			"previous": "question35-1",
 			"next": null
 		}

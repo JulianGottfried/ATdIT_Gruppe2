@@ -9,8 +9,10 @@ public abstract class AbstractJPanel extends JPanel {
 	ColorHandler colorHandler;
 	FontHandler fontHandler;
 	ImageHandler imageHandler;
+	ScreenHandler screenHandler;
 
 	public AbstractJPanel(ScreenHandler screenHandler) {
+		this.screenHandler = screenHandler;
 		this.colorHandler = screenHandler.getColorHandler();
 		this.fontHandler = screenHandler.getFontHandler();
 		this.imageHandler = screenHandler.getImageHandler();

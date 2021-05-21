@@ -18,21 +18,31 @@ public class SaveQuestionToModel implements ActionListener {
 	public SaveQuestionToModel(QALabel qaLabel, JSONHandler jsonHandler) {
 		this.qaLabel = qaLabel;
 		this.jsonHandler = jsonHandler;
+		this.currentQuestion = qaLabel.getCurrentQuestion();
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		try {
-			this.answer = qaLabel.getCurrentAnswerLabel().getAnswer();
 			this.currentQuestion = qaLabel.getCurrentQuestion();
-			this.saveAnswer();
+			this.answer = qaLabel.getCurrentAnswerLabel().getAnswer();
+			this.saveAnswer(this.answer);
 			this.switchToNextAnswer();
 		} catch (FaultyAnswerException fae) {
-			// TODO: logger
+			if (this.jsonHandler.getBoolean(this.currentQuestion, "allowedEmpty")) {
+				this.answer = null;
+				this.currentQuestion = qaLabel.getCurrentQuestion();
+				this.saveAnswer(this.answer);
+				this.switchToNextAnswer();
+			}
+			else {		
+				qaLabel.showErrorPopup(fae.getMessage());
+				// TODO: logger
+			}
 		}
 	}
 	
-	public void saveAnswer() {
+	public void saveAnswer(String answer) {
 		String saveLocation = jsonHandler.getString(this.currentQuestion, "model");
 		jsonHandler.safeAnswerAt(qaLabel.getBaseModel(), this.answer, saveLocation);
 	}

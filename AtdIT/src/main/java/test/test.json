@@ -1,2 +1,85 @@
 {
+	"oldAddress": {
+		"country": "Deutschland",
+		"streetNumber": "32",
+		"city": "Wildeck",
+		"street": "Rotdornweg",
+		"secondLine": null,
+		"postcode": "36208"
+	},
+	"houseOwner": {
+		"address": {
+			"country": null,
+			"streetNumber": null,
+			"city": null,
+			"street": null,
+			"secondLine": null,
+			"postcode": null
+		},
+		"surname": null,
+		"name": null
+	},
+	"moveInData": "12-05-2021",
+	"houseProvider": {
+		"address": {
+			"country": "Deutschland",
+			"streetNumber": "59",
+			"city": "Heidelberg",
+			"street": "Rohrbacher Str",
+			"secondLine": "Stock 4",
+			"postcode": null,
+			"postCode": "69115"
+		},
+		"surname": "Treiber",
+		"name": "Gert"
+	},
+	"moveInDate": null,
+	"person": {
+		"placeOfBirth": "Bad Hersfeld",
+		"address": {
+			"country": null,
+			"streetNumber": null,
+			"city": null,
+			"street": null,
+			"secondLine": null,
+			"postcode": null
+		},
+		"identification": {
+			"expiryDate": "04-05-2021",
+			"issuingAuthority": "Wildeck-Obersuhl",
+			"ExpiryDate": null,
+			"DateOfIssuing": null,
+			"IssuingAuthority": null,
+			"IDNumber": "XD4FGR",
+			"dateOfIssuing": "02-05-2021"
+		},
+		"gender": "männlich",
+		"surname": "Weitz",
+		"citizinship": "Deutsch",
+		"name": "Marvin",
+		"dateOfMarriage": null,
+		"dateOfBirth": "24-11-2000",
+		"maritalStatus": "ledig",
+		"placeOfMarriage": null
+	},
+	"assignee": {
+		"address": {
+			"country": null,
+			"streetNumber": null,
+			"city": null,
+			"street": null,
+			"secondLine": null,
+			"postcode": null
+		},
+		"surname": null,
+		"name": null
+	},
+	"newAddress": {
+		"country": "Deutschland",
+		"streetNumber": "59",
+		"city": "Heidelberg",
+		"street": "Rohrbacher Str",
+		"secondLine": "Stock 1",
+		"postcode": "69115"
+	}
 }

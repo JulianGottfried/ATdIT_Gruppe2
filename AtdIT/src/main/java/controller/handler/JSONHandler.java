@@ -43,6 +43,14 @@ public class JSONHandler {
 		}		
 	}
 	
+	public Boolean getBoolean(JSONObject obj, String key) {
+		try {
+			return (Boolean) obj.get(key);
+		} catch (NullPointerException npe) {
+			return null;
+		}		
+	}
+	
 	public Date getDate(JSONObject obj, String key) {
 		try {
 			Date date = new SimpleDateFormat("dd-MM-yyyy").parse((String) obj.get(key));

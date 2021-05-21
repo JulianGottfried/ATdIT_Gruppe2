@@ -10,18 +10,29 @@ import java.util.Calendar;
 import java.util.Date;
 
 import main.java.controller.exceptions.FaultyAnswerException;
+import main.java.controller.exceptions.InterruptDrawException;
 import main.java.controller.handler.ScreenHandler;
+import main.java.controller.handler.languageHandler.I18nHandler;
 
 public class DateAnswer extends AbstractJPanel implements AnswerInterface {
 	private JDatePickerImpl datePicker;
+	private I18nHandler i18n;
 	
 	public DateAnswer(ScreenHandler screenHandler) {
 		super(screenHandler);
-		
+		this.setI18n(screenHandler);
 		UtilDateModel model = new UtilDateModel();
 		JDatePanelImpl datePanel = new JDatePanelImpl(model);
 		datePicker = new JDatePickerImpl(datePanel);
 		this.add(datePicker);
+	}
+	
+	public void setI18n(ScreenHandler screenHandler) {
+		try {
+			this.i18n = new I18nHandler(this.getClass().getSimpleName(), screenHandler.getLanguage(), screenHandler);
+		} catch (InterruptDrawException e) {
+            screenHandler.changeCurrentView(screenHandler.getPreviousView());
+		}
 	}
 
 	public String getAnswer() throws FaultyAnswerException {
@@ -29,7 +40,7 @@ public class DateAnswer extends AbstractJPanel implements AnswerInterface {
 		try {
 			return new SimpleDateFormat("dd-MM-yyyy").format(date);
 		} catch (NullPointerException npe) {
-			throw new FaultyAnswerException("No date picked");
+			throw new FaultyAnswerException(i18n.getString("errorMessage"));
 		}
 	}
 }

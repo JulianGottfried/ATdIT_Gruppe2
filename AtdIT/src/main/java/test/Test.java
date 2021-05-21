@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.util.Set;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -12,14 +13,25 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class Test {
-	public static void main(String[] args) {
+	public static void main(String[] args) {		
 		Test test = new Test();
 		
 		JSONObject testJSON = test.getBaseJSON("test.json");
-		
-		System.out.println(
-				(JSONArray) testJSON.get("s")
-				);
+		showJSON(testJSON);
+	}
+	
+	public static void showJSON(JSONObject jsonObject) {
+		Set<String> keys = jsonObject.keySet();
+		for (String key:keys) {
+			try {
+				String value = (String) jsonObject.get(key);
+				System.out.println(key + ": " + value);
+			} catch (ClassCastException cce) {
+				showJSON((JSONObject) jsonObject.get(key));
+			}
+			
+			
+		}
 	}
 	
 	public JSONObject getBaseJSON(String filename) {

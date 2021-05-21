@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Table(name = "StagesOfCOA")
 public class StagesOfCOA implements AbstractEntry, Serializable {
 	@Id @OneToOne 
-	private ChangesOfAddresses	ChangeOfAddress;
+	private ChangesOfAddresses	ChangesOfAddress;
 	private boolean				Received;
 	private boolean				DataProcessing;	
 	private boolean				ReadyForMeeting;
@@ -20,22 +20,23 @@ public class StagesOfCOA implements AbstractEntry, Serializable {
 		super();
 	}
 
-	public StagesOfCOA(boolean received, boolean dataProcessing, boolean readyForMeeting) {
+	public StagesOfCOA(ChangesOfAddresses changesOfAddress, boolean received, boolean dataProcessing, boolean readyForMeeting) {
 		super();
+		ChangesOfAddress = changesOfAddress;
 		Received = received;
 		DataProcessing = dataProcessing;
 		ReadyForMeeting = readyForMeeting;
 	}
 
-	public ChangesOfAddresses getProcessID() {
-		return ChangeOfAddress;
+	public ChangesOfAddresses getChangesOfAddress() {
+		return ChangesOfAddress;
 	}
 
-	public void setProcessID(ChangesOfAddresses changeOfAddress) {
-		ChangeOfAddress = changeOfAddress;
+	public void setChangesOfAddress(ChangesOfAddresses changesOfAddress) {
+		ChangesOfAddress = changesOfAddress;
 	}
 
-	public boolean isReceived() {
+	public boolean getReceived() {
 		return Received;
 	}
 
@@ -43,7 +44,7 @@ public class StagesOfCOA implements AbstractEntry, Serializable {
 		Received = received;
 	}
 
-	public boolean isDataProcessing() {
+	public boolean getDataProcessing() {
 		return DataProcessing;
 	}
 
@@ -51,7 +52,7 @@ public class StagesOfCOA implements AbstractEntry, Serializable {
 		DataProcessing = dataProcessing;
 	}
 
-	public boolean isReadyForMeeting() {
+	public boolean getReadyForMeeting() {
 		return ReadyForMeeting;
 	}
 

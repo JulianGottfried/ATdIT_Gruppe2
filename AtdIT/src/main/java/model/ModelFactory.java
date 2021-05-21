@@ -3,6 +3,9 @@ package main.java.model;
 import java.lang.reflect.Field;
 import java.util.Date;
 
+import javax.persistence.RollbackException;
+
+import org.hibernate.internal.build.AllowSysOut;
 import org.json.simple.JSONObject;
 
 import main.java.controller.handler.JSONHandler;
@@ -25,16 +28,7 @@ public class ModelFactory {
 		this.dbm = new DatabaseManager();
 		this.jsonHandler = new JSONHandler();
 	}
-	
-	public Model createModelFromKeyWord(String keyword) {
-		switch (keyword.toLowerCase()) {
-		case "address":
-		}
-		return null;
-	}
-	
-
-	
+		
 	public Address createAddress(String street, int streetNumber, String secondLine, int postcode, String city, String country) {		
 		return new Address(street, streetNumber, secondLine, postcode, city, country);
 	}
@@ -172,6 +166,10 @@ public class ModelFactory {
 		Assignees assigneesEntry = this.saveAssigneeToDB(coaModel.getAssignee());
 		coaEntry.setAssignee(assigneesEntry);
 		this.dbm.setDatabaseEntry(coaEntry);
+		
+		StageOfCOA stageOfCOA = this.createStageOfCOA(true, false, false);
+		stageOfCOA.setChangesOfAddresses(coaEntry);
+		this.saveStageOfCOAToDB(stageOfCOA);
 	}
 	
 	public HouseOwner createHouseOwner(String name, String surname, Address address) {
@@ -256,7 +254,7 @@ public class ModelFactory {
 	
 	public Identification createIdentification(JSONObject jsonObject) {
 		return new Identification(
-				this.jsonHandler.getString(jsonObject, "iDNumber"),
+				this.jsonHandler.getString(jsonObject, "IDNumber"),
 				this.jsonHandler.getString(jsonObject, "issuingAuthority"),
 				this.jsonHandler.getDate(jsonObject, "dateOfIssuing"),
 				this.jsonHandler.getDate(jsonObject, "expiryDate")
@@ -286,7 +284,14 @@ public class ModelFactory {
 				identificationModel.getDateOfIssuing(),
 				identificationModel.getExpiryDate()
 				);
-		this.dbm.setDatabaseEntry(identificationsEntry);
+		
+		// Update Identification if already present
+		try {
+			this.dbm.setDatabaseEntry(identificationsEntry);
+		} catch (RollbackException re) {
+			this.dbm.updateDatabaseEntry(identificationsEntry);
+		}
+		
 		return identificationsEntry;
 	}
 	
@@ -355,24 +360,34 @@ public class ModelFactory {
 		return personsEntry;
 	}
 	
-	public StageOfCOA createStagesOfCOA(Boolean[] stages) {
-		return new StageOfCOA(stages); 
+	public StageOfCOA createStageOfCOA(Boolean received, Boolean dataProcessing, Boolean readyForMeeting) {
+		return new StageOfCOA(received, dataProcessing, readyForMeeting);
 	}
 	
-	public StageOfCOA createStagesOfCOA(StagesOfCOA stagesEntry) {
-		StageOfCOA stages = new StageOfCOA();
+	public StageOfCOA createStageOfCOA(StagesOfCOA stagesEntry) {
+		StageOfCOA stageOfCOA = new StageOfCOA();
 		if (stagesEntry != null) {
-			Boolean[] stagesList = {stagesEntry.isReceived(), 
-									stagesEntry.isDataProcessing(), 
-									stagesEntry.isReadyForMeeting()};
-			stages.setStages(stagesList);
+			stageOfCOA.setReceived(stagesEntry.getReceived());
+			stageOfCOA.setDataProcessing(stagesEntry.getDataProcessing());
+			stageOfCOA.setReadyForMeeting(stagesEntry.getReadyForMeeting());
 		}
-		return stages;
+		return stageOfCOA;
 	}
 	
-	public StageOfCOA createStagesOfCOA(int key) {
+	public StageOfCOA createStageOfCOA(int key) {
 		StagesOfCOA stagesEntry = dbm.getDatabaseEntry(StagesOfCOA.class, key);
-		return createStagesOfCOA(stagesEntry);
+		return createStageOfCOA(stagesEntry);
+	}
+	
+	public StagesOfCOA saveStageOfCOAToDB(StageOfCOA stagesModel) {
+		StagesOfCOA stagesEntry = new StagesOfCOA(
+				stagesModel.getChangesOfAddresses(),
+				stagesModel.getReceived(),
+				stagesModel.getDataProcessing(),
+				stagesModel.getReadyForMeeting()
+				);
+		this.dbm.setDatabaseEntry(stagesEntry);
+		return stagesEntry;
 	}
 	
 	public JSONObject modelToJSON(Class model) {
