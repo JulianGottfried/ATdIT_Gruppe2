@@ -1,7 +1,5 @@
 package main.java.view.screen.views;
 
-import java.util.Locale;
-
 import javax.swing.JPanel;
 
 import main.java.controller.exceptions.InterruptDrawException;
@@ -13,13 +11,11 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
 public abstract class AbstractView extends JPanel implements ViewInterface {
-    String bundleName;
+    private String bundleName;
     ScreenHandler screenHandler;
-    Locale language;
     ColorHandler colorHandler;
     FontHandler fontHandler;
     ImageHandler imageHandler;
-    InternalPathsHandler internalPathsHandler;
     I18nHandler i18n;
     GridBagConstraints gbc;
 
@@ -42,7 +38,6 @@ public abstract class AbstractView extends JPanel implements ViewInterface {
         this.colorHandler = screenHandler.getColorHandler();
         this.fontHandler = screenHandler.getFontHandler();
         this.imageHandler = screenHandler.getImageHandler();
-        this.internalPathsHandler = new InternalPathsHandler();
         this.setBackground(colorHandler.getColor("background"));
         this.drawItems();
     }
