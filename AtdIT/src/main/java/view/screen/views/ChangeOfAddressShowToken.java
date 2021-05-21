@@ -15,7 +15,6 @@ import main.java.view.guiElements.JPanelElems.Header;
 import main.java.view.guiElements.JTextAreaElems.FancyTextArea;
 
 public class ChangeOfAddressShowToken extends AbstractView {
-	ScreenHandler screenHandler;
 	int token;
 	
 	public ChangeOfAddressShowToken(ScreenHandler screenHandler, int token) {

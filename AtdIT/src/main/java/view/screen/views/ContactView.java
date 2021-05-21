@@ -1,6 +1,7 @@
 package main.java.view.screen.views;
 
 import main.java.controller.handler.ScreenHandler;
+import main.java.view.guiElements.JTextAreaElems.FancyTextArea;
 
 public class ContactView extends AbstractView {
 
@@ -10,8 +11,7 @@ public class ContactView extends AbstractView {
 
     @Override
     public void drawItems() {
-        // TODO Auto-generated method stub
-
+        FancyTextArea contactText = new FancyTextArea(screenHandler);
     }
 
 }
