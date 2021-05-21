@@ -363,7 +363,7 @@ public class ModelFactory {
 		return personsEntry;
 	}
 	
-	public StageOfCOA createStageOfCOA(Boolean received, Boolean dataProcessing, Boolean readyForMeeting) {
+	public StageOfCOA createStageOfCOA(Boolean received, boolean dataProcessing, boolean readyForMeeting) {
 		return new StageOfCOA(received, dataProcessing, readyForMeeting);
 	}
 	

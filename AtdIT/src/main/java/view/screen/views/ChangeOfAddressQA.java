@@ -15,7 +15,6 @@ import main.java.view.guiElements.JPanelElems.QALabel;
 import main.java.view.guiElements.JTextAreaElems.FancyTextArea;
 
 public class ChangeOfAddressQA extends AbstractView {
-	
 
 	protected ChangeOfAddressQA(ScreenHandler screenHandler) {
 		super(screenHandler);

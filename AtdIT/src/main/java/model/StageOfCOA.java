@@ -5,14 +5,14 @@ import main.java.persistence.databaseTables.StagesOfCOA;
 
 public class StageOfCOA implements Model {
 	private ChangesOfAddresses changesOfAddresses;
-	private Boolean received;
-	private Boolean dataProcessing;
-	private Boolean readyForMeeting;
+	private boolean received;
+	private boolean dataProcessing;
+	private boolean readyForMeeting;
 	
 	public StageOfCOA() {
 	}
 
-	public StageOfCOA(Boolean received, Boolean dataProcessing, Boolean readyForMeeting) {
+	public StageOfCOA(Boolean received, boolean dataProcessing, boolean readyForMeeting) {
 		this.received = received;
 		this.dataProcessing = dataProcessing;
 		this.readyForMeeting = readyForMeeting;
@@ -26,7 +26,7 @@ public class StageOfCOA implements Model {
 		this.changesOfAddresses = changesOfAddresses;
 	}
 
-	public Boolean getReceived() {
+	public boolean getReceived() {
 		return received;
 	}
 
@@ -34,7 +34,7 @@ public class StageOfCOA implements Model {
 		this.received = received;
 	}
 
-	public Boolean getDataProcessing() {
+	public boolean getDataProcessing() {
 		return dataProcessing;
 	}
 
@@ -42,7 +42,7 @@ public class StageOfCOA implements Model {
 		this.dataProcessing = dataProcessing;
 	}
 
-	public Boolean getReadyForMeeting() {
+	public boolean getReadyForMeeting() {
 		return readyForMeeting;
 	}
 

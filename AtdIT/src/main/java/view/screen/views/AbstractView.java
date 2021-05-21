@@ -18,6 +18,7 @@ public abstract class AbstractView extends JPanel implements ViewInterface {
     Locale language;
     ColorHandler colorHandler;
     FontHandler fontHandler;
+    ImageHandler imageHandler;
     I18nHandler i18n;
     GridBagConstraints gbc;
 
@@ -39,6 +40,7 @@ public abstract class AbstractView extends JPanel implements ViewInterface {
         }
         this.colorHandler = screenHandler.getColorHandler();
         this.fontHandler = screenHandler.getFontHandler();
+        this.imageHandler = screenHandler.getImageHandler();
         this.setBackground(colorHandler.getColor("background"));
         this.drawItems();
     }
