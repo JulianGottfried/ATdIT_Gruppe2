@@ -1,7 +1,6 @@
 package main.java.view.screen.views;
 
 import java.awt.GridBagConstraints;
-import java.awt.Insets;
 
 import javax.swing.plaf.InsetsUIResource;
 

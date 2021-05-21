@@ -5,7 +5,6 @@ import java.util.Date;
 
 import javax.persistence.RollbackException;
 
-import org.hibernate.internal.build.AllowSysOut;
 import org.json.simple.JSONObject;
 
 import main.java.controller.exceptions.DBSavingException;

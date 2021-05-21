@@ -3,7 +3,6 @@ package main.java.view.screen.views;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
-import javax.swing.JButton;
 import javax.swing.plaf.InsetsUIResource;
 
 import main.java.controller.handler.ScreenHandler;
@@ -30,7 +29,7 @@ public class ChangeOfAddressInitial extends AbstractView {
         gbc.gridy = 0;
         this.add(header, gbc);
         
-        Body body = new Body(screenHandler);
+        Body body = new Body(this.screenHandler);
         gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.BOTH;
         gbc.weighty = 1.0;

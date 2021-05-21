@@ -53,4 +53,8 @@ public abstract class AbstractView extends JPanel implements ViewInterface {
             // TODO: Add logger
         }
     }
+
+	public ScreenHandler getScreenHandler() {
+		return screenHandler;
+	}
 }

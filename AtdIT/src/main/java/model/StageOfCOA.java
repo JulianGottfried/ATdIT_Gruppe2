@@ -1,7 +1,6 @@
 package main.java.model;
 
 import main.java.persistence.databaseTables.ChangesOfAddresses;
-import main.java.persistence.databaseTables.StagesOfCOA;
 
 public class StageOfCOA implements Model {
 	private ChangesOfAddresses changesOfAddresses;

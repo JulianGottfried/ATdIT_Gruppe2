@@ -14,6 +14,7 @@ import main.java.controller.listener.ActionListener.ShowStagesOfCOA;
 import java.awt.GridBagConstraints;
 
 public class TokenInspectorView extends AbstractView {	
+	
     public TokenInspectorView(ScreenHandler screenHandler) {
         super(screenHandler);
     }

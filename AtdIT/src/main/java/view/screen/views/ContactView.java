@@ -9,7 +9,6 @@ import main.java.controller.handler.ScreenHandler;
 import main.java.view.guiElements.JPanelElems.BackgroundPanel;
 import main.java.view.guiElements.JPanelElems.Header;
 import main.java.view.guiElements.JTextAreaElems.FancyTextArea;
-import main.java.view.screen.views.ChangeOfAddressShowToken.Body;
 
 public class ContactView extends AbstractView {
 

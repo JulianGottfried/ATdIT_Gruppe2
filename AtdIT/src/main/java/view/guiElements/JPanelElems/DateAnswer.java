@@ -6,7 +6,6 @@ import net.sourceforge.jdatepicker.impl.JDatePickerImpl;
 import net.sourceforge.jdatepicker.impl.UtilDateModel;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 import main.java.controller.exceptions.FaultyAnswerException;

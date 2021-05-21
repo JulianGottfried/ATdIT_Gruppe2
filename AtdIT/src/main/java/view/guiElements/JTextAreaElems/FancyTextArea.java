@@ -3,11 +3,8 @@ package main.java.view.guiElements.JTextAreaElems;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Insets;
-import java.awt.event.MouseListener;
 
 import javax.swing.text.DefaultCaret;
-
-import org.hibernate.boot.spi.AdditionalJaxbMappingProducer;
 
 import main.java.controller.handler.ScreenHandler;
 
