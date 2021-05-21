@@ -14,7 +14,6 @@ public class ImageHandler extends AbstractUtilityHandler {
     public Image getImage(String imageName) {
     	String imageLink = LINK2IMAGES + this.getProperty(imageName);
         ImageIcon icon = new ImageIcon(imageLink);
-        System.out.println(icon);
         return icon.getImage();
     }
 	

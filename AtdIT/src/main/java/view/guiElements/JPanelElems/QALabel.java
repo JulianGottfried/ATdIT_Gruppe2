@@ -17,12 +17,14 @@ import main.java.controller.handler.ScreenHandler;
 import main.java.controller.handler.languageHandler.I18nHandler;
 import main.java.controller.listener.ActionListener.GetPreviousQuestion;
 import main.java.controller.listener.ActionListener.SaveQuestionToModel;
+import main.java.model.ChangeOfAddress;
 import main.java.model.ModelFactory;
 import main.java.view.guiElements.AnswerInterface;
 import main.java.view.guiElements.JButtonElems.FancyButton;
 import main.java.view.guiElements.JOptionPaneElems.ErrorPopUp;
 import main.java.view.guiElements.JTextAreaElems.FancyTextArea;
 import main.java.view.guiElements.JTextFieldElems.InputAnswer;
+import main.java.view.screen.views.ChangeOfAddressShowToken;
 
 public class QALabel extends AbstractJPanel {
 	private ScreenHandler screenHandler;
@@ -152,8 +154,8 @@ public class QALabel extends AbstractJPanel {
 	public void showAnswers() {
 		ModelFactory mf = new ModelFactory();
 		System.out.println(this.baseModel);
-		mf.saveChangeOfAddressToDB(mf.createChangeOfAddress(this.baseModel));
-//		mf.save
+		ChangeOfAddress test  = mf.saveChangeOfAddressToDB(mf.createChangeOfAddress(this.baseModel));
+		screenHandler.changeCurrentView(new ChangeOfAddressShowToken(screenHandler, test.getProcessID()));
 	}
 	
 	public void showErrorPopup(String message) {

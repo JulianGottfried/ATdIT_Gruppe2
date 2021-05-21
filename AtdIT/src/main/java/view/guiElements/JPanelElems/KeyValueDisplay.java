@@ -2,6 +2,7 @@ package main.java.view.guiElements.JPanelElems;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.util.HashMap;
 import java.util.Set;
 
@@ -54,9 +55,9 @@ public class KeyValueDisplay extends AbstractJPanel {
 			Boolean value = pairMap.get(key);
 			ImageDisplay image;
 			if (value) {
-				image = new ImageDisplay(screenHandler, imageHandler.getImage("checkmark.jpg"), 100, -1);
+				image = new ImageDisplay(screenHandler, imageHandler.getImage("checkmark"), -1, 50);
 			} else {
-				image = new ImageDisplay(screenHandler, imageHandler.getImage("x.jpg"), 100, -1);
+				image = new ImageDisplay(screenHandler, imageHandler.getImage("x"), -1, 50);
 			}
 			
 			JLabel keyLabel = new JLabel(key);
@@ -64,13 +65,15 @@ public class KeyValueDisplay extends AbstractJPanel {
 			gbc = new GridBagConstraints();
 			gbc.gridx = 0;
 			gbc.gridy = i;
+			gbc.insets = new Insets(40, 40, 40, 40);
 			this.add(keyLabel, gbc);
 
 			image.setBorder(BorderFactory.createEmptyBorder(2,2,2,2));
 			gbc = new GridBagConstraints();
-			gbc.weightx = 1.0;
-			gbc.weighty = 1.0;
-			gbc.fill = GridBagConstraints.BOTH;
+//			gbc.weightx = 1.0;
+//			gbc.weighty = 1.0;
+//			gbc.fill = GridBagConstraints.BOTH;
+			gbc.insets = new Insets(40, 40, 40, 40);
 			gbc.gridx = 1;
 			gbc.gridy = i;
 			this.add(image, gbc);

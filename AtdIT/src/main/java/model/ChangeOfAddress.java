@@ -3,6 +3,7 @@ package main.java.model;
 import java.util.Date;
 
 public class ChangeOfAddress implements Model {
+	private int 			processID;
 	private Person			person;
 	private Date			moveInDate;
 	private Address			oldAddress;
@@ -23,6 +24,14 @@ public class ChangeOfAddress implements Model {
 		this.houseProvider = houseProvider;
 		this.houseOwner = houseOwner;
 		this.assignee = assignee;
+	}
+	
+	public int getProcessID() {
+		return processID;
+	}
+
+	public void setProcessID(int processID) {
+		this.processID = processID;
 	}
 
 	public Person getPerson() {

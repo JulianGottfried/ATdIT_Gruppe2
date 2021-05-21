@@ -133,6 +133,7 @@ public class ModelFactory {
 	public ChangeOfAddress createChangeOfAddress(ChangesOfAddresses coaEntry) {
 		ChangeOfAddress coa = new ChangeOfAddress();
 		if (coaEntry != null) {
+			coa.setProcessID(coaEntry.getProcessID());
 			coa.setAssignee(createAssignee(coaEntry.getAssignee()));
 			coa.setHouseOwner(createHouseOwner(coaEntry.getHouseOwner()));
 			coa.setHouseProvider(createHouseProvider(coaEntry.getHouseProvider()));
@@ -149,7 +150,7 @@ public class ModelFactory {
 		return createChangeOfAddress(coaEntry);
 	}
 	
-	public void saveChangeOfAddressToDB(ChangeOfAddress coaModel) {
+	public ChangeOfAddress saveChangeOfAddressToDB(ChangeOfAddress coaModel) {
 		ChangesOfAddresses coaEntry = new ChangesOfAddresses(
 				coaModel.getMoveInDate()
 				);
@@ -170,6 +171,8 @@ public class ModelFactory {
 		StageOfCOA stageOfCOA = this.createStageOfCOA(true, false, false);
 		stageOfCOA.setChangesOfAddresses(coaEntry);
 		this.saveStageOfCOAToDB(stageOfCOA);
+		
+		return this.createChangeOfAddress(coaEntry);
 	}
 	
 	public HouseOwner createHouseOwner(String name, String surname, Address address) {

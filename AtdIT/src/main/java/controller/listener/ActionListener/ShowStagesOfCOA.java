@@ -60,6 +60,9 @@ public class ShowStagesOfCOA implements ActionListener  {
 		} catch (FaultyAnswerException fae) {
 			this.view.showErrorPopUp();
 		}
+		
+		view.revalidate();
+		view.repaint();
 				
 	}
 

@@ -21,25 +21,15 @@ import main.java.controller.listener.ActionListener.ShowStagesOfCOA;
 import java.awt.GridBagConstraints;
 import java.awt.GridLayout;
 
-public class TokenInspectorView extends AbstractView {
-	I18nHandler i18n;
-	
+public class TokenInspectorView extends AbstractView {	
     public TokenInspectorView(ScreenHandler screenHandler) {
         super(screenHandler);
-        setI18n(screenHandler);
     }
     
     public void showErrorPopUp() {
     	new ErrorPopUp(screenHandler, i18n.getString("errorMessage"), i18n.getString("errorTitle"));
     }
-    
-	public void setI18n(ScreenHandler screenHandler) {
-		try {
-			this.i18n = new I18nHandler(this.getClass().getSimpleName(), screenHandler.getLanguage(), screenHandler);
-		} catch (InterruptDrawException e) {
-            screenHandler.changeCurrentView(screenHandler.getPreviousView());
-		}
-	}
+
 
     public void drawItems() {
         Header header = new Header(this.screenHandler);
@@ -75,13 +65,13 @@ public class TokenInspectorView extends AbstractView {
             gbc.gridy = 0;
             gbc.weightx = 1.0;
             gbc.fill = GridBagConstraints.HORIZONTAL;
-            gbc.insets = new InsetsUIResource(20, 120, 20, 120);
+            gbc.insets = new InsetsUIResource(20, 400, 20, 200);
             this.add(inputField, gbc);
             
             gbc = new GridBagConstraints();
             gbc.gridx = 1;
             gbc.gridy = 0;
-            gbc.insets = new InsetsUIResource(20, 120, 20, 120);
+            gbc.insets = new InsetsUIResource(20, 200, 20, 400);
             this.add(submit, gbc);
             
             gbc = new GridBagConstraints();
@@ -91,7 +81,7 @@ public class TokenInspectorView extends AbstractView {
             gbc.weightx = 1.0;
             gbc.weighty = 1.0;
             gbc.fill = GridBagConstraints.BOTH;
-            gbc.insets = new InsetsUIResource(20, 120, 20, 120);
+            gbc.insets = new InsetsUIResource(20, 400, 20, 400);
             this.add(tokenDisplay, gbc);
         }
     }

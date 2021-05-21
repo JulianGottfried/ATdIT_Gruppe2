@@ -6,7 +6,7 @@ import main.java.controller.handler.ScreenHandler;
 import main.java.controller.handler.utilityHandler.ColorHandler;
 import main.java.controller.handler.utilityHandler.FontHandler;
 
-public class AbstractButton extends JButton {
+public abstract class AbstractButton extends JButton {
 	ColorHandler colorHandler;
 	FontHandler fontHandler;
 	
