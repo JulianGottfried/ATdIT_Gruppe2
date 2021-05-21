@@ -4,7 +4,7 @@
   router="FAN">  
   <class id="1" language="java" name="main.java.StartProgram" project="ATdIT_Gruppe2" 
     file="/ATdIT_Gruppe2/AtdIT/src/main/java/StartProgram.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="586" y="-29"/>    
+    <position height="-1" width="-1" x="575" y="-58"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -13,7 +13,7 @@
   </class>  
   <class id="2" language="java" name="main.java.view.screen.WindowFrame" project="ATdIT_Gruppe2" 
     file="/ATdIT_Gruppe2/AtdIT/src/main/java/view/screen/WindowFrame.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="764" y="-38"/>    
+    <position height="-1" width="-1" x="749" y="-64"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -22,7 +22,7 @@
   </class>  
   <interface id="3" language="java" name="main.java.view.screen.views.ViewInterface" project="ATdIT_Gruppe2" 
     file="/ATdIT_Gruppe2/AtdIT/src/main/java/view/screen/views/ViewInterface.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1001" y="-297"/>    
+    <position height="-1" width="-1" x="1021" y="-279"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -69,7 +69,7 @@
   </class>  
   <class id="8" language="java" name="main.java.view.screen.views.AbstractView" project="ATdIT_Gruppe2" 
     file="/ATdIT_Gruppe2/AtdIT/src/main/java/view/screen/views/AbstractView.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1004" y="-13"/>    
+    <position height="-1" width="-1" x="1023" y="-15"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -183,150 +183,148 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="20" language="java" name="main.java.view.guiElements.JTextFieldElems.AbstractJTextField" 
-    project="ATdIT_Gruppe2" 
-    file="/ATdIT_Gruppe2/AtdIT/src/main/java/view/guiElements/JTextFieldElems/AbstractJTextField.java" binary="false" 
+  <class id="20" language="java" name="main.java.view.guiElements.JPanelElems.Header.ButtonBar" project="ATdIT_Gruppe2" 
+    file="/ATdIT_Gruppe2/AtdIT/src/main/java/view/guiElements/JPanelElems/Header.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="4228" y="384"/>    
+    <position height="-1" width="-1" x="929" y="806"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="21" language="java" name="main.java.view.guiElements.JTextFieldElems.InputAnswer" project="ATdIT_Gruppe2" 
-    file="/ATdIT_Gruppe2/AtdIT/src/main/java/view/guiElements/JTextFieldElems/InputAnswer.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2622" y="255"/>    
+  <class id="21" language="java" name="main.java.view.guiElements.JPanelElems.Header.LangButtons" 
+    project="ATdIT_Gruppe2" file="/ATdIT_Gruppe2/AtdIT/src/main/java/view/guiElements/JPanelElems/Header.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1154" y="806"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="22" language="java" name="main.java.view.guiElements.JTextAreaElems.AbstractJTextArea" 
-    project="ATdIT_Gruppe2" 
-    file="/ATdIT_Gruppe2/AtdIT/src/main/java/view/guiElements/JTextAreaElems/AbstractJTextArea.java" binary="false" 
+  <class id="22" language="java" name="main.java.view.guiElements.JPanelElems.Header" project="ATdIT_Gruppe2" 
+    file="/ATdIT_Gruppe2/AtdIT/src/main/java/view/guiElements/JPanelElems/Header.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1332" y="1472"/>    
+    <position height="-1" width="-1" x="1025" y="683"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <class id="23" language="java" name="main.java.view.guiElements.JTextAreaElems.FancyTextArea" project="ATdIT_Gruppe2" 
-    file="/ATdIT_Gruppe2/AtdIT/src/main/java/view/guiElements/JTextAreaElems/FancyTextArea.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1064" y="1160"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="false" package="false" protected="false" private="false" static="true"/>    
-    </display>  
-  </class>  
-  <dependency id="24">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="23"/>  
+  <dependency id="23">    
+    <bendpoint x="1693" y="371"/>    
+    <bendpoint x="1629" y="524"/>    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="22"/>  
   </dependency>  
-  <nesting id="25">    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="18"/>  
-  </nesting>  
-  <generalization id="26">    
+  <generalization id="24">    
     <end type="SOURCE" refId="5"/>    
     <end type="TARGET" refId="8"/>  
   </generalization>  
-  <generalization id="27">    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="8"/>  
-  </generalization>  
-  <dependency id="28">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="21"/>  
-  </dependency>  
-  <dependency id="29">    
-    <end type="SOURCE" refId="21"/>    
-    <end type="TARGET" refId="8"/>  
-  </dependency>  
-  <generalization id="30">    
-    <end type="SOURCE" refId="21"/>    
+  <nesting id="25">    
+    <end type="SOURCE" refId="22"/>    
     <end type="TARGET" refId="20"/>  
-  </generalization>  
-  <realization id="31">    
+  </nesting>  
+  <realization id="26">    
     <end type="SOURCE" refId="8"/>    
     <end type="TARGET" refId="3"/>  
   </realization>  
-  <generalization id="32">    
-    <end type="SOURCE" refId="17"/>    
+  <dependency id="27">    
+    <bendpoint x="1193" y="508"/>    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="22"/>  
+  </dependency>  
+  <generalization id="28">    
+    <end type="SOURCE" refId="15"/>    
     <end type="TARGET" refId="8"/>  
   </generalization>  
-  <generalization id="33">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="8"/>  
-  </generalization>  
-  <nesting id="34">    
+  <dependency id="29">    
+    <bendpoint x="778" y="507"/>    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="22"/>  
+  </dependency>  
+  <nesting id="30">    
     <end type="SOURCE" refId="5"/>    
     <end type="TARGET" refId="4"/>  
   </nesting>  
-  <dependency id="35">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="23"/>  
-  </dependency>  
-  <nesting id="36">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="9"/>  
-  </nesting>  
-  <nesting id="37">    
+  <nesting id="31">    
     <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="7"/>  
   </nesting>  
-  <dependency id="38">    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="23"/>  
+  <generalization id="32">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="8"/>  
+  </generalization>  
+  <generalization id="33">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="8"/>  
+  </generalization>  
+  <dependency id="34">    
+    <bendpoint x="1046" y="421"/>    
+    <bendpoint x="1041" y="633"/>    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="22"/>  
   </dependency>  
-  <dependency id="39">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="23"/>  
-  </dependency>  
-  <nesting id="40">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="11"/>  
+  <nesting id="35">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="21"/>  
   </nesting>  
-  <nesting id="41">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="14"/>  
-  </nesting>  
-  <nesting id="42">    
+  <nesting id="36">    
     <end type="SOURCE" refId="15"/>    
     <end type="TARGET" refId="16"/>  
   </nesting>  
+  <generalization id="37">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="8"/>  
+  </generalization>  
+  <dependency id="38">    
+    <bendpoint x="1410" y="520"/>    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="22"/>  
+  </dependency>  
+  <nesting id="39">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="11"/>  
+  </nesting>  
+  <generalization id="40">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="8"/>  
+  </generalization>  
+  <nesting id="41">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="18"/>  
+  </nesting>  
+  <dependency id="42">    
+    <bendpoint x="995" y="422"/>    
+    <bendpoint x="1004" y="632"/>    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="22"/>  
+  </dependency>  
   <dependency id="43">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="23"/>  
+    <bendpoint x="531" y="532"/>    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="22"/>  
   </dependency>  
   <generalization id="44">    
     <end type="SOURCE" refId="13"/>    
     <end type="TARGET" refId="8"/>  
   </generalization>  
-  <generalization id="45">    
-    <end type="SOURCE" refId="19"/>    
-    <end type="TARGET" refId="8"/>  
-  </generalization>  
-  <dependency id="46">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="23"/>  
-  </dependency>  
-  <generalization id="47">    
-    <end type="SOURCE" refId="23"/>    
-    <end type="TARGET" refId="22"/>  
-  </generalization>  
-  <generalization id="48">    
+  <nesting id="45">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="14"/>  
+  </nesting>  
+  <nesting id="46">    
     <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="9"/>  
+  </nesting>  
+  <dependency id="47">    
+    <end type="SOURCE" refId="22"/>    
     <end type="TARGET" refId="8"/>  
-  </generalization>  
-  <generalization id="49">    
-    <end type="SOURCE" refId="6"/>    
+  </dependency>  
+  <generalization id="48">    
+    <end type="SOURCE" refId="17"/>    
     <end type="TARGET" refId="8"/>  
   </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

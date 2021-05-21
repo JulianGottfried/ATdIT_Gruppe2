@@ -159,7 +159,6 @@ public class QALabel extends AbstractJPanel {
 		} catch (DBSavingException dbse) {
 			new ErrorPopUp(screenHandler, dbse.getMessage(), i18n.getString("DBErrorTitle"));
 		}
-		
 	}
 	
 	public void showErrorPopup(String message) {

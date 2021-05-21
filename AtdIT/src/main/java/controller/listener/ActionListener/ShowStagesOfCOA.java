@@ -7,7 +7,6 @@ import java.util.HashMap;
 import main.java.controller.exceptions.FaultyAnswerException;
 import main.java.controller.exceptions.InterruptDrawException;
 import main.java.controller.handler.ScreenHandler;
-import main.java.controller.handler.TypeHandler;
 import main.java.controller.handler.I18nHandler;
 import main.java.model.ModelFactory;
 import main.java.model.StageOfCOA;
@@ -45,7 +44,8 @@ public class ShowStagesOfCOA implements ActionListener  {
 		String requestString;
 		try {
 			requestString = this.inputField.getAnswer();
-			if(TypeHandler.isInt(requestString)) {
+			try {
+				Integer.parseInt(requestString);
 				int requestToken = Integer.parseInt(requestString);
 				StageOfCOA model = mf.createStageOfCOA(requestToken);
 				HashMap<String, Boolean> pairMap = new HashMap<>();
@@ -53,7 +53,7 @@ public class ShowStagesOfCOA implements ActionListener  {
 				pairMap.put(i18n.getString("processing"), model.getDataProcessing());
 				pairMap.put(i18n.getString("meeting"), model.getReadyForMeeting());
 				keyValueDisplay.showPairsBoolean(pairMap);
-			} else {
+			} catch (NumberFormatException nfe) {
 				this.view.showErrorPopUp();
 			}
 		} catch (FaultyAnswerException fae) {
