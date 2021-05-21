@@ -1,11 +1,10 @@
-package main.java.controller.handler.languageHandler;
+package main.java.controller.handler;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
 
 import main.java.controller.exceptions.InterruptDrawException;
 import main.java.view.guiElements.JOptionPaneElems.ErrorPopUp;
-import main.java.controller.handler.ScreenHandler;
 import main.java.controller.handler.utilityHandler.InternalPathsHandler;
 
 import java.util.MissingResourceException;

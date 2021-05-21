@@ -3,7 +3,7 @@ package main.java.view.guiElements.JTextFieldElems;
 import main.java.controller.exceptions.FaultyAnswerException;
 import main.java.controller.exceptions.InterruptDrawException;
 import main.java.controller.handler.ScreenHandler;
-import main.java.controller.handler.languageHandler.I18nHandler;
+import main.java.controller.handler.I18nHandler;
 import main.java.view.guiElements.AnswerInterface;
 
 public class InputAnswer extends AbstractJTextField implements AnswerInterface {

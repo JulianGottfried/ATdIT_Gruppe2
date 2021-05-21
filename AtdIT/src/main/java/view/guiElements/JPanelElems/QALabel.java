@@ -13,7 +13,7 @@ import main.java.controller.exceptions.DBSavingException;
 import main.java.controller.exceptions.InterruptDrawException;
 import main.java.controller.handler.JSONHandler;
 import main.java.controller.handler.ScreenHandler;
-import main.java.controller.handler.languageHandler.I18nHandler;
+import main.java.controller.handler.I18nHandler;
 import main.java.controller.listener.ActionListener.GetPreviousQuestion;
 import main.java.controller.listener.ActionListener.SaveQuestionToModel;
 import main.java.model.ChangeOfAddress;

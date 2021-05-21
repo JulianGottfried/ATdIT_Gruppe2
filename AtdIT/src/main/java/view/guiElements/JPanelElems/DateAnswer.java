@@ -12,7 +12,7 @@ import java.util.Date;
 import main.java.controller.exceptions.FaultyAnswerException;
 import main.java.controller.exceptions.InterruptDrawException;
 import main.java.controller.handler.ScreenHandler;
-import main.java.controller.handler.languageHandler.I18nHandler;
+import main.java.controller.handler.I18nHandler;
 
 public class DateAnswer extends AbstractJPanel implements AnswerInterface {
 	private JDatePickerImpl datePicker;

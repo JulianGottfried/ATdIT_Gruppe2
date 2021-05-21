@@ -12,7 +12,7 @@ import org.json.simple.JSONArray;
 import main.java.controller.exceptions.FaultyAnswerException;
 import main.java.controller.exceptions.InterruptDrawException;
 import main.java.controller.handler.ScreenHandler;
-import main.java.controller.handler.languageHandler.I18nHandler;
+import main.java.controller.handler.I18nHandler;
 import main.java.view.guiElements.AnswerInterface;
 
 public class SelectionAnswer extends AbstractJPanel implements AnswerInterface {

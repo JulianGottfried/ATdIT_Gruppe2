@@ -14,7 +14,7 @@ import main.java.view.guiElements.JTextAreaElems.FancyTextArea;
 import main.java.view.guiElements.JTextFieldElems.InputAnswer;
 import main.java.controller.exceptions.InterruptDrawException;
 import main.java.controller.handler.ScreenHandler;
-import main.java.controller.handler.languageHandler.I18nHandler;
+import main.java.controller.handler.I18nHandler;
 import main.java.controller.listener.ActionListener.SaveQuestionToModel;
 import main.java.controller.listener.ActionListener.ShowStagesOfCOA;
 

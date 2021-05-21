@@ -10,7 +10,7 @@ import main.java.controller.exceptions.InterruptDrawException;
 import main.java.view.guiElements.JButtonElems.FancyButton;
 import main.java.view.guiElements.JLabelElems.ImageDisplay;
 import main.java.controller.handler.ScreenHandler;
-import main.java.controller.handler.languageHandler.I18nHandler;
+import main.java.controller.handler.I18nHandler;
 import main.java.controller.listener.ActionListener.ChangeLanguage;
 import main.java.controller.listener.ActionListener.ViewSwitcher;
 import main.java.controller.listener.mouseAdapter.Return2Home;

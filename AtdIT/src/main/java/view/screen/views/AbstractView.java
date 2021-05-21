@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 
 import main.java.controller.exceptions.InterruptDrawException;
 import main.java.controller.handler.ScreenHandler;
-import main.java.controller.handler.languageHandler.I18nHandler;
+import main.java.controller.handler.I18nHandler;
 import main.java.controller.handler.utilityHandler.*;
 
 import java.awt.GridBagConstraints;
