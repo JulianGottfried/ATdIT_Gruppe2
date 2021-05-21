@@ -4,7 +4,7 @@
   <class id="1" language="java" name="main.java.controller.exceptions.InterruptDrawException" project="ATdIT_Gruppe2" 
     file="/ATdIT_Gruppe2/AtdIT/src/main/java/controller/exceptions/InterruptDrawException.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="401" y="996"/>    
+    <position height="-1" width="-1" x="1469" y="1964"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -14,7 +14,7 @@
   <class id="2" language="java" name="main.java.controller.exceptions.FaultyAnswerException" project="ATdIT_Gruppe2" 
     file="/ATdIT_Gruppe2/AtdIT/src/main/java/controller/exceptions/FaultyAnswerException.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1142" y="991"/>    
+    <position height="-1" width="-1" x="2254" y="1965"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -24,7 +24,7 @@
   <class id="3" language="java" name="main.java.controller.exceptions.DBSavingException" project="ATdIT_Gruppe2" 
     file="/ATdIT_Gruppe2/AtdIT/src/main/java/controller/exceptions/DBSavingException.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2359" y="1013"/>    
+    <position height="-1" width="-1" x="3459" y="1958"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -33,7 +33,7 @@
   </class>  
   <class id="4" language="java" name="main.java.controller.handler.I18nHandler" project="ATdIT_Gruppe2" 
     file="/ATdIT_Gruppe2/AtdIT/src/main/java/controller/handler/I18nHandler.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="408" y="713"/>    
+    <position height="-1" width="-1" x="1476" y="1681"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -42,7 +42,7 @@
   </class>  
   <class id="5" language="java" name="main.java.controller.handler.ScreenHandler" project="ATdIT_Gruppe2" 
     file="/ATdIT_Gruppe2/AtdIT/src/main/java/controller/handler/ScreenHandler.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="135" y="181"/>    
+    <position height="-1" width="-1" x="1279" y="1077"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -53,7 +53,7 @@
     project="ATdIT_Gruppe2" 
     file="/ATdIT_Gruppe2/AtdIT/src/main/java/controller/listener/ActionListener/ShowStagesOfCOA.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="648" y="-31"/>    
+    <position height="-1" width="-1" x="1905" y="869"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -63,7 +63,7 @@
   <class id="7" language="java" name="main.java.view.guiElements.JPanelElems.SelectionAnswer" project="ATdIT_Gruppe2" 
     file="/ATdIT_Gruppe2/AtdIT/src/main/java/view/guiElements/JPanelElems/SelectionAnswer.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1142" y="658"/>    
+    <position height="-1" width="-1" x="2248" y="1758"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -73,7 +73,7 @@
   <class id="8" language="java" name="main.java.view.guiElements.JPanelElems.DateAnswer" project="ATdIT_Gruppe2" 
     file="/ATdIT_Gruppe2/AtdIT/src/main/java/view/guiElements/JPanelElems/DateAnswer.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="884" y="657"/>    
+    <position height="-1" width="-1" x="1990" y="1757"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -83,7 +83,7 @@
   <class id="9" language="java" name="main.java.view.guiElements.JTextFieldElems.InputAnswer" project="ATdIT_Gruppe2" 
     file="/ATdIT_Gruppe2/AtdIT/src/main/java/view/guiElements/JTextFieldElems/InputAnswer.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1401" y="651"/>    
+    <position height="-1" width="-1" x="2507" y="1751"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -92,36 +92,99 @@
   </class>  
   <interface id="10" language="java" name="main.java.view.guiElements.AnswerInterface" project="ATdIT_Gruppe2" 
     file="/ATdIT_Gruppe2/AtdIT/src/main/java/view/guiElements/AnswerInterface.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1138" y="477"/>    
+    <position height="-1" width="-1" x="2244" y="1577"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="11" language="java" name="main.java.controller.listener.ActionListener.SaveQuestionToModel" 
-    project="ATdIT_Gruppe2" 
-    file="/ATdIT_Gruppe2/AtdIT/src/main/java/controller/listener/ActionListener/SaveQuestionToModel.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1142" y="-42"/>    
+  <class id="11" language="java" name="main.java.model.ModelFactory" project="ATdIT_Gruppe2" 
+    file="/ATdIT_Gruppe2/AtdIT/src/main/java/model/ModelFactory.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3449" y="1408"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <realization id="12">    
+  <class id="12" language="java" name="main.java.view.guiElements.JPanelElems.QALabel.QuestionLabel" 
+    project="ATdIT_Gruppe2" file="/ATdIT_Gruppe2/AtdIT/src/main/java/view/guiElements/JPanelElems/QALabel.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="3971" y="1548"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="main.java.view.guiElements.JPanelElems.QALabel.AnswerLabel" 
+    project="ATdIT_Gruppe2" file="/ATdIT_Gruppe2/AtdIT/src/main/java/view/guiElements/JPanelElems/QALabel.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4250" y="1565"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="main.java.view.guiElements.JPanelElems.QALabel" project="ATdIT_Gruppe2" 
+    file="/ATdIT_Gruppe2/AtdIT/src/main/java/view/guiElements/JPanelElems/QALabel.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="4098" y="1114"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="main.java.controller.listener.ActionListener.SaveQuestionToModel" 
+    project="ATdIT_Gruppe2" 
+    file="/ATdIT_Gruppe2/AtdIT/src/main/java/controller/listener/ActionListener/SaveQuestionToModel.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="2546" y="878"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <realization id="16">    
     <end type="SOURCE" refId="7"/>    
     <end type="TARGET" refId="10"/>  
   </realization>  
-  <realization id="13">    
+  <nesting id="17">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="13"/>  
+  </nesting>  
+  <association id="18">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="19" name="qPanel"/>      
+      <multiplicity id="20" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="false" multiplicity="true"/>  
+  </association>  
+  <association id="21">    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="22" name="aPanel"/>      
+      <multiplicity id="23" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="false" multiplicity="true"/>  
+  </association>  
+  <realization id="24">    
     <end type="SOURCE" refId="9"/>    
     <end type="TARGET" refId="10"/>  
   </realization>  
-  <realization id="14">    
+  <realization id="25">    
     <end type="SOURCE" refId="8"/>    
     <end type="TARGET" refId="10"/>  
   </realization>  
+  <nesting id="26">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="12"/>  
+  </nesting>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    
