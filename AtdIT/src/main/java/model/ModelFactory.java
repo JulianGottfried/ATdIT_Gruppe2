@@ -8,6 +8,7 @@ import javax.persistence.RollbackException;
 import org.hibernate.internal.build.AllowSysOut;
 import org.json.simple.JSONObject;
 
+import main.java.controller.exceptions.DBSavingException;
 import main.java.controller.handler.JSONHandler;
 import main.java.persistence.databaseManager.DatabaseManager;
 import main.java.persistence.databaseTables.Addresses;
@@ -62,7 +63,7 @@ public class ModelFactory {
 		return createAddress(addressesEntry);
 	}
 	
-	public Addresses saveAddressToDB(Address addressModel) {
+	public Addresses saveAddressToDB(Address addressModel) throws DBSavingException {
 		Addresses addressesEntry = new Addresses(
 				addressModel.getStreet(),
 				addressModel.getStreetNumber(),
@@ -71,8 +72,12 @@ public class ModelFactory {
 				addressModel.getCity(),
 				addressModel.getCountry()
 				);
-		this.dbm.setDatabaseEntry(addressesEntry);
-		return addressesEntry;
+		if (this.dbm.setDatabaseEntry(addressesEntry)) {
+			return addressesEntry;
+		} else {
+			throw new DBSavingException(Address.class.getSimpleName());
+		}
+		
 	}
 	
 	public Assignee createAssignee(String name, String surname, Address address) {
@@ -102,15 +107,18 @@ public class ModelFactory {
 		return createAssignee(assigneesEntry);
 	}
 	
-	public Assignees saveAssigneeToDB(Assignee assigneeModel) {
+	public Assignees saveAssigneeToDB(Assignee assigneeModel) throws DBSavingException {
 		Assignees asssigneesEntry = new Assignees(
 				assigneeModel.getName(),
 				assigneeModel.getSurname()
 				);
 		Addresses addressesEntry = this.saveAddressToDB(assigneeModel.getAddress());
 		asssigneesEntry.setAddress(addressesEntry);
-		this.dbm.setDatabaseEntry(asssigneesEntry);
-		return asssigneesEntry;
+		if (this.dbm.setDatabaseEntry(asssigneesEntry)) {
+			return asssigneesEntry;
+		} else {
+			throw new DBSavingException(Assignee.class.getSimpleName());
+		}
 	}
 	
 	public ChangeOfAddress createChangeOfAddress(Person person, Date moveInDate, Address oldAddress, Address newAddress,
@@ -150,7 +158,7 @@ public class ModelFactory {
 		return createChangeOfAddress(coaEntry);
 	}
 	
-	public ChangeOfAddress saveChangeOfAddressToDB(ChangeOfAddress coaModel) {
+	public ChangeOfAddress saveChangeOfAddressToDB(ChangeOfAddress coaModel) throws DBSavingException {
 		ChangesOfAddresses coaEntry = new ChangesOfAddresses(
 				coaModel.getMoveInDate()
 				);
@@ -166,13 +174,14 @@ public class ModelFactory {
 		coaEntry.setHouseProvider(houseProvidersEntry);
 		Assignees assigneesEntry = this.saveAssigneeToDB(coaModel.getAssignee());
 		coaEntry.setAssignee(assigneesEntry);
-		this.dbm.setDatabaseEntry(coaEntry);
-		
-		StageOfCOA stageOfCOA = this.createStageOfCOA(true, false, false);
-		stageOfCOA.setChangesOfAddresses(coaEntry);
-		this.saveStageOfCOAToDB(stageOfCOA);
-		
-		return this.createChangeOfAddress(coaEntry);
+		if (this.dbm.setDatabaseEntry(coaEntry)) {
+			StageOfCOA stageOfCOA = this.createStageOfCOA(true, false, false);
+			stageOfCOA.setChangesOfAddresses(coaEntry);
+			this.saveStageOfCOAToDB(stageOfCOA);
+			return this.createChangeOfAddress(coaEntry);
+		} else {
+			throw new DBSavingException(ChangeOfAddress.class.getSimpleName());
+		}
 	}
 	
 	public HouseOwner createHouseOwner(String name, String surname, Address address) {
@@ -202,15 +211,18 @@ public class ModelFactory {
 		return createHouseOwner(houseOwnersEntry);
 	}
 	
-	public HouseOwners saveHouseOwnerToDB(HouseOwner houseOwnerModel) {
+	public HouseOwners saveHouseOwnerToDB(HouseOwner houseOwnerModel) throws DBSavingException {
 		HouseOwners houseOwnersEntry = new HouseOwners(
 				houseOwnerModel.getName(),
 				houseOwnerModel.getSurname()
 				);
 		Addresses addressesEntry = this.saveAddressToDB(houseOwnerModel.getAddress());
 		houseOwnersEntry.setAddress(addressesEntry);
-		this.dbm.setDatabaseEntry(houseOwnersEntry);
-		return houseOwnersEntry;
+		if (this.dbm.setDatabaseEntry(houseOwnersEntry)) {
+			return houseOwnersEntry;
+		} else {
+			throw new DBSavingException(HouseOwner.class.getSimpleName());
+		}	
 	}
 	
 	public HouseProvider createHouseProvide(String name, String surname, Address address) {
@@ -240,15 +252,19 @@ public class ModelFactory {
 		return createHouseProvider(houseProvidersEntry);
 	}
 	
-	public HouseProviders saveHouseProviderToDB(HouseProvider houseProviderModel) {
+	public HouseProviders saveHouseProviderToDB(HouseProvider houseProviderModel) throws DBSavingException {
 		HouseProviders houseProvidersEntry = new HouseProviders(
 				houseProviderModel.getName(),
 				houseProviderModel.getSurname()
 				);
 		Addresses addressesEntry = this.saveAddressToDB(houseProviderModel.getAddress());
 		houseProvidersEntry.setAddress(addressesEntry);
-		this.dbm.setDatabaseEntry(houseProvidersEntry);
-		return houseProvidersEntry;
+		if (this.dbm.setDatabaseEntry(houseProvidersEntry)) {
+			return houseProvidersEntry;
+		} else {
+			throw new DBSavingException(HouseProvider.class.getSimpleName());
+		}
+		
 	}
 	
 	public Identification createIdentification(String iDNumber, String issuingAuthority, Date dateOfIssuing, Date expiryDate) {
@@ -280,7 +296,7 @@ public class ModelFactory {
 		return createIdentification(idEntry);
 	}
 	
-	public Identifications saveIdentificationToDB(Identification identificationModel) {
+	public Identifications saveIdentificationToDB(Identification identificationModel) throws DBSavingException {
 		Identifications identificationsEntry = new Identifications(
 				identificationModel.getIDNumber(),
 				identificationModel.getIssuingAuthority(),
@@ -290,9 +306,13 @@ public class ModelFactory {
 		
 		// Update Identification if already present
 		try {
-			this.dbm.setDatabaseEntry(identificationsEntry);
+			if (!this.dbm.setDatabaseEntry(identificationsEntry)) {
+				throw new DBSavingException(Identification.class.getSimpleName());
+			}
 		} catch (RollbackException re) {
-			this.dbm.updateDatabaseEntry(identificationsEntry);
+			if (!this.dbm.updateDatabaseEntry(identificationsEntry)) {
+				throw new DBSavingException(Identification.class.getSimpleName());
+			}
 		}
 		
 		return identificationsEntry;
@@ -343,7 +363,7 @@ public class ModelFactory {
 		return createPerson(personsEntry);
 	}
 	
-	public Persons savePersonToDB(Person personModel) {
+	public Persons savePersonToDB(Person personModel) throws DBSavingException {
 		Persons personsEntry = new Persons(
 				personModel.getName(),
 				personModel.getSurname(),
@@ -359,8 +379,11 @@ public class ModelFactory {
 		personsEntry.setAddress(addressesEntry);
 		Identifications identificationsEntry = this.saveIdentificationToDB(personModel.getIdentification());
 		personsEntry.setIdentification(identificationsEntry);
-		this.dbm.setDatabaseEntry(personsEntry);
-		return personsEntry;
+		if (this.dbm.setDatabaseEntry(personsEntry)) {
+			return personsEntry;
+		} else {
+			throw new DBSavingException(Person.class.getSimpleName());
+		}
 	}
 	
 	public StageOfCOA createStageOfCOA(Boolean received, boolean dataProcessing, boolean readyForMeeting) {
@@ -382,15 +405,19 @@ public class ModelFactory {
 		return createStageOfCOA(stagesEntry);
 	}
 	
-	public StagesOfCOA saveStageOfCOAToDB(StageOfCOA stagesModel) {
+	public StagesOfCOA saveStageOfCOAToDB(StageOfCOA stagesModel) throws DBSavingException {
 		StagesOfCOA stagesEntry = new StagesOfCOA(
 				stagesModel.getChangesOfAddresses(),
 				stagesModel.getReceived(),
 				stagesModel.getDataProcessing(),
 				stagesModel.getReadyForMeeting()
 				);
-		this.dbm.setDatabaseEntry(stagesEntry);
-		return stagesEntry;
+		if (this.dbm.setDatabaseEntry(stagesEntry)) {
+			return stagesEntry;
+		} else {
+			throw new DBSavingException(StageOfCOA.class.getSimpleName());
+		}
+		
 	}
 	
 	public JSONObject modelToJSON(Class model) {

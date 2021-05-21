@@ -1,6 +1,6 @@
 {
 	"baseModel": "main.java.model.ChangeOfAddress",
-	"initial": "question8",
+	"initial": "question1",
 	"questionCount": "50",
 	"questions": {
 		"question1": {
@@ -181,7 +181,7 @@
 			"model": "person.identification.IDNumber",
 			"allowedEmpty": false,
 			"previous": "question7",
-			"next": "question35"
+			"next": "question9"
 		},
 		"question9": {
 			"type": "input",

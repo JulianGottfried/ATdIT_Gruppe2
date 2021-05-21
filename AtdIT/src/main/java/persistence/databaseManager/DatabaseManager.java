@@ -3,6 +3,7 @@ package main.java.persistence.databaseManager;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.PersistenceException;
 
 import main.java.persistence.databaseTables.AbstractEntry;
 
@@ -10,19 +11,27 @@ public class DatabaseManager implements DatabaseManagerInterface{
 	EntityManager entityManager;
 	EntityManagerFactory emFactory;
 	
-	public void setDatabaseEntry(AbstractEntry entry) {
-		createManager();
-		this.entityManager.persist(entry);
-		closeManager();
+	public boolean setDatabaseEntry(AbstractEntry entry) {
+		try {
+			createManager();
+			this.entityManager.persist(entry);
+			closeManager();
+			return true;
+		} catch (PersistenceException pe) {
+			return false;
+		}
 	}
 	
-	public void updateDatabaseEntry(AbstractEntry newEntry) {
+	public boolean updateDatabaseEntry(AbstractEntry newEntry) {
 		try {
-			
-		} catch(PersistenceException)
-		createManager();
-		this.entityManager.merge(newEntry);
-		closeManager();
+			createManager();
+			this.entityManager.merge(newEntry);
+			closeManager();
+			return true;
+		} catch (PersistenceException pe) {
+			return false;
+		}
+		
 	}
 	
 	public <T extends AbstractEntry> T getDatabaseEntry(Class<T> entityClass, int key) {

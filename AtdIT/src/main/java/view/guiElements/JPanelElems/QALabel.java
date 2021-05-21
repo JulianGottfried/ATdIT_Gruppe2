@@ -1,16 +1,15 @@
 package main.java.view.guiElements.JPanelElems;
 
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.util.Date;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import main.java.controller.exceptions.DBSavingException;
 import main.java.controller.exceptions.InterruptDrawException;
 import main.java.controller.handler.JSONHandler;
 import main.java.controller.handler.ScreenHandler;
@@ -154,8 +153,13 @@ public class QALabel extends AbstractJPanel {
 	public void showAnswers() {
 		ModelFactory mf = new ModelFactory();
 		System.out.println(this.baseModel);
-		ChangeOfAddress test  = mf.saveChangeOfAddressToDB(mf.createChangeOfAddress(this.baseModel));
-		screenHandler.changeCurrentView(new ChangeOfAddressShowToken(screenHandler, test.getProcessID()));
+		try {
+			ChangeOfAddress coa  = mf.saveChangeOfAddressToDB(mf.createChangeOfAddress(this.baseModel));
+			screenHandler.changeCurrentView(new ChangeOfAddressShowToken(screenHandler, coa.getProcessID()));
+		} catch (DBSavingException dbse) {
+			new ErrorPopUp(screenHandler, dbse.getMessage(), i18n.getString("DBErrorTitle"));
+		}
+		
 	}
 	
 	public void showErrorPopup(String message) {
