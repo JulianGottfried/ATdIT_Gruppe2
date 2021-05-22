@@ -16,7 +16,7 @@ Mit der Automatisierung von solchen Routinearbeiten gewinnen Sachbearbeiter die 
 - ATdIT
 
 - Anleitung
-	> Anleitung zur Einrichtung der Datenbank für das Ausführen des Programs
+	> Anleitung zur Einrichtung der Datenbank für das Ausführen des Programms
   
 - Benutzerkonto  
 	- Grundlegende_persönliche_Daten.md
