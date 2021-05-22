@@ -217,7 +217,6 @@ public class QALabel extends AbstractJPanel {
 				JSONArray options = jsonHandler.getJSONArray(question, "options", language);
 				updateAnswerLabel(new SelectionAnswer(screenHandler, options, true));
 				break;
-			default:
 			}
 		}
 		
