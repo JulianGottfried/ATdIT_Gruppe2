@@ -152,7 +152,6 @@ public class QALabel extends AbstractJPanel {
 	
 	public void showAnswers() {
 		ModelFactory mf = new ModelFactory();
-		System.out.println(this.baseModel);
 		try {
 			ChangeOfAddress coa  = mf.saveChangeOfAddressToDB(mf.createChangeOfAddress(this.baseModel));
 			screenHandler.changeCurrentView(new ChangeOfAddressShowToken(screenHandler, coa.getProcessID()));

@@ -50,9 +50,7 @@ public class ScreenHandler {
             // TODO: Logger
             return;
         }
-
         this.drawView(view);
-
         this.setPreviousView(this.currentView);
         this.setCurrentView(view);
     }
