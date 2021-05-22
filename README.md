@@ -34,6 +34,7 @@ Mit der Automatisierung von solchen Routinearbeiten gewinnen Sachbearbeiter die 
 		> Entity-Relationship-Diagramm welches die Beziehungen der einzelenen Relationen in der Datenbank und ihre zugehörigen Attritbute, Primärschlüssel und Fremdschlüssel darstellt und beschreibt
 
 - Klassenstruktur
+	> Klassendiagramme des Programms
 
 - Prozesse
 	> Prozess Diagramme zu Prozessketten: Termin buchen, Formulare ausfüllen und verschicken, Homepage
