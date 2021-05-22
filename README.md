@@ -4,7 +4,7 @@
 
 Wir sind das Team von Rathaus 2077.
 
-Behördengänge sind unnötig zeitaufwendig und das muss geändert werden. Wir haben es uns zur Aufgabe gemacht die Digitalisierung in der öffentlichen Verwaltung voranzutreiben. So möchten wir bei Behördengängen den Zeitaufwand, Papierverberbrauch und CO2-Emissionen senken.
+Behördengänge sind unnötig zeitaufwendig und das muss geändert werden. Wir haben es uns zur Aufgabe gemacht die Digitalisierung in der öffentlichen Verwaltung voranzutreiben. So möchten wir bei Behördengängen den Zeitaufwand, Papierverbrauch und die CO2-Emissionen senken.
 
 Verabschiedet euch von unorganisierten "Wichtig"-Ordnern aus denen stapelweise Papierdokumente mit Eselsohren quellen, Urlaubsbeantragungen nur um einen Termin im Rathaus besuchen zu können und stundenlangen Warteschleifen am Telefon! Endlich könnt ihr euren Termin bequem und zur jeder Tages- und Nachtzeit von Zuhause buchen und die benötigten Dokumente und Anträge online ausfüllen oder mit einem Benutzerprofil automatisch ausfüllen lassen.
 
