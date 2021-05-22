@@ -1,4 +1,6 @@
-Automatisierung der öffentlichen Verwaltung
+<h1>Automatisierung der öffentlichen Verwaltung</h1>
+
+<h2>Ordnerstruktur:</h2>
 
 - Anleitung > AnleitungDocker.pdf
 	>Anleitung zur Einrichtung der Datenbank für das Ausführen des Programs
@@ -29,5 +31,8 @@ Automatisierung der öffentlichen Verwaltung
 	- Formulare
 		> Beispiel Formulare die zu Ummeldung benötigt werden (Eigentümernachweis, Vollmacht, Wohnungsgeberbestätigung)
 	- Daten 
-		> 
+		> Stammdaten und speziische Ummeldedaten die Nutzer/Person bei Ummeldung in Dokumenten angeben muss
+
+- mockups
+	- diverse Mockups für Homescreen, Ummeldetool und Ummeldeseite
 			
