@@ -14,6 +14,7 @@ Mit der Automatisierung von solchen Routinearbeiten gewinnen Sachbearbeiter die 
 <h2>Ordnerstruktur:</h2>
 
 - Prototypes
+	> Prototypen der ursprünglichen Idee der Architektur
   
 - Benutzerkonto  
 	- Grundlegende_persönliche_Daten.md
