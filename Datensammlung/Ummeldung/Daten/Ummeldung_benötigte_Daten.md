@@ -7,7 +7,6 @@ Benötigte Daten für Ummeldung
   - Name
   - Adresse
   - *ODER: Checkbox (Besitzer = Wohnungsgeber)*
-- Wohnungsgeberbestätigung für Eigentümer *wenn selbst Eigentum*
 
 - Anschrift der Wohnung / des Haueses
   - Postleitzahl
@@ -18,4 +17,5 @@ Benötigte Daten für Ummeldung
   - Lagebeschreibung
 - Einzugsdatum
 - Name des Ummeldenden
-- *Box:* Einzug / Auszug
+
+- Frage nach Ausstellen einer Vollmacht
