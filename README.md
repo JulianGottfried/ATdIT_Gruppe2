@@ -14,9 +14,6 @@ Mit der Automatisierung von solchen Routinearbeiten gewinnen Sachbearbeiter die 
 <h2>Ordnerstruktur:</h2>
 
 - Prototypes
-
-- Anleitung
-	> Anleitung zur Einrichtung der Datenbank für das Ausführen des Programms
   
 - Benutzerkonto  
 	- Grundlegende_persönliche_Daten.md
@@ -25,37 +22,60 @@ Mit der Automatisierung von solchen Routinearbeiten gewinnen Sachbearbeiter die 
   		> Login Daten eines Benutzers 
 
 - Betriebsanleitung
-	> Betriebsanleitung wie unser Programm anzuwenden ist
+	- AnleitungDocker.pdf
+		> Anleitung zum Einrichten der Datenbank für das Ausführen des Programms
+	- Betriebsanleitung Rathaus 2077.pdf
+		> Betriebsanleitung wie unser Programm anzuwenden ist
   
 - Datensammlung
-	- Datenbankschema.drawio
-		> Datenbankschema welches die Beziehungen der einzelenen Relationen in der Datenbank und ihre zugehörigen Attritbute, Primärschlüssel und Fremdschlüssel darstellt
-	- ER-Diagramm.drawio
-		> Entity-Relationship-Diagramm welches die Beziehungen der einzelenen Relationen in der Datenbank und ihre zugehörigen Attritbute, Primärschlüssel und Fremdschlüssel darstellt und beschreibt
+	- Benutzerkonto  
+		- Grundlegende_persönliche_Daten.md
+			> Allgemeine persönliche Daten eines Benutzers. Diese werden nach der Registrierung, falls der Nutzer sich für die Erstellung eines Benutzerkontos entscheidet, in der Datenbank hinterlegt. So können Dokumente mithilfe dieser Daten schneller automatisiert ausgefüllt werden.
+		- Login_Daten.md
+			> Login Daten eines Benutzers 
+	- Ummeldung
+		- Formulare
+			> Beispiel Formulare die zu Ummeldung benötigt werden (Eigentümernachweis, Vollmacht, Wohnungsgeberbestätigung)
+		- Daten 
+			> Stammdaten und speziische Ummeldedaten die Nutzer/Person bei Ummeldung in Dokumenten angeben muss
 
-- Klassenstruktur
-	> Klassendiagramme des Programms
+
+- Hintergründe zum Projekt
+	- Angewendete Gruppenmethodik und Lessons Learned.pdf
+	- Meetingprotokoll
+		> Protokolle der wöchentlichen Gruppenmeetings. In diesen stellte jeder seinen momentanen Stand seiner zugenordneter Aufgabe vor. Fragen zu wichtigen Entscheidungen wurden hier in der Gruppe diskutiert, sowie neue Ideen und Verbesserungsvorschläge ausgetauscht. Des Weiteren wurden die nächsten Schritte 
+	
+	- Wissenschaftlich-Theoretischer Hintergrund
+		> Hintergrund des Berufs, Probleme die wir mithilfte Digitalisierung in diesem Feld lösen möchten sowie eine Marktanalyse und Herrausforderungen die sich uns auf unserem Weg zu Ziel stellen.
+	- Technische Dokumentation.pdf
+
+
+
 
 - Prozessdiagramme
-	> Prozess Diagramme zu Prozessketten: Termin buchen, Formulare ausfüllen und verschicken, Homepage
-	- README.md
-		> Anleitung zur Nutzung der .drawio Dateien 
-
+ 	- Anwenderprozesse
+ 	- Prozesse für die Zukunft
+ 		> Anwenderprozesse die aus Zeitgründen nicht ausprogrammiert werden konnten
+ 	- Technischer Prozess
+ 	- README.md
+		> Anleitung zur Nutzung der .drawio Dateien
+ 		
 - Präsentationen
 	> Alle Präsentationen die zur Unterrichtszeit vorgestellt wurden
 
-- Ummeldung
-	- Formulare
-		> Beispiel Formulare die zu Ummeldung benötigt werden (Eigentümernachweis, Vollmacht, Wohnungsgeberbestätigung)
-	- Daten 
-		> Stammdaten und speziische Ummeldedaten die Nutzer/Person bei Ummeldung in Dokumenten angeben muss
+- Strukturdiagramme
+	- Datenbankstruktur
+		- Datenbankschema.drawio
+			> Datenbankschema welches die Beziehungen der einzelenen Relationen in der Datenbank und ihre zugehörigen Attritbute, Primärschlüssel und Fremdschlüssel darstellt
+		- ER-Diagramm.drawio
+			> Entity-Relationship-Diagramm welches die Beziehungen der einzelenen Relationen in der Datenbank und ihre zugehörigen Attritbute, Primärschlüssel und Fremdschlüssel darstellt und beschreibt
+		
+	- Klassenstrukturen
+		> Klassendiagramme des Programms
+
 
 - mockups
 	> diverse Mockups für Homescreen, Ummeldetool und Ummeldeseite
 
-- Meetingprotokoll
-	> Protokolle der wöchentlichen Gruppenmeetings. In diesen stellte jeder seinen momentanen Stand seiner zugenordneter Aufgabe vor. Fragen zu wichtigen Entscheidungen wurden hier in der Gruppe diskutiert, sowie neue Ideen und Verbesserungsvorschläge ausgetauscht. Des Weiteren wurden die nächsten Schritte 
-	
-- Wissenschaftlich-Theoretischer Hintergrund
-	> Hintergrund des Berufs, Probleme die wir mithilfte Digitalisierung in diesem Feld lösen möchten sowie eine Marktanalyse und Herrausforderungen die sich uns auf unserem Weg zu Ziel stellen.
+
 			
