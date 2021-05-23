@@ -25,12 +25,6 @@ Mit der Automatisierung von solchen Routinearbeiten gewinnen Sachbearbeiter die 
 			> Test für Webserver
 	
   
-- Benutzerkonto  
-	- Grundlegende_persönliche_Daten.md
-		> Allgemeine persönliche Daten eines Benutzers. Diese werden nach der Registrierung, falls der Nutzer sich für die Erstellung eines Benutzerkontos entscheidet, in der Datenbank hinterlegt. So können Dokumente mithilfe dieser Daten schneller automatisiert ausgefüllt werden.
- 	- Login_Daten.md
-  		> Login Daten eines Benutzers 
-
 - Betriebsanleitung
 	- AnleitungDocker.pdf
 		> Anleitung zum Einrichten der Datenbank für das Ausführen des Programms
