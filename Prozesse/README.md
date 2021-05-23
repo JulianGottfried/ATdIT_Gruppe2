@@ -1,3 +1,11 @@
+<h2>Prozesse</h2>
+
+Hier finden Sie alle Diagramme, die die Prozessabfolge unseres Programms beschreiben.
+Es gibt sowohl Flowcharts, die den technischen Ablauf darstellen,  als auch nicht technische Prozessdiagramme, die die User-Interaktion mit dem Programm beschreibt.
+
+Die .drawio sind mit den PDFs identisch, Sie können sich also aussuchen, welche Datei Sie betrachten möchten.
+
+
 # Nutzung der .drawio Dateien
 
 Die .drawio Dateien müssen über DrawIO geöffnet werden.
@@ -10,7 +18,7 @@ Dazu folgende Schritte befolgen:
 - im Submenü auf "Open from" drücken
 - hier "GitHub..." wählen
 
-- hier verbindet ihr dann euren GitHub Account und könnt dann über das Menü die gewünschte Datei auswählen und öfnnen bzw. editieren und speichern
+- hier verbinden Sie dann Ihren GitHub Account und können über das Menü die gewünschte Datei auswählen und öfnnen bzw. editieren und speichern
 
 # WICHTIG
 
