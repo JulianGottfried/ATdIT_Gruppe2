@@ -14,7 +14,16 @@ Mit der Automatisierung von solchen Routinearbeiten gewinnen Sachbearbeiter die 
 <h2>Ordnerstruktur:</h2>
 
 - Prototypes
-	> Prototypen der ursprünglichen Idee der Architektur
+	- Prototypen der ursprünglichen Ideen der Architektur
+		- src
+			> Demodatei für PostgreSQL
+		- pom.xml
+			> Spring Framework, ursprünglich geplanter Tomcat Server
+		- mvnw
+			> Konfigurationsdateien von Maven (autogeneriert)
+		- target
+			> Test für Webserver
+	
   
 - Benutzerkonto  
 	- Grundlegende_persönliche_Daten.md
