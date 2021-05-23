@@ -10,6 +10,7 @@ Verabschiedet euch von unorganisierten "Wichtig"-Ordnern aus denen stapelweise P
 
 Mit der Automatisierung von solchen Routinearbeiten gewinnen Sachbearbeiter die Zeit sich den wirklichen Problemstellungen der Bürger widmen zu können.
 
+<hr>
 
 <h2>Ordnerstruktur:</h2>
 
@@ -24,12 +25,15 @@ Mit der Automatisierung von solchen Routinearbeiten gewinnen Sachbearbeiter die 
 		- target
 			> Test für Webserver
 	
-  
+	<hr>
+ 
 - Betriebsanleitung
 	- AnleitungDocker.pdf
 		> Anleitung zum Einrichten der Datenbank für das Ausführen des Programms
 	- Betriebsanleitung Rathaus 2077.pdf
 		> Betriebsanleitung wie unser Programm anzuwenden ist
+  
+ 	<hr>
   
 - Datensammlung
 	- Benutzerkonto  
@@ -44,6 +48,8 @@ Mit der Automatisierung von solchen Routinearbeiten gewinnen Sachbearbeiter die 
 			> Stammdaten und speziische Ummeldedaten die Nutzer/Person bei Ummeldung in Dokumenten angeben muss
 
 
+	<hr>
+
 - Hintergründe zum Projekt
 	- Angewendete Gruppenmethodik und Lessons Learned.pdf
 	- Meetingprotokoll
@@ -53,7 +59,7 @@ Mit der Automatisierung von solchen Routinearbeiten gewinnen Sachbearbeiter die 
 		> Hintergrund des Berufs, Probleme die wir mithilfte Digitalisierung in diesem Feld lösen möchten sowie eine Marktanalyse und Herrausforderungen die sich uns auf unserem Weg zu Ziel stellen.
 	- Technische Dokumentation.pdf
 
-
+	<hr>
 
 
 - Prozessdiagramme
@@ -63,9 +69,13 @@ Mit der Automatisierung von solchen Routinearbeiten gewinnen Sachbearbeiter die 
  	- Technischer Prozess
  	- README.md
 		> Anleitung zur Nutzung der .drawio Dateien
- 		
+
+	<hr>
+
 - Präsentationen
 	> Alle Präsentationen die zur Unterrichtszeit vorgestellt wurden
+
+	<hr>
 
 - Strukturdiagramme
 	- Datenbankstruktur
@@ -77,6 +87,7 @@ Mit der Automatisierung von solchen Routinearbeiten gewinnen Sachbearbeiter die 
 	- Klassenstrukturen
 		> Klassendiagramme des Programms
 
+	<hr>
 
 - mockups
 	> diverse Mockups für Homescreen, Ummeldetool und Ummeldeseite
