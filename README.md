@@ -27,7 +27,7 @@ Mit der Automatisierung von solchen Routinearbeiten gewinnen Sachbearbeiter die 
 - Betriebsanleitung
 	> Betriebsanleitung wie unser Programm anzuwenden ist
   
-- Datenbankstruktur
+- Datensammlung
 	- Datenbankschema.drawio
 		> Datenbankschema welches die Beziehungen der einzelenen Relationen in der Datenbank und ihre zugehörigen Attritbute, Primärschlüssel und Fremdschlüssel darstellt
 	- ER-Diagramm.drawio
@@ -36,7 +36,7 @@ Mit der Automatisierung von solchen Routinearbeiten gewinnen Sachbearbeiter die 
 - Klassenstruktur
 	> Klassendiagramme des Programms
 
-- Prozesse
+- Prozessdiagramme
 	> Prozess Diagramme zu Prozessketten: Termin buchen, Formulare ausfüllen und verschicken, Homepage
 	- README.md
 		> Anleitung zur Nutzung der .drawio Dateien 
