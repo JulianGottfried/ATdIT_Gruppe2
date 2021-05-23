@@ -6,7 +6,7 @@ Es gibt sowohl Flowcharts, die den technischen Ablauf darstellen,  als auch nich
 Die .drawio sind mit den PDFs identisch, Sie können sich also aussuchen, welche Datei Sie betrachten möchten.
 
 
-# Nutzung der .drawio Dateien
+<h3>Nutzung der .drawio Dateien</h3>
 
 Die .drawio Dateien müssen über DrawIO geöffnet werden.
 
@@ -20,7 +20,7 @@ Dazu folgende Schritte befolgen:
 
 - hier verbinden Sie dann Ihren GitHub Account und können über das Menü die gewünschte Datei auswählen und öfnnen bzw. editieren und speichern
 
-# WICHTIG
+<h3>WICHTIG</h3>
 
 Da gleichzeitig an Projekten gearbeitet werden kann, synchronisiert eure Datei regelmäßig beim Bearbeiten, spätestens bevor ihr speichert!
 Der Shortcut hierfür ist **ALT+SHIFT+S** oder über das Funktionsmenü "File" auf "Synchronize" klicken.
