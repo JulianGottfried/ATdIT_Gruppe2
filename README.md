@@ -13,7 +13,7 @@ Mit der Automatisierung von solchen Routinearbeiten gewinnen Sachbearbeiter die 
 
 <h2>Ordnerstruktur:</h2>
 
-- ATdIT
+- Prototypes
 
 - Anleitung
 	> Anleitung zur Einrichtung der Datenbank für das Ausführen des Programms
