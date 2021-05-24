@@ -6,13 +6,20 @@ import net.sourceforge.jdatepicker.impl.JDatePickerImpl;
 import net.sourceforge.jdatepicker.impl.UtilDateModel;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import main.java.controller.exceptions.FaultyAnswerException;
 import main.java.controller.exceptions.InterruptDrawException;
 import main.java.controller.handler.ScreenHandler;
 import main.java.controller.handler.I18nHandler;
-
+/**
+ * The date box, that is used in the change of address process to input dates.
+ * 
+ * @author weilichsoheisse
+ * @version 17.05.2021
+ *
+ */
 public class DateAnswer extends AbstractJPanel implements AnswerInterface {
 	private JDatePickerImpl datePicker;
 	private I18nHandler i18n;

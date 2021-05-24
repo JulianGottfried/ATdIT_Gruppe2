@@ -6,13 +6,22 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-
+/**
+ * The font handler gets the font codes from the .properties file.
+ * @author weilichsoheisse
+ * @version 17.05.2021
+ *
+ */
 public class FontHandler extends AbstractUtilityHandler {
 
 	public FontHandler(String fontTemplate) {
 		super(fontTemplate);
 	}
-	
+	/**
+	 * Returns the font code from .properties file
+	 * @param fontKey is the font key in the .properties file.
+	 * @return Java font will be returned, if exists in .properties.
+	 */
 	public Font getFont(String fontKey) {
 		String colorString = this.getProperty(fontKey);
 		ArrayList<String> fontAttributes = new ArrayList<>(Arrays.asList(colorString.split("\\s*,\\s*")));
@@ -30,6 +39,11 @@ public class FontHandler extends AbstractUtilityHandler {
 		return font;
 	}
 	
+	/**
+	 * 
+	 * @param styleString enters a String to convert to style code
+	 * @return the Style integer code to generate the font attributes
+	 */
 	private int convert2Style(String styleString) {
 		int style;
 		switch(styleString.toLowerCase()) {

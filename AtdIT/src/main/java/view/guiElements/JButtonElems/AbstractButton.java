@@ -5,7 +5,13 @@ import javax.swing.JButton;
 import main.java.controller.handler.ScreenHandler;
 import main.java.controller.handler.utilityHandler.ColorHandler;
 import main.java.controller.handler.utilityHandler.FontHandler;
-
+/**
+ * The button model for the buttons.
+ * 
+ * @author weilichsoheisse
+ * @version 17.05.2021
+ *
+ */
 public abstract class AbstractButton extends JButton {
 	ColorHandler colorHandler;
 	FontHandler fontHandler;

@@ -8,7 +8,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
+/**
+ * The assignees table structure.
+ * 
+ * @author weilichsoheisse
+ * @version 17.05.2021
+ *
+ */
 @Entity
 @Table(name = "Assignees")
 public class Assignees implements AbstractEntry, Serializable {

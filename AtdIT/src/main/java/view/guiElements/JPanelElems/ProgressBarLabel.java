@@ -7,7 +7,13 @@ import java.awt.Insets;
 
 import main.java.controller.handler.ScreenHandler;
 import main.java.view.guiElements.JTextAreaElems.FancyTextArea;
-
+/**
+ * The label for the progress bar. Just creates all the labels around the progress bar.
+ * 
+ * @author weilichsoheisse
+ * @version 17.05.2021
+ *
+ */
 public class ProgressBarLabel extends AbstractJPanel {
 	private GridBagConstraints gbc;
 	private ProgressBar progBar;

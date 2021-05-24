@@ -9,18 +9,25 @@ import main.java.controller.exceptions.FaultyAnswerException;
 import main.java.controller.handler.JSONHandler;
 import main.java.view.guiElements.JPanelElems.QALabel;
 
+/**
+ * Saves the answer to a question as the JSON model requires it.
+ * 
+ * @author weilichsoheisse
+ * @version 17.05.2021
+ *
+ */
 public class SaveQuestionToModel implements ActionListener {
 	private QALabel qaLabel;
 	private JSONHandler jsonHandler;
 	private JSONObject currentQuestion;
 	private String answer;
-	
+
 	public SaveQuestionToModel(QALabel qaLabel, JSONHandler jsonHandler) {
 		this.qaLabel = qaLabel;
 		this.jsonHandler = jsonHandler;
 		this.currentQuestion = qaLabel.getCurrentQuestion();
 	}
-	
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		try {
@@ -34,19 +41,20 @@ public class SaveQuestionToModel implements ActionListener {
 				this.currentQuestion = qaLabel.getCurrentQuestion();
 				this.saveAnswer(this.answer);
 				this.switchToNextAnswer();
-			}
-			else {		
+			} else {
 				qaLabel.showErrorPopup(fae.getMessage());
-				// TODO: logger
 			}
 		}
 	}
-	
+
 	public void saveAnswer(String answer) {
 		String saveLocation = jsonHandler.getString(this.currentQuestion, "model");
 		jsonHandler.safeAnswerAt(qaLabel.getBaseModel(), this.answer, saveLocation);
 	}
-	
+
+	/**
+	 * Switches on user command to the next question.
+	 */
 	public void switchToNextAnswer() {
 		String nextKey;
 		JSONObject cases = jsonHandler.getJSON(this.currentQuestion, "case");

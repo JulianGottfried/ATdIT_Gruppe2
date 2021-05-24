@@ -5,6 +5,13 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
+/**
+ * The AbstractUtilityHandler includes some base for the .properties file handlers.
+ * @author weilichsoheisse
+ * @version 17.05.2021
+ *
+ */
+
 public abstract class AbstractUtilityHandler implements UtilityHandlerInterface {
 	private Properties prop;
 
@@ -15,8 +22,11 @@ public abstract class AbstractUtilityHandler implements UtilityHandlerInterface 
 			// TODO logger
 		}
 	}
-
+	
 	@Override
+	/**
+	 * retrieveProperties is used to find the internal .properties files
+	 */
 	public Properties retrieveProperties(String propName) throws IOException {
 		FileInputStream inputStream = null;
 		Properties prop = null;

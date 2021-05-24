@@ -1,16 +1,25 @@
 package main.java.view.guiElements.JPanelElems;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 import java.awt.Insets;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import main.java.controller.handler.ScreenHandler;
-
+/**
+ * The progress bar on the left side of the COA process.
+ * 
+ * @author weilichsoheisse
+ * @version 17.05.2021
+ *
+ */
 public class ProgressBar extends AbstractJPanel {
 	private ArrayList<ProgressBox> progressBoxes;
 	private String boxColorKey;

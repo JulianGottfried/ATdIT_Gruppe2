@@ -6,7 +6,12 @@ import main.java.controller.handler.ScreenHandler;
 import main.java.view.screen.views.AbstractView;
 
 import java.awt.event.ActionEvent;
-
+/**
+ * Switches the views on button click on one of the header entries.
+ * @author weilichsoheisse
+ * @version 17.05.2021
+ *
+ */
 public class ViewSwitcher implements ActionListener {
     ScreenHandler screenHandler;
     AbstractView view;

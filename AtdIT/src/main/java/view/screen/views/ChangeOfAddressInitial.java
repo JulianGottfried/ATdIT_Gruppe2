@@ -3,6 +3,7 @@ package main.java.view.screen.views;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
+import javax.swing.JButton;
 import javax.swing.plaf.InsetsUIResource;
 
 import main.java.controller.handler.ScreenHandler;
@@ -11,7 +12,13 @@ import main.java.view.guiElements.JButtonElems.FancyButton;
 import main.java.view.guiElements.JPanelElems.BackgroundPanel;
 import main.java.view.guiElements.JPanelElems.Header;
 import main.java.view.guiElements.JTextAreaElems.FancyTextArea;
-
+/**
+ * View to change the address
+ * 
+ * @author weilichsoheisse
+ * @version 17.05.2021
+ *
+ */
 public class ChangeOfAddressInitial extends AbstractView {
 
     public ChangeOfAddressInitial(ScreenHandler screenHandler) {
@@ -29,7 +36,7 @@ public class ChangeOfAddressInitial extends AbstractView {
         gbc.gridy = 0;
         this.add(header, gbc);
         
-        Body body = new Body(this.screenHandler);
+        Body body = new Body(screenHandler);
         gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.BOTH;
         gbc.weighty = 1.0;

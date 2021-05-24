@@ -13,7 +13,13 @@ import main.java.view.guiElements.JButtonElems.FancyButton;
 import main.java.view.guiElements.JPanelElems.BackgroundPanel;
 import main.java.view.guiElements.JPanelElems.Header;
 import main.java.view.guiElements.JTextAreaElems.FancyTextArea;
-
+/**
+ * The view to show the Token of the COA process.
+ * 
+ * @author weilichsoheisse
+ * @version 17.05.2021
+ *
+ */
 public class ChangeOfAddressShowToken extends AbstractView {
 	int token;
 	

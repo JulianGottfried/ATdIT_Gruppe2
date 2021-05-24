@@ -1,5 +1,11 @@
 package main.java.model;
-
+/**
+ * Used for address creation and change.
+ * 
+ * @author weilichsoheisse
+ * @version 17.05.2021
+ *
+ */
 public class Address implements Model {
 	private String	street;
 	private int		streetNumber;

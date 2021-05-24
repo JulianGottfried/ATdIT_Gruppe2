@@ -10,7 +10,13 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
+/**
+ * The persons table structure.
+ * 
+ * @author weilichsoheisse
+ * @version 17.05.2021
+ *
+ */
 @Entity
 @Table(name = "Persons")
 public class Persons implements AbstractEntry, Serializable {

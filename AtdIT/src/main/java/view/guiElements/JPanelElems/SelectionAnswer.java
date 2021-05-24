@@ -14,7 +14,13 @@ import main.java.controller.exceptions.InterruptDrawException;
 import main.java.controller.handler.ScreenHandler;
 import main.java.controller.handler.I18nHandler;
 import main.java.view.guiElements.AnswerInterface;
-
+/**
+ * Used to select the answer.
+ * 
+ * @author weilichsoheisse
+ * @version 17.05.2021
+ *
+ */
 public class SelectionAnswer extends AbstractJPanel implements AnswerInterface {
 	private ButtonGroup bg;
 	private I18nHandler i18n;

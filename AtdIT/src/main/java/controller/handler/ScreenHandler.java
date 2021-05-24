@@ -11,6 +11,12 @@ import main.java.view.screen.views.HomeScreenView;
 
 import java.awt.Container;
 
+/**
+ * The Screen Handler is used to generate the UI for the user. It loads and works with all the other handlers.
+ * @author weilichsoheisse
+ * @version 17.05.2021
+ *
+ */
 
 public class ScreenHandler {
     private Locale language;
@@ -50,7 +56,9 @@ public class ScreenHandler {
             // TODO: Logger
             return;
         }
+
         this.drawView(view);
+
         this.setPreviousView(this.currentView);
         this.setCurrentView(view);
     }

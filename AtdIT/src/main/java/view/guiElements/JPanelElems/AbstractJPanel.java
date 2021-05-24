@@ -4,7 +4,13 @@ import javax.swing.JPanel;
 
 import main.java.controller.handler.ScreenHandler;
 import main.java.controller.handler.utilityHandler.*;
-
+/**
+ * Basic Panel model.
+ * 
+ * @author weilichsoheisse
+ * @version 17.05.2021
+ *
+ */
 public abstract class AbstractJPanel extends JPanel {
 	ColorHandler colorHandler;
 	FontHandler fontHandler;

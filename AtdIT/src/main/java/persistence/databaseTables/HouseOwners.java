@@ -8,7 +8,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
+/**
+ * The HouseOwners table structure.
+ * 
+ * @author weilichsoheisse
+ * @version 17.05.2021
+ *
+ */
 @Entity
 @Table(name = "HouseOwners")
 public class HouseOwners implements AbstractEntry, Serializable {

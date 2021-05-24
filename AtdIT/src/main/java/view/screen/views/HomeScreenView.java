@@ -1,6 +1,7 @@
 package main.java.view.screen.views;
 
 import java.awt.GridBagConstraints;
+import java.awt.Insets;
 
 import javax.swing.plaf.InsetsUIResource;
 
@@ -8,7 +9,13 @@ import main.java.view.guiElements.JPanelElems.BackgroundPanel;
 import main.java.view.guiElements.JPanelElems.Header;
 import main.java.view.guiElements.JTextAreaElems.FancyTextArea;
 import main.java.controller.handler.ScreenHandler;
-
+/**
+ * The first and Home view.
+ * 
+ * @author weilichsoheisse
+ * @version 17.05.2021
+ *
+ */
 public class HomeScreenView extends AbstractView {
 
     public HomeScreenView(ScreenHandler screenHandler) {

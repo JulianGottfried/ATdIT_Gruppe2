@@ -12,7 +12,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
-
+/**
+ * The ChangesOfAddresses table structure.
+ * 
+ * @author weilichsoheisse
+ * @version 17.05.2021
+ *
+ */
 @Entity
 @Table(name = "ChangesOfAddresses")
 @PrimaryKeyJoinColumn(referencedColumnName = "ProcessID")

@@ -1,5 +1,11 @@
 package main.java.model;
-
+/**
+ * Used for house provider creation and change.
+ * 
+ * @author weilichsoheisse
+ * @version 17.05.2021
+ *
+ */
 public class HouseProvider implements Model {
 	private String 	name;
 	private String 	surname;

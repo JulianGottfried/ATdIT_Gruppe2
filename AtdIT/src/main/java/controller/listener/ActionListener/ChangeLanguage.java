@@ -6,6 +6,13 @@ import java.util.Locale;
 
 import main.java.controller.handler.ScreenHandler;
 
+/**
+ * Changes language if user clicks on language button.
+ * @author weilichsoheisse
+ * @version 17.05.2021
+ *
+ */
+
 public class ChangeLanguage implements ActionListener {
     Locale language;
     ScreenHandler screenHandler;

@@ -1,5 +1,11 @@
 package main.java.model;
-
+/**
+ * Used for house owner creation and change.
+ * 
+ * @author weilichsoheisse
+ * @version 17.05.2021
+ *
+ */
 public class HouseOwner implements Model {
 	private String 	name;
 	private String 	surname;

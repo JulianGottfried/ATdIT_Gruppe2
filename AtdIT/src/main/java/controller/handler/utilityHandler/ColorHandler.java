@@ -3,13 +3,22 @@ package main.java.controller.handler.utilityHandler;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Arrays;
-
+/**
+ * The color handler gets the color codes from the .properties file.
+ * @author weilichsoheisse
+ * @version 17.05.2021
+ *
+ */
 public class ColorHandler extends AbstractUtilityHandler {
 
 	public ColorHandler(String colorTemplate) {
 		super(colorTemplate);
 	}
-	
+	/**
+	 * 
+	 * @param colorKey is the color code that is included in the .properties file (e.g. "background")
+	 * @return The Java Colorcode will be returned from the .properties file.
+	 */
 	public Color getColor(String colorKey) {
 		String colorString = this.getProperty(colorKey);
 		ArrayList<String> colors = new ArrayList<>();

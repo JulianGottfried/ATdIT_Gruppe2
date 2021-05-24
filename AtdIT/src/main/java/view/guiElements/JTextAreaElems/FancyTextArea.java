@@ -3,11 +3,20 @@ package main.java.view.guiElements.JTextAreaElems;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Insets;
+import java.awt.event.MouseListener;
 
 import javax.swing.text.DefaultCaret;
 
-import main.java.controller.handler.ScreenHandler;
+import org.hibernate.boot.spi.AdditionalJaxbMappingProducer;
 
+import main.java.controller.handler.ScreenHandler;
+/**
+ * Again a beautiful text area, all the design features are included.
+ * 
+ * @author weilichsoheisse
+ * @version 17.05.2021
+ *
+ */
 public class FancyTextArea extends AbstractJTextArea {
 	private int areaHeight = 0;
 	private int areaWidth = 0;

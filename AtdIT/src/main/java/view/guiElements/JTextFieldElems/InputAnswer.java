@@ -5,7 +5,13 @@ import main.java.controller.exceptions.InterruptDrawException;
 import main.java.controller.handler.ScreenHandler;
 import main.java.controller.handler.I18nHandler;
 import main.java.view.guiElements.AnswerInterface;
-
+/**
+ * Used to enter the answers in the UI.
+ * 
+ * @author weilichsoheisse
+ * @version 17.05.2021
+ *
+ */
 public class InputAnswer extends AbstractJTextField implements AnswerInterface {
 	I18nHandler i18n;
 	

@@ -1,5 +1,11 @@
 package main.java.model;
-
+/**
+ * Used for assignee creation and change.
+ * 
+ * @author weilichsoheisse
+ * @version 17.05.2021
+ *
+ */
 public class Assignee implements Model {
 	private String 	name;
 	private String 	surname;

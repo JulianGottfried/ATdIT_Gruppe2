@@ -1,7 +1,13 @@
 package main.java.model;
 
 import java.util.Date;
-
+/**
+ * Used for coa creation and change.
+ * 
+ * @author weilichsoheisse
+ * @version 17.05.2021
+ *
+ */
 public class ChangeOfAddress implements Model {
 	private int 			processID;
 	private Person			person;

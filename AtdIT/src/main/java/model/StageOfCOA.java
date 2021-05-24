@@ -1,6 +1,13 @@
 package main.java.model;
-
+/**
+ * Used for stage of change of address process creation and change.
+ * 
+ * @author weilichsoheisse
+ * @version 17.05.2021
+ *
+ */
 import main.java.persistence.databaseTables.ChangesOfAddresses;
+import main.java.persistence.databaseTables.StagesOfCOA;
 
 public class StageOfCOA implements Model {
 	private ChangesOfAddresses changesOfAddresses;

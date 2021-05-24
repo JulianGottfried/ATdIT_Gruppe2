@@ -13,7 +13,13 @@ import main.java.view.guiElements.JPanelElems.ProgressBar;
 import main.java.view.guiElements.JPanelElems.ProgressBarLabel;
 import main.java.view.guiElements.JPanelElems.QALabel;
 import main.java.view.guiElements.JTextAreaElems.FancyTextArea;
-
+/**
+ * The question process view. The basic application, so the view for the main content.
+ * 
+ * @author weilichsoheisse
+ * @version 17.05.2021
+ *
+ */
 public class ChangeOfAddressQA extends AbstractView {
 
 	protected ChangeOfAddressQA(ScreenHandler screenHandler) {

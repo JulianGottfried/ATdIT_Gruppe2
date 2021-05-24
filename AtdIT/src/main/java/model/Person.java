@@ -1,7 +1,13 @@
 package main.java.model;
 
 import java.util.Date;
-
+/**
+ * Used for person creation and change.
+ * 
+ * @author weilichsoheisse
+ * @version 17.05.2021
+ *
+ */
 public class Person implements Model {
 	private String			name;
 	private String			surname;

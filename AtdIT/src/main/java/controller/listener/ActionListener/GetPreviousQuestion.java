@@ -8,15 +8,22 @@ import org.json.simple.JSONObject;
 import main.java.controller.handler.JSONHandler;
 import main.java.view.guiElements.JPanelElems.QALabel;
 
+/**
+ * Gets back to an older question during the change of address process
+ * 
+ * @author weilichsoheisse
+ * @version 17.05.2021
+ *
+ */
 public class GetPreviousQuestion implements ActionListener {
 	private QALabel qaLabel;
 	private JSONHandler jsonHandler;
-	
+
 	public GetPreviousQuestion(QALabel qaLabel, JSONHandler jsonHandler) {
 		this.qaLabel = qaLabel;
 		this.jsonHandler = jsonHandler;
 	}
-	
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JSONObject currObj = qaLabel.getCurrentQuestion();

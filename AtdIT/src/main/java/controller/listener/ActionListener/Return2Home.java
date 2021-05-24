@@ -5,7 +5,14 @@ import java.awt.event.ActionListener;
 
 import main.java.controller.handler.ScreenHandler;
 import main.java.view.screen.views.HomeScreenView;
-
+/**
+ * Returns to the first view if user clicks on the picture at the top on the
+ * left.
+ * 
+ * @author weilichsoheisse
+ * @version 17.05.2021
+ *
+ */
 public class Return2Home implements ActionListener {
 ScreenHandler screenHandler;
 	

@@ -1,7 +1,13 @@
 package main.java.model;
 
 import java.util.Date;
-
+/**
+ * Used for identification creation and change.
+ * 
+ * @author weilichsoheisse
+ * @version 17.05.2021
+ *
+ */
 public class Identification implements Model {
 	private String 	IDNumber;
 	private String 	IssuingAuthority;

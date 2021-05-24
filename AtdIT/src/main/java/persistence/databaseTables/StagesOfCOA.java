@@ -6,7 +6,13 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
+/**
+ * The StagesOfCOA table structure.
+ * 
+ * @author weilichsoheisse
+ * @version 17.05.2021
+ *
+ */
 @Entity
 @Table(name = "StagesOfCOA")
 public class StagesOfCOA implements AbstractEntry, Serializable {

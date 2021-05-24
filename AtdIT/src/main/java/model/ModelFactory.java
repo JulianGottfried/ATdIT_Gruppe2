@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.persistence.RollbackException;
 
+import org.hibernate.internal.build.AllowSysOut;
 import org.json.simple.JSONObject;
 
 import main.java.controller.exceptions.DBSavingException;
@@ -19,29 +20,33 @@ import main.java.persistence.databaseTables.Identifications;
 import main.java.persistence.databaseTables.Persons;
 import main.java.persistence.databaseTables.StagesOfCOA;
 
+/**
+ * Sets and creates all the models.
+ * 
+ * @author weilichsoheisse
+ * @version 17.05.2021
+ *
+ */
 public class ModelFactory {
 	private DatabaseManager dbm;
 
 	private JSONHandler jsonHandler;
-	
+
 	public ModelFactory() {
 		this.dbm = new DatabaseManager();
 		this.jsonHandler = new JSONHandler();
 	}
-		
-	public Address createAddress(String street, int streetNumber, String secondLine, int postcode, String city, String country) {		
+
+	public Address createAddress(String street, int streetNumber, String secondLine, int postcode, String city,
+			String country) {
 		return new Address(street, streetNumber, secondLine, postcode, city, country);
 	}
-	
+
 	public Address createAddress(JSONObject jsonObject) {
-		return new Address(
-				this.jsonHandler.getString(jsonObject, "street"),
+		return new Address(this.jsonHandler.getString(jsonObject, "street"),
 				this.jsonHandler.getInt(jsonObject, "streetNumber"),
-				this.jsonHandler.getString(jsonObject, "secondLine"),
-				this.jsonHandler.getInt(jsonObject, "postcode"),
-				this.jsonHandler.getString(jsonObject, "city"),
-				this.jsonHandler.getString(jsonObject, "country")
-				);
+				this.jsonHandler.getString(jsonObject, "secondLine"), this.jsonHandler.getInt(jsonObject, "postcode"),
+				this.jsonHandler.getString(jsonObject, "city"), this.jsonHandler.getString(jsonObject, "country"));
 	}
 
 	public Address createAddress(Addresses addressesEntry) {
@@ -56,41 +61,34 @@ public class ModelFactory {
 		}
 		return address;
 	}
-	
+
 	public Address createAddress(int key) {
 		Addresses addressesEntry = dbm.getDatabaseEntry(Addresses.class, key);
 		return createAddress(addressesEntry);
 	}
-	
+
 	public Addresses saveAddressToDB(Address addressModel) throws DBSavingException {
-		Addresses addressesEntry = new Addresses(
-				addressModel.getStreet(),
-				addressModel.getStreetNumber(),
-				addressModel.getSecondLine(),
-				addressModel.getPostcode(),
-				addressModel.getCity(),
-				addressModel.getCountry()
-				);
+		Addresses addressesEntry = new Addresses(addressModel.getStreet(), addressModel.getStreetNumber(),
+				addressModel.getSecondLine(), addressModel.getPostcode(), addressModel.getCity(),
+				addressModel.getCountry());
 		if (this.dbm.setDatabaseEntry(addressesEntry)) {
 			return addressesEntry;
 		} else {
 			throw new DBSavingException(Address.class.getSimpleName());
 		}
-		
+
 	}
-	
+
 	public Assignee createAssignee(String name, String surname, Address address) {
 		return new Assignee(name, surname, address);
 	}
-	
+
 	public Assignee createAssignee(JSONObject jsonObject) {
-		return new Assignee(
-				this.jsonHandler.getString(jsonObject, "name"),
+		return new Assignee(this.jsonHandler.getString(jsonObject, "name"),
 				this.jsonHandler.getString(jsonObject, "surname"),
-				this.createAddress(this.jsonHandler.getJSON(jsonObject, "address"))
-				);
+				this.createAddress(this.jsonHandler.getJSON(jsonObject, "address")));
 	}
-	
+
 	public Assignee createAssignee(Assignees assigneesEntry) {
 		Assignee assignee = new Assignee();
 		if (assigneesEntry != null) {
@@ -100,17 +98,14 @@ public class ModelFactory {
 		}
 		return assignee;
 	}
-	
+
 	public Assignee createAssignee(int key) {
 		Assignees assigneesEntry = dbm.getDatabaseEntry(Assignees.class, key);
 		return createAssignee(assigneesEntry);
 	}
-	
+
 	public Assignees saveAssigneeToDB(Assignee assigneeModel) throws DBSavingException {
-		Assignees asssigneesEntry = new Assignees(
-				assigneeModel.getName(),
-				assigneeModel.getSurname()
-				);
+		Assignees asssigneesEntry = new Assignees(assigneeModel.getName(), assigneeModel.getSurname());
 		Addresses addressesEntry = this.saveAddressToDB(assigneeModel.getAddress());
 		asssigneesEntry.setAddress(addressesEntry);
 		if (this.dbm.setDatabaseEntry(asssigneesEntry)) {
@@ -119,24 +114,22 @@ public class ModelFactory {
 			throw new DBSavingException(Assignee.class.getSimpleName());
 		}
 	}
-	
+
 	public ChangeOfAddress createChangeOfAddress(Person person, Date moveInDate, Address oldAddress, Address newAddress,
 			HouseProvider houseProvider, HouseOwner houseOwner, Assignee assignee) {
 		return new ChangeOfAddress(person, moveInDate, oldAddress, newAddress, houseProvider, houseOwner, assignee);
 	}
-	
+
 	public ChangeOfAddress createChangeOfAddress(JSONObject jsonObject) {
-		return new ChangeOfAddress(
-				this.createPerson(this.jsonHandler.getJSON(jsonObject, "person")),
+		return new ChangeOfAddress(this.createPerson(this.jsonHandler.getJSON(jsonObject, "person")),
 				this.jsonHandler.getDate(jsonObject, "moveInDate"),
 				this.createAddress(this.jsonHandler.getJSON(jsonObject, "oldAddress")),
 				this.createAddress(this.jsonHandler.getJSON(jsonObject, "newAddress")),
 				this.createHouseProvider(this.jsonHandler.getJSON(jsonObject, "houseProvider")),
 				this.createHouseOwner(this.jsonHandler.getJSON(jsonObject, "houseOwner")),
-				this.createAssignee(this.jsonHandler.getJSON(jsonObject, "assignee"))
-				);
+				this.createAssignee(this.jsonHandler.getJSON(jsonObject, "assignee")));
 	}
-	
+
 	public ChangeOfAddress createChangeOfAddress(ChangesOfAddresses coaEntry) {
 		ChangeOfAddress coa = new ChangeOfAddress();
 		if (coaEntry != null) {
@@ -156,11 +149,9 @@ public class ModelFactory {
 		ChangesOfAddresses coaEntry = dbm.getDatabaseEntry(ChangesOfAddresses.class, key);
 		return createChangeOfAddress(coaEntry);
 	}
-	
+
 	public ChangeOfAddress saveChangeOfAddressToDB(ChangeOfAddress coaModel) throws DBSavingException {
-		ChangesOfAddresses coaEntry = new ChangesOfAddresses(
-				coaModel.getMoveInDate()
-				);
+		ChangesOfAddresses coaEntry = new ChangesOfAddresses(coaModel.getMoveInDate());
 		Persons personsEntry = this.savePersonToDB(coaModel.getPerson());
 		coaEntry.setPerson(personsEntry);
 		Addresses oldAddressesEntry = this.saveAddressToDB(coaModel.getOldAddress());
@@ -182,19 +173,17 @@ public class ModelFactory {
 			throw new DBSavingException(ChangeOfAddress.class.getSimpleName());
 		}
 	}
-	
+
 	public HouseOwner createHouseOwner(String name, String surname, Address address) {
 		return new HouseOwner(name, surname, address);
 	}
-	
+
 	public HouseOwner createHouseOwner(JSONObject jsonObject) {
-		return new HouseOwner(
-				this.jsonHandler.getString(jsonObject, "name"),
+		return new HouseOwner(this.jsonHandler.getString(jsonObject, "name"),
 				this.jsonHandler.getString(jsonObject, "surname"),
-				this.createAddress(this.jsonHandler.getJSON(jsonObject, "address"))
-				);
+				this.createAddress(this.jsonHandler.getJSON(jsonObject, "address")));
 	}
-	
+
 	public HouseOwner createHouseOwner(HouseOwners houseOwnersEntry) {
 		HouseOwner houseOwner = new HouseOwner();
 		if (houseOwnersEntry != null) {
@@ -204,38 +193,33 @@ public class ModelFactory {
 		}
 		return houseOwner;
 	}
-	
+
 	public HouseOwner createHouseOwner(int key) {
 		HouseOwners houseOwnersEntry = dbm.getDatabaseEntry(HouseOwners.class, key);
 		return createHouseOwner(houseOwnersEntry);
 	}
-	
+
 	public HouseOwners saveHouseOwnerToDB(HouseOwner houseOwnerModel) throws DBSavingException {
-		HouseOwners houseOwnersEntry = new HouseOwners(
-				houseOwnerModel.getName(),
-				houseOwnerModel.getSurname()
-				);
+		HouseOwners houseOwnersEntry = new HouseOwners(houseOwnerModel.getName(), houseOwnerModel.getSurname());
 		Addresses addressesEntry = this.saveAddressToDB(houseOwnerModel.getAddress());
 		houseOwnersEntry.setAddress(addressesEntry);
 		if (this.dbm.setDatabaseEntry(houseOwnersEntry)) {
 			return houseOwnersEntry;
 		} else {
 			throw new DBSavingException(HouseOwner.class.getSimpleName());
-		}	
+		}
 	}
-	
+
 	public HouseProvider createHouseProvide(String name, String surname, Address address) {
 		return new HouseProvider(name, surname, address);
 	}
-	
+
 	public HouseProvider createHouseProvider(JSONObject jsonObject) {
-		return new HouseProvider(
-				this.jsonHandler.getString(jsonObject, "name"),
+		return new HouseProvider(this.jsonHandler.getString(jsonObject, "name"),
 				this.jsonHandler.getString(jsonObject, "surname"),
-				this.createAddress(this.jsonHandler.getJSON(jsonObject, "address"))
-				);
+				this.createAddress(this.jsonHandler.getJSON(jsonObject, "address")));
 	}
-	
+
 	public HouseProvider createHouseProvider(HouseProviders houseProvidersEntry) {
 		HouseProvider houseProvider = new HouseProvider();
 		if (houseProvidersEntry != null) {
@@ -245,17 +229,15 @@ public class ModelFactory {
 		}
 		return houseProvider;
 	}
-	
+
 	public HouseProvider createHouseProvider(int key) {
 		HouseProviders houseProvidersEntry = dbm.getDatabaseEntry(HouseProviders.class, key);
 		return createHouseProvider(houseProvidersEntry);
 	}
-	
+
 	public HouseProviders saveHouseProviderToDB(HouseProvider houseProviderModel) throws DBSavingException {
-		HouseProviders houseProvidersEntry = new HouseProviders(
-				houseProviderModel.getName(),
-				houseProviderModel.getSurname()
-				);
+		HouseProviders houseProvidersEntry = new HouseProviders(houseProviderModel.getName(),
+				houseProviderModel.getSurname());
 		Addresses addressesEntry = this.saveAddressToDB(houseProviderModel.getAddress());
 		houseProvidersEntry.setAddress(addressesEntry);
 		if (this.dbm.setDatabaseEntry(houseProvidersEntry)) {
@@ -263,22 +245,21 @@ public class ModelFactory {
 		} else {
 			throw new DBSavingException(HouseProvider.class.getSimpleName());
 		}
-		
+
 	}
-	
-	public Identification createIdentification(String iDNumber, String issuingAuthority, Date dateOfIssuing, Date expiryDate) {
+
+	public Identification createIdentification(String iDNumber, String issuingAuthority, Date dateOfIssuing,
+			Date expiryDate) {
 		return new Identification(iDNumber, issuingAuthority, dateOfIssuing, expiryDate);
 	}
-	
+
 	public Identification createIdentification(JSONObject jsonObject) {
-		return new Identification(
-				this.jsonHandler.getString(jsonObject, "IDNumber"),
+		return new Identification(this.jsonHandler.getString(jsonObject, "IDNumber"),
 				this.jsonHandler.getString(jsonObject, "issuingAuthority"),
 				this.jsonHandler.getDate(jsonObject, "dateOfIssuing"),
-				this.jsonHandler.getDate(jsonObject, "expiryDate")
-				);
+				this.jsonHandler.getDate(jsonObject, "expiryDate"));
 	}
-	
+
 	public Identification createIdentification(Identifications idEntry) {
 		Identification identification = new Identification();
 		if (idEntry != null) {
@@ -289,20 +270,17 @@ public class ModelFactory {
 		}
 		return identification;
 	}
-	
+
 	public Identification createIdentification(int key) {
 		Identifications idEntry = dbm.getDatabaseEntry(Identifications.class, key);
 		return createIdentification(idEntry);
 	}
-	
+
 	public Identifications saveIdentificationToDB(Identification identificationModel) throws DBSavingException {
-		Identifications identificationsEntry = new Identifications(
-				identificationModel.getIDNumber(),
-				identificationModel.getIssuingAuthority(),
-				identificationModel.getDateOfIssuing(),
-				identificationModel.getExpiryDate()
-				);
-		
+		Identifications identificationsEntry = new Identifications(identificationModel.getIDNumber(),
+				identificationModel.getIssuingAuthority(), identificationModel.getDateOfIssuing(),
+				identificationModel.getExpiryDate());
+
 		// Update Identification if already present
 		try {
 			if (!this.dbm.setDatabaseEntry(identificationsEntry)) {
@@ -313,21 +291,20 @@ public class ModelFactory {
 				throw new DBSavingException(Identification.class.getSimpleName());
 			}
 		}
-		
+
 		return identificationsEntry;
 	}
-	
-	public Person createPerson(String name, String surname, String gender, Address address, Date dateOfBirth, String placeOfBirth,
-			String maritalStatus, Date dateOfMarriage, String placeOfMarriage, String citizinship, Identification identification) {
-		return new Person(name,surname, gender, address, dateOfBirth, placeOfBirth, maritalStatus, dateOfMarriage, placeOfMarriage,
-			citizinship, identification);
+
+	public Person createPerson(String name, String surname, String gender, Address address, Date dateOfBirth,
+			String placeOfBirth, String maritalStatus, Date dateOfMarriage, String placeOfMarriage, String citizinship,
+			Identification identification) {
+		return new Person(name, surname, gender, address, dateOfBirth, placeOfBirth, maritalStatus, dateOfMarriage,
+				placeOfMarriage, citizinship, identification);
 	}
-	
+
 	public Person createPerson(JSONObject jsonObject) {
-		return new Person(
-				this.jsonHandler.getString(jsonObject, "name"),
-				this.jsonHandler.getString(jsonObject, "surname"),
-				this.jsonHandler.getString(jsonObject, "gender"),
+		return new Person(this.jsonHandler.getString(jsonObject, "name"),
+				this.jsonHandler.getString(jsonObject, "surname"), this.jsonHandler.getString(jsonObject, "gender"),
 				this.createAddress(this.jsonHandler.getJSON(jsonObject, "address")),
 				this.jsonHandler.getDate(jsonObject, "dateOfBirth"),
 				this.jsonHandler.getString(jsonObject, "placeOfBirth"),
@@ -335,10 +312,9 @@ public class ModelFactory {
 				this.jsonHandler.getDate(jsonObject, "dateOfMarriage"),
 				this.jsonHandler.getString(jsonObject, "placeOfMarriage"),
 				this.jsonHandler.getString(jsonObject, "citizinship"),
-				this.createIdentification(this.jsonHandler.getJSON(jsonObject, "identification"))
-				);
+				this.createIdentification(this.jsonHandler.getJSON(jsonObject, "identification")));
 	}
-	
+
 	public Person createPerson(Persons personsEntry) {
 		Person person = new Person();
 		if (personsEntry != null) {
@@ -356,24 +332,16 @@ public class ModelFactory {
 		}
 		return person;
 	}
-	
+
 	public Person createPerson(int key) {
 		Persons personsEntry = dbm.getDatabaseEntry(Persons.class, key);
 		return createPerson(personsEntry);
 	}
-	
+
 	public Persons savePersonToDB(Person personModel) throws DBSavingException {
-		Persons personsEntry = new Persons(
-				personModel.getName(),
-				personModel.getSurname(),
-				personModel.getGender(),
-				personModel.getDateOfBirth(),
-				personModel.getPlaceOfBirth(),
-				personModel.getMaritalStatus(),
-				personModel.getDateOfMarriage(),
-				personModel.getPlaceOfMarriage(),
-				personModel.getCitizinship()
-				);
+		Persons personsEntry = new Persons(personModel.getName(), personModel.getSurname(), personModel.getGender(),
+				personModel.getDateOfBirth(), personModel.getPlaceOfBirth(), personModel.getMaritalStatus(),
+				personModel.getDateOfMarriage(), personModel.getPlaceOfMarriage(), personModel.getCitizinship());
 		Addresses addressesEntry = this.saveAddressToDB(personModel.getAddress());
 		personsEntry.setAddress(addressesEntry);
 		Identifications identificationsEntry = this.saveIdentificationToDB(personModel.getIdentification());
@@ -384,11 +352,11 @@ public class ModelFactory {
 			throw new DBSavingException(Person.class.getSimpleName());
 		}
 	}
-	
+
 	public StageOfCOA createStageOfCOA(Boolean received, boolean dataProcessing, boolean readyForMeeting) {
 		return new StageOfCOA(received, dataProcessing, readyForMeeting);
 	}
-	
+
 	public StageOfCOA createStageOfCOA(StagesOfCOA stagesEntry) {
 		StageOfCOA stageOfCOA = new StageOfCOA();
 		if (stagesEntry != null) {
@@ -398,38 +366,35 @@ public class ModelFactory {
 		}
 		return stageOfCOA;
 	}
-	
+
 	public StageOfCOA createStageOfCOA(int key) {
 		StagesOfCOA stagesEntry = dbm.getDatabaseEntry(StagesOfCOA.class, key);
 		return createStageOfCOA(stagesEntry);
 	}
-	
+
 	public StagesOfCOA saveStageOfCOAToDB(StageOfCOA stagesModel) throws DBSavingException {
-		StagesOfCOA stagesEntry = new StagesOfCOA(
-				stagesModel.getChangesOfAddresses(),
-				stagesModel.getReceived(),
-				stagesModel.getDataProcessing(),
-				stagesModel.getReadyForMeeting()
-				);
+		StagesOfCOA stagesEntry = new StagesOfCOA(stagesModel.getChangesOfAddresses(), stagesModel.getReceived(),
+				stagesModel.getDataProcessing(), stagesModel.getReadyForMeeting());
 		if (this.dbm.setDatabaseEntry(stagesEntry)) {
 			return stagesEntry;
 		} else {
 			throw new DBSavingException(StageOfCOA.class.getSimpleName());
 		}
-		
+
 	}
-	
+
 	public JSONObject modelToJSON(Class model) {
 		JSONObject json = new JSONObject();
 		Field[] fields = model.getDeclaredFields();
-		for (Field field: fields) {
+		for (Field field : fields) {
 			JSONObject value = null;
 			try {
 				Class<?> fieldClass = Class.forName(field.getType().getName());
-				
+
 				if (Model.class.isAssignableFrom(fieldClass)) {
 					value = modelToJSON(fieldClass);
-				};
+				}
+				;
 			} catch (ClassNotFoundException cnfe) {
 				// TODO logger
 			}
