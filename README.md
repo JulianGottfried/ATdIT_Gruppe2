@@ -14,6 +14,11 @@ Mit der Automatisierung von solchen Routinearbeiten gewinnen Sachbearbeiter die 
 
 <h2>Ordnerstruktur:</h2>
 
+- ATdIT
+	- Quellcode des Programms mit der gesamten technischen Dokumentation.
+	
+	<hr>
+	
 - Prototypes
 	- Prototypen der ursprünglichen Ideen der Architektur
 		- src
